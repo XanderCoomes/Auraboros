@@ -1,0 +1,22 @@
+{
+  "trained_at": "2026-10-26T10:23:41",
+  "q_file": "q_table.pkl",
+  "log_file": "log.csv",
+  "board_size": 8,
+  "episodes": 20000,
+  "alpha": 0.1,
+  "gamma": 0.95,
+  "epsilon": {
+    "start": 1.0,
+    "end": 0.01,
+    "linear_decay_fraction": 0.6
+  },
+  "seed": 0,
+  "final_greedy_eval_score_100_games": 18.44,
+  "rewards": {
+    "apple": 100.0,
+    "death": -6350.0,
+    "step": -0.01,
+    "closer_or_farther": 0.1
+  }
+}
