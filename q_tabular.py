@@ -12,7 +12,7 @@ from snake_env import N_ACTIONS
 STATE_SHAPE = (2, 2, 2, 3, 3, 4)
 
 
-def encode(state):
+def get_row_by_state(state):
     # Flatten the state tuple into one integer 0..287 = the row index into the Q-table
     return int(np.ravel_multi_index(state, STATE_SHAPE))
 
@@ -31,20 +31,20 @@ class QAgent:
         # Explore: with probability epsilon take a random action
         if self.rng.random() < epsilon:
             return self.rng.randrange(N_ACTIONS)
-        # Exploit: take the action with the highest Q value in this state's row
-        row = self.q[encode(state)]
-        best = np.flatnonzero(row == row.max())  # all actions tied for the max
-        return int(self.rng.choice(list(best)))
+        # Exploit: take the action with the highest Q value in this state's rowwhgd
+        actionValues = self.q[get_row_by_state(state)]
+        bestActions = np.flatnonzero(actionValues == actionValues.max())  # all actions tied for the max
+        return int(self.rng.choice(list(bestActions)))
 
-    def update(self, s, a, r, s2, done):
+    def update(self, stateBeforeAction, selectedAction, reward, stateAfterAction, done):
         # Q-learning update:
         #   Q(s,a) <- Q(s,a) + alpha * (r + gamma * max_a' Q(s',a') - Q(s,a))
-        i, j = encode(s), encode(s2)
+        rowBefore, rowAfter = get_row_by_state(stateBeforeAction), get_row_by_state(stateAfterAction)
         # Target = reward received + discounted best value of the next state.
-        # If the episode ended there is no next state, so the target is just r.
-        target = r if done else r + self.gamma * self.q[j].max()
+        # If the episode ended there is no next state, so the target is just the reward.
+        target = reward if done else reward + self.gamma * self.q[rowAfter].max()
         # Move Q(s,a) a fraction alpha of the way toward the target (target - Q is the error)
-        self.q[i, a] += self.alpha * (target - self.q[i, a])
+        self.q[rowBefore, selectedAction] += self.alpha * (target - self.q[rowBefore, selectedAction])
 
     def save(self, path):
         with open(path, "wb") as f:

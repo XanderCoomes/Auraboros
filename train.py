@@ -17,15 +17,15 @@ from snake_env import SnakeEnv
 
 def run_episode(env, agent, epsilon, learn=True):
     # One game = repeat: observe state -> choose action -> get reward and next state -> learn
-    s = env.reset()
-    done, total, info = False, 0.0, {"score": 0}
+    stateBeforeAction = env.reset()
+    done, totalReward, info = False, 0.0, {"score": 0}
     while not done:
-        a = agent.act(s, epsilon)               # choose an action for state s (epsilon-greedy)
-        s2, r, done, info = env.step(a)         # environment returns next state, reward, game-over flag
+        selectedAction = agent.act(stateBeforeAction, epsilon)  # choose an action for the current state (epsilon-greedy)
+        stateAfterAction, reward, done, info = env.step(selectedAction)  # environment returns next state, reward, game-over flag
         if learn:
-            agent.update(s, a, r, s2, done)     # adjust the Q-table with this experience
-        s, total = s2, total + r                # move on to the next state
-    return info["score"], env.steps, total
+            agent.update(stateBeforeAction, selectedAction, reward, stateAfterAction, done)  # adjust the Q-table with this experience
+        stateBeforeAction, totalReward = stateAfterAction, totalReward + reward  # move on to the next state
+    return info["score"], env.steps, totalReward
 
 
 def evaluate(env, agent, n=100):

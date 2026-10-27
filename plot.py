@@ -54,7 +54,7 @@ def save_gif(q_path, size, out, seed=1):
     from matplotlib import animation
     from matplotlib.colors import ListedColormap
     import snake_env
-    from q_tabular import QAgent, encode
+    from q_tabular import QAgent, get_row_by_state
     from snake_env import SnakeEnv
 
     agent = QAgent()
@@ -75,7 +75,7 @@ def save_gif(q_path, size, out, seed=1):
         frames.append(env.board_array())
         entry = {"step": env.steps, "score": env.score, "return": round(total, 3), "reward": None,
                  "state": list(s), "action": ACTION_NAMES[a],
-                 "q_values": [round(float(v), 3) for v in agent.q[encode(s)]]}
+                 "q_values": [round(float(v), 3) for v in agent.q[get_row_by_state(s)]]}
         s, r, done, info = env.step(a)
         total += r
         # reward received for this step; score/return shown on the NEXT frame include it
@@ -84,7 +84,7 @@ def save_gif(q_path, size, out, seed=1):
     frames.append(env.board_array())
     log.append({"step": env.steps, "score": env.score, "return": round(total, 3), "reward": None,
                 "state": list(s), "action": None,
-                "q_values": [round(float(v), 3) for v in agent.q[encode(s)]]})
+                "q_values": [round(float(v), 3) for v in agent.q[get_row_by_state(s)]]})
     reason = info.get("reason", "max_frames" if not done else "unknown")
 
     cmap = ListedColormap(["white", "#4caf50", "#1b5e20", "#e53935"])
