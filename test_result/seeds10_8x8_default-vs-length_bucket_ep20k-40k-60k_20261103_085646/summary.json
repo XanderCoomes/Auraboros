@@ -1,0 +1,224 @@
+{
+  "created_at": "2026-11-03T09:02:40",
+  "board_size": 8,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "eval_games_per_run": 100,
+  "sets": {
+    "default": "danger,apple_dir,heading",
+    "length_bucket": "danger,apple_dir,heading,length_bucket"
+  },
+  "by_episodes": {
+    "20000": {
+      "default": {
+        "greedy_mean": 13.911000000000001,
+        "greedy_std": 5.024677878011462,
+        "greedy_median": 13.79,
+        "greedy_min": 3.27,
+        "greedy_max": 21.83,
+        "per_seed": [
+          19.2,
+          3.27,
+          21.83,
+          15.75,
+          12.53,
+          14.08,
+          12.91,
+          15.78,
+          10.26,
+          13.5
+        ],
+        "best_single_game_score": 35,
+        "train_last200_mean": 10.751,
+        "wins": 0,
+        "death_rate_given_reached_by_bucket": {
+          "SHORT": 0.138,
+          "MEDIUM": 0.3004640371229698,
+          "LONG": 0.9635157545605307,
+          "XLONG": 1.0
+        }
+      },
+      "length_bucket": {
+        "greedy_mean": 13.651,
+        "greedy_std": 3.8669869120256632,
+        "greedy_median": 14.185,
+        "greedy_min": 7.51,
+        "greedy_max": 18.77,
+        "per_seed": [
+          10.92,
+          7.51,
+          8.55,
+          16.03,
+          17.04,
+          17.59,
+          11.73,
+          14.55,
+          18.77,
+          13.82
+        ],
+        "best_single_game_score": 30,
+        "train_last200_mean": 11.078,
+        "wins": 0,
+        "death_rate_given_reached_by_bucket": {
+          "SHORT": 0.073,
+          "MEDIUM": 0.3365695792880259,
+          "LONG": 0.9902439024390244,
+          "XLONG": 1.0
+        }
+      },
+      "paired_diff_bucket_minus_default": {
+        "mean": -0.25999999999999945,
+        "ci95": [
+          -4.848787257618291,
+          4.328787257618291
+        ],
+        "seeds_where_bucket_better": 6,
+        "n_seeds": 10
+      }
+    },
+    "40000": {
+      "default": {
+        "greedy_mean": 12.311,
+        "greedy_std": 5.149205871890452,
+        "greedy_median": 12.22,
+        "greedy_min": 3.21,
+        "greedy_max": 18.41,
+        "per_seed": [
+          12.8,
+          9.57,
+          16.83,
+          11.11,
+          3.21,
+          11.64,
+          5.62,
+          18.41,
+          17.48,
+          16.44
+        ],
+        "best_single_game_score": 36,
+        "train_last200_mean": 11.578500000000002,
+        "wins": 0,
+        "death_rate_given_reached_by_bucket": {
+          "SHORT": 0.181,
+          "MEDIUM": 0.4004884004884005,
+          "LONG": 0.9714867617107943,
+          "XLONG": 1.0
+        }
+      },
+      "length_bucket": {
+        "greedy_mean": 15.818999999999999,
+        "greedy_std": 3.390199764681197,
+        "greedy_median": 16.465,
+        "greedy_min": 11.11,
+        "greedy_max": 20.41,
+        "per_seed": [
+          12.96,
+          18.84,
+          17.52,
+          20.41,
+          11.82,
+          13.1,
+          15.41,
+          19.5,
+          17.52,
+          11.11
+        ],
+        "best_single_game_score": 34,
+        "train_last200_mean": 11.263,
+        "wins": 0,
+        "death_rate_given_reached_by_bucket": {
+          "SHORT": 0.016,
+          "MEDIUM": 0.2601626016260163,
+          "LONG": 0.9711538461538461,
+          "XLONG": 1.0
+        }
+      },
+      "paired_diff_bucket_minus_default": {
+        "mean": 3.508,
+        "ci95": [
+          -0.2738219786996847,
+          7.289821978699685
+        ],
+        "seeds_where_bucket_better": 9,
+        "n_seeds": 10
+      }
+    },
+    "60000": {
+      "default": {
+        "greedy_mean": 12.694,
+        "greedy_std": 6.7812735611469845,
+        "greedy_median": 13.66,
+        "greedy_min": 2.48,
+        "greedy_max": 21.07,
+        "per_seed": [
+          19.05,
+          2.48,
+          16.46,
+          10.86,
+          5.98,
+          6.25,
+          7.73,
+          19.55,
+          21.07,
+          17.51
+        ],
+        "best_single_game_score": 34,
+        "train_last200_mean": 11.453999999999999,
+        "wins": 0,
+        "death_rate_given_reached_by_bucket": {
+          "SHORT": 0.217,
+          "MEDIUM": 0.3448275862068966,
+          "LONG": 0.9610136452241715,
+          "XLONG": 1.0
+        }
+      },
+      "length_bucket": {
+        "greedy_mean": 15.821000000000002,
+        "greedy_std": 5.254579907090576,
+        "greedy_median": 16.36,
+        "greedy_min": 4.83,
+        "greedy_max": 24.34,
+        "per_seed": [
+          10.81,
+          16.38,
+          16.34,
+          20.06,
+          17.6,
+          13.94,
+          18.0,
+          24.34,
+          4.83,
+          15.91
+        ],
+        "best_single_game_score": 34,
+        "train_last200_mean": 12.499,
+        "wins": 0,
+        "death_rate_given_reached_by_bucket": {
+          "SHORT": 0.05,
+          "MEDIUM": 0.27052631578947367,
+          "LONG": 0.9321789321789322,
+          "XLONG": 1.0
+        }
+      },
+      "paired_diff_bucket_minus_default": {
+        "mean": 3.127,
+        "ci95": [
+          -3.7705786887715886,
+          10.024578688771587
+        ],
+        "seeds_where_bucket_better": 6,
+        "n_seeds": 10
+      }
+    }
+  }
+}

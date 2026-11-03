@@ -1,0 +1,14 @@
+Table 1. Best single-game score (max over 10 seeds x 100 greedy games)
+Episodes	Default	+ length_bucket
+20k	35 (seed 2)	30 (seed 5)
+40k	36 (seed 9)	34 (seed 1)
+60k	34 (seed 0)	34 (seed 7)
+
+Table 2. Best single-game score per run (max over 100 greedy games)
+Episodes	State	Median	Mean	Min	Seed 0	Seed 1	Seed 2	Seed 3	Seed 4	Seed 5	Seed 6	Seed 7	Seed 8	Seed 9
+20k	Default	30.5	30.4	25	34	28	35	27	28	25	30	33	31	33
+20k	+ length_bucket	26.5	25.9	20	21	20	26	26	28	30	29	24	28	27
+40k	Default	28.0	28.0	16	26	24	35	28	24	28	16	32	31	36
+40k	+ length_bucket	29.5	28.0	20	22	34	27	32	23	29	31	30	32	20
+60k	Default	30.5	27.2	12	34	12	30	32	25	20	24	33	31	31
+60k	+ length_bucket	29.5	27.5	9	23	33	27	29	31	30	31	34	9	28
