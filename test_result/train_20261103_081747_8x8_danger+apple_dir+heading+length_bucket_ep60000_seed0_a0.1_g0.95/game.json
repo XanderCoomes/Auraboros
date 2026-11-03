@@ -1,0 +1,3022 @@
+{
+  "tested_at": "2026-11-03T08:17:54",
+  "gif_game": {
+    "play_seed": 1,
+    "final_score": 15,
+    "final_return": -4845.44,
+    "total_steps": 160,
+    "end_reason": "collision"
+  },
+  "greedy_eval": {
+    "games": 100,
+    "mean_score": 16.01,
+    "max_score": 26
+  },
+  "reward_function_used_in_gif": {
+    "apple": 100.0,
+    "death": -6350.0,
+    "step": -0.01,
+    "closer_or_farther": 0.1
+  },
+  "gif_file": "test_result\\train_20261103_081747_8x8_danger+apple_dir+heading+length_bucket_ep60000_seed0_a0.1_g0.95\\game.gif",
+  "method": {
+    "algorithm": "tabular Q-learning",
+    "update": "Q(s,a) += alpha * (r + gamma * max_a' Q(s',a') - Q(s,a)); target = r if terminal",
+    "action_selection": "epsilon-greedy while training; greedy (epsilon=0) when playing this GIF"
+  },
+  "state": {
+    "features": [
+      {
+        "name": "danger",
+        "cardinality": 8,
+        "meaning": "wall/body danger as 3 bits: straight*4 + left*2 + right (0..7)"
+      },
+      {
+        "name": "apple_dir",
+        "cardinality": 9,
+        "meaning": "apple relative to head: rowSign*3 + colSign (row: 0 above/1 same/2 below; col: 0 left/1 same/2 right)"
+      },
+      {
+        "name": "heading",
+        "cardinality": 4,
+        "meaning": "current heading (0 up, 1 right, 2 down, 3 left)"
+      },
+      {
+        "name": "length_bucket",
+        "cardinality": 4,
+        "meaning": "snake length bucket (0 SHORT, 1 MEDIUM, 2 LONG, 3 XLONG); thresholds = fraction of board area (0.1, 0.25, 0.5)"
+      }
+    ],
+    "num_states": 1152,
+    "actions": [
+      "STRAIGHT",
+      "LEFT",
+      "RIGHT"
+    ]
+  },
+  "training_config": {
+    "trained_at": "2026-11-03T08:16:43",
+    "q_file": "C:/Users/kk/AppData/Local/Temp/claude/d6b876a5cb22cd7e/824fbb5c-f931-45b6-b58f-db8954abca7b/scratchpad/runs/q_length_60000.pkl",
+    "log_file": "C:/Users/kk/AppData/Local/Temp/claude/d6b876a5cb22cd7e/824fbb5c-f931-45b6-b58f-db8954abca7b/scratchpad/runs/log_length_60000.csv",
+    "board_size": 8,
+    "episodes": 60000,
+    "alpha": 0.1,
+    "gamma": 0.95,
+    "epsilon": {
+      "start": 1.0,
+      "end": 0.01,
+      "linear_decay_fraction": 0.6
+    },
+    "seed": 0,
+    "features": [
+      "danger",
+      "apple_dir",
+      "heading",
+      "length_bucket"
+    ],
+    "feature_details": [
+      {
+        "name": "danger",
+        "cardinality": 8,
+        "meaning": "wall/body danger as 3 bits: straight*4 + left*2 + right (0..7)"
+      },
+      {
+        "name": "apple_dir",
+        "cardinality": 9,
+        "meaning": "apple relative to head: rowSign*3 + colSign (row: 0 above/1 same/2 below; col: 0 left/1 same/2 right)"
+      },
+      {
+        "name": "heading",
+        "cardinality": 4,
+        "meaning": "current heading (0 up, 1 right, 2 down, 3 left)"
+      },
+      {
+        "name": "length_bucket",
+        "cardinality": 4,
+        "meaning": "snake length bucket (0 SHORT, 1 MEDIUM, 2 LONG, 3 XLONG); thresholds = fraction of board area (0.1, 0.25, 0.5)"
+      }
+    ],
+    "n_states": 1152,
+    "bucket_thresholds_fraction_of_board": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "final_greedy_eval_score_100_games": 16.54,
+    "rewards": {
+      "apple": 100.0,
+      "death": -6350.0,
+      "step": -0.01,
+      "closer_or_farther": 0.1
+    }
+  },
+  "environment": {
+    "board_size": 8,
+    "initial_length": 3,
+    "timeout_steps_without_apple": 128
+  },
+  "files": {
+    "q_table": "C:/Users/kk/AppData/Local/Temp/claude/d6b876a5cb22cd7e/824fbb5c-f931-45b6-b58f-db8954abca7b/scratchpad/runs/q_length_60000.pkl",
+    "training_log": "C:/Users/kk/AppData/Local/Temp/claude/d6b876a5cb22cd7e/824fbb5c-f931-45b6-b58f-db8954abca7b/scratchpad/runs/log_length_60000.csv"
+  },
+  "per_step_log": [
+    {
+      "step": 0,
+      "score": 0,
+      "return": 0.0,
+      "reward": 0.09,
+      "state": [
+        0,
+        5,
+        1,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        89.76,
+        -590.467,
+        -555.839
+      ]
+    },
+    {
+      "step": 1,
+      "score": 0,
+      "return": 0.09,
+      "reward": 0.09,
+      "state": [
+        0,
+        5,
+        1,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        89.76,
+        -590.467,
+        -555.839
+      ]
+    },
+    {
+      "step": 2,
+      "score": 0,
+      "return": 0.18,
+      "reward": 100.0,
+      "state": [
+        0,
+        5,
+        1,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        89.76,
+        -590.467,
+        -555.839
+      ]
+    },
+    {
+      "step": 3,
+      "score": 1,
+      "return": 100.18,
+      "reward": 0.09,
+      "state": [
+        4,
+        6,
+        1,
+        0
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -614.81,
+        19.583
+      ]
+    },
+    {
+      "step": 4,
+      "score": 1,
+      "return": 100.27,
+      "reward": 0.09,
+      "state": [
+        2,
+        6,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        20.534,
+        -6350.0,
+        -571.118
+      ]
+    },
+    {
+      "step": 5,
+      "score": 1,
+      "return": 100.36,
+      "reward": 0.09,
+      "state": [
+        2,
+        6,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        20.534,
+        -6350.0,
+        -571.118
+      ]
+    },
+    {
+      "step": 6,
+      "score": 1,
+      "return": 100.45,
+      "reward": 0.09,
+      "state": [
+        6,
+        3,
+        2,
+        0
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -6326.142,
+        -6338.589,
+        48.617
+      ]
+    },
+    {
+      "step": 7,
+      "score": 1,
+      "return": 100.54,
+      "reward": -0.11,
+      "state": [
+        2,
+        3,
+        3,
+        0
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -382.982,
+        -6350.0,
+        35.198
+      ]
+    },
+    {
+      "step": 8,
+      "score": 1,
+      "return": 100.43,
+      "reward": 0.09,
+      "state": [
+        0,
+        6,
+        0,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        4.458,
+        47.769,
+        -512.806
+      ]
+    },
+    {
+      "step": 9,
+      "score": 1,
+      "return": 100.52,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        3,
+        0
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -440.657,
+        -15.506,
+        44.217
+      ]
+    },
+    {
+      "step": 10,
+      "score": 1,
+      "return": 100.41,
+      "reward": 0.09,
+      "state": [
+        0,
+        6,
+        0,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        4.458,
+        47.769,
+        -512.806
+      ]
+    },
+    {
+      "step": 11,
+      "score": 1,
+      "return": 100.5,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        3,
+        0
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -440.657,
+        -15.506,
+        44.217
+      ]
+    },
+    {
+      "step": 12,
+      "score": 1,
+      "return": 100.39,
+      "reward": 0.09,
+      "state": [
+        0,
+        6,
+        0,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        4.458,
+        47.769,
+        -512.806
+      ]
+    },
+    {
+      "step": 13,
+      "score": 1,
+      "return": 100.48,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        3,
+        0
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -440.657,
+        -15.506,
+        44.217
+      ]
+    },
+    {
+      "step": 14,
+      "score": 1,
+      "return": 100.37,
+      "reward": 0.09,
+      "state": [
+        0,
+        6,
+        0,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        4.458,
+        47.769,
+        -512.806
+      ]
+    },
+    {
+      "step": 15,
+      "score": 1,
+      "return": 100.46,
+      "reward": 0.09,
+      "state": [
+        0,
+        7,
+        3,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -475.148,
+        69.093,
+        -35.458
+      ]
+    },
+    {
+      "step": 16,
+      "score": 1,
+      "return": 100.55,
+      "reward": 0.09,
+      "state": [
+        0,
+        7,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        85.388,
+        -204.267,
+        -60.697
+      ]
+    },
+    {
+      "step": 17,
+      "score": 1,
+      "return": 100.64,
+      "reward": 0.09,
+      "state": [
+        0,
+        7,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        85.388,
+        -204.267,
+        -60.697
+      ]
+    },
+    {
+      "step": 18,
+      "score": 1,
+      "return": 100.73,
+      "reward": 100.0,
+      "state": [
+        0,
+        7,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        85.388,
+        -204.267,
+        -60.697
+      ]
+    },
+    {
+      "step": 19,
+      "score": 2,
+      "return": 200.73,
+      "reward": 0.09,
+      "state": [
+        4,
+        2,
+        2,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6350.0,
+        31.332,
+        -738.283
+      ]
+    },
+    {
+      "step": 20,
+      "score": 2,
+      "return": 200.82,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -622.363,
+        37.7,
+        -6350.0
+      ]
+    },
+    {
+      "step": 21,
+      "score": 2,
+      "return": 200.91,
+      "reward": 0.09,
+      "state": [
+        2,
+        5,
+        0,
+        0
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -30.373,
+        -6350.0,
+        26.882
+      ]
+    },
+    {
+      "step": 22,
+      "score": 2,
+      "return": 201.0,
+      "reward": 0.09,
+      "state": [
+        0,
+        5,
+        1,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        89.76,
+        -590.467,
+        -555.839
+      ]
+    },
+    {
+      "step": 23,
+      "score": 2,
+      "return": 201.09,
+      "reward": 0.09,
+      "state": [
+        0,
+        5,
+        1,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        89.76,
+        -590.467,
+        -555.839
+      ]
+    },
+    {
+      "step": 24,
+      "score": 2,
+      "return": 201.18,
+      "reward": 100.0,
+      "state": [
+        0,
+        5,
+        1,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        89.76,
+        -590.467,
+        -555.839
+      ]
+    },
+    {
+      "step": 25,
+      "score": 3,
+      "return": 301.18,
+      "reward": -0.11,
+      "state": [
+        4,
+        3,
+        1,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6350.0,
+        -398.257,
+        -660.763
+      ]
+    },
+    {
+      "step": 26,
+      "score": 3,
+      "return": 301.07,
+      "reward": -0.11,
+      "state": [
+        1,
+        6,
+        0,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        45.923,
+        -614.905,
+        -6350.0
+      ]
+    },
+    {
+      "step": 27,
+      "score": 3,
+      "return": 300.96,
+      "reward": -0.11,
+      "state": [
+        1,
+        6,
+        0,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        45.923,
+        -614.905,
+        -6350.0
+      ]
+    },
+    {
+      "step": 28,
+      "score": 3,
+      "return": 300.85,
+      "reward": -0.11,
+      "state": [
+        1,
+        6,
+        0,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        45.923,
+        -614.905,
+        -6350.0
+      ]
+    },
+    {
+      "step": 29,
+      "score": 3,
+      "return": 300.74,
+      "reward": -0.11,
+      "state": [
+        1,
+        6,
+        0,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        45.923,
+        -614.905,
+        -6350.0
+      ]
+    },
+    {
+      "step": 30,
+      "score": 3,
+      "return": 300.63,
+      "reward": -0.11,
+      "state": [
+        1,
+        6,
+        0,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        45.923,
+        -614.905,
+        -6350.0
+      ]
+    },
+    {
+      "step": 31,
+      "score": 3,
+      "return": 300.52,
+      "reward": 0.09,
+      "state": [
+        5,
+        6,
+        0,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.997,
+        55.217,
+        -6349.997
+      ]
+    },
+    {
+      "step": 32,
+      "score": 3,
+      "return": 300.61,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        55.925,
+        -621.764,
+        -6350.0
+      ]
+    },
+    {
+      "step": 33,
+      "score": 3,
+      "return": 300.7,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        55.925,
+        -621.764,
+        -6350.0
+      ]
+    },
+    {
+      "step": 34,
+      "score": 3,
+      "return": 300.79,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        55.925,
+        -621.764,
+        -6350.0
+      ]
+    },
+    {
+      "step": 35,
+      "score": 3,
+      "return": 300.88,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        55.925,
+        -621.764,
+        -6350.0
+      ]
+    },
+    {
+      "step": 36,
+      "score": 3,
+      "return": 300.97,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        55.925,
+        -621.764,
+        -6350.0
+      ]
+    },
+    {
+      "step": 37,
+      "score": 3,
+      "return": 301.06,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        55.925,
+        -621.764,
+        -6350.0
+      ]
+    },
+    {
+      "step": 38,
+      "score": 3,
+      "return": 301.15,
+      "reward": 0.09,
+      "state": [
+        5,
+        7,
+        3,
+        0
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6334.347,
+        57.487,
+        -6281.577
+      ]
+    },
+    {
+      "step": 39,
+      "score": 3,
+      "return": 301.24,
+      "reward": 0.09,
+      "state": [
+        1,
+        7,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        84.719,
+        -3.231,
+        -6350.0
+      ]
+    },
+    {
+      "step": 40,
+      "score": 3,
+      "return": 301.33,
+      "reward": 0.09,
+      "state": [
+        1,
+        7,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        84.719,
+        -3.231,
+        -6350.0
+      ]
+    },
+    {
+      "step": 41,
+      "score": 3,
+      "return": 301.42,
+      "reward": 0.09,
+      "state": [
+        1,
+        7,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        84.719,
+        -3.231,
+        -6350.0
+      ]
+    },
+    {
+      "step": 42,
+      "score": 3,
+      "return": 301.51,
+      "reward": 0.09,
+      "state": [
+        1,
+        7,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        84.719,
+        -3.231,
+        -6350.0
+      ]
+    },
+    {
+      "step": 43,
+      "score": 3,
+      "return": 301.6,
+      "reward": 100.0,
+      "state": [
+        1,
+        7,
+        2,
+        0
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        84.719,
+        -3.231,
+        -6350.0
+      ]
+    },
+    {
+      "step": 44,
+      "score": 4,
+      "return": 401.6,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        2,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -760.18,
+        -182.8,
+        -6349.998
+      ]
+    },
+    {
+      "step": 45,
+      "score": 4,
+      "return": 401.69,
+      "reward": -0.11,
+      "state": [
+        0,
+        2,
+        1,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -243.447,
+        -295.339,
+        -143.309
+      ]
+    },
+    {
+      "step": 46,
+      "score": 4,
+      "return": 401.58,
+      "reward": 0.09,
+      "state": [
+        4,
+        2,
+        2,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.983,
+        -163.913,
+        -4785.595
+      ]
+    },
+    {
+      "step": 47,
+      "score": 4,
+      "return": 401.67,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 48,
+      "score": 4,
+      "return": 401.76,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 49,
+      "score": 4,
+      "return": 401.85,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 50,
+      "score": 4,
+      "return": 401.94,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -658.832,
+        -73.131,
+        -6349.995
+      ]
+    },
+    {
+      "step": 51,
+      "score": 4,
+      "return": 402.03,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 52,
+      "score": 4,
+      "return": 402.12,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 53,
+      "score": 4,
+      "return": 402.21,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 54,
+      "score": 4,
+      "return": 402.3,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 55,
+      "score": 4,
+      "return": 402.39,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 56,
+      "score": 4,
+      "return": 402.48,
+      "reward": 100.0,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 57,
+      "score": 5,
+      "return": 502.48,
+      "reward": 0.09,
+      "state": [
+        4,
+        6,
+        0,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.999,
+        -102.441,
+        -1364.059
+      ]
+    },
+    {
+      "step": 58,
+      "score": 5,
+      "return": 502.57,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -88.464,
+        -360.225,
+        -6350.0
+      ]
+    },
+    {
+      "step": 59,
+      "score": 5,
+      "return": 502.66,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -88.464,
+        -360.225,
+        -6350.0
+      ]
+    },
+    {
+      "step": 60,
+      "score": 5,
+      "return": 502.75,
+      "reward": 0.09,
+      "state": [
+        1,
+        7,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -746.532,
+        -91.622,
+        -6349.997
+      ]
+    },
+    {
+      "step": 61,
+      "score": 5,
+      "return": 502.84,
+      "reward": 100.0,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 62,
+      "score": 6,
+      "return": 602.84,
+      "reward": -0.11,
+      "state": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -713.138,
+        -233.543,
+        -92.901
+      ]
+    },
+    {
+      "step": 63,
+      "score": 6,
+      "return": 602.73,
+      "reward": -0.11,
+      "state": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -481.509,
+        -136.758,
+        -453.617
+      ]
+    },
+    {
+      "step": 64,
+      "score": 6,
+      "return": 602.62,
+      "reward": -0.11,
+      "state": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -713.138,
+        -233.543,
+        -92.901
+      ]
+    },
+    {
+      "step": 65,
+      "score": 6,
+      "return": 602.51,
+      "reward": -0.11,
+      "state": [
+        4,
+        2,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.99,
+        -110.219,
+        -1586.79
+      ]
+    },
+    {
+      "step": 66,
+      "score": 6,
+      "return": 602.4,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        2,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -760.18,
+        -182.8,
+        -6349.998
+      ]
+    },
+    {
+      "step": 67,
+      "score": 6,
+      "return": 602.49,
+      "reward": -0.11,
+      "state": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -602.58,
+        -6343.262,
+        -181.58
+      ]
+    },
+    {
+      "step": 68,
+      "score": 6,
+      "return": 602.38,
+      "reward": -0.11,
+      "state": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -713.138,
+        -233.543,
+        -92.901
+      ]
+    },
+    {
+      "step": 69,
+      "score": 6,
+      "return": 602.27,
+      "reward": -0.11,
+      "state": [
+        5,
+        2,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -5724.67,
+        -116.279,
+        -5492.209
+      ]
+    },
+    {
+      "step": 70,
+      "score": 6,
+      "return": 602.16,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        2,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -760.18,
+        -182.8,
+        -6349.998
+      ]
+    },
+    {
+      "step": 71,
+      "score": 6,
+      "return": 602.25,
+      "reward": -0.11,
+      "state": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -602.58,
+        -6343.262,
+        -181.58
+      ]
+    },
+    {
+      "step": 72,
+      "score": 6,
+      "return": 602.14,
+      "reward": 0.09,
+      "state": [
+        4,
+        2,
+        2,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.983,
+        -163.913,
+        -4785.595
+      ]
+    },
+    {
+      "step": 73,
+      "score": 6,
+      "return": 602.23,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 74,
+      "score": 6,
+      "return": 602.32,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 75,
+      "score": 6,
+      "return": 602.41,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -658.832,
+        -73.131,
+        -6349.995
+      ]
+    },
+    {
+      "step": 76,
+      "score": 6,
+      "return": 602.5,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 77,
+      "score": 6,
+      "return": 602.59,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 78,
+      "score": 6,
+      "return": 602.68,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 79,
+      "score": 6,
+      "return": 602.77,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 80,
+      "score": 6,
+      "return": 602.86,
+      "reward": 100.0,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 81,
+      "score": 7,
+      "return": 702.86,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        0,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -631.165,
+        -300.423,
+        -103.727
+      ]
+    },
+    {
+      "step": 82,
+      "score": 7,
+      "return": 702.75,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -650.425,
+        -104.873,
+        -652.203
+      ]
+    },
+    {
+      "step": 83,
+      "score": 7,
+      "return": 702.64,
+      "reward": 0.09,
+      "state": [
+        4,
+        6,
+        0,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.999,
+        -102.441,
+        -1364.059
+      ]
+    },
+    {
+      "step": 84,
+      "score": 7,
+      "return": 702.73,
+      "reward": 0.09,
+      "state": [
+        3,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -97.232,
+        -6191.05,
+        -6323.492
+      ]
+    },
+    {
+      "step": 85,
+      "score": 7,
+      "return": 702.82,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -88.464,
+        -360.225,
+        -6350.0
+      ]
+    },
+    {
+      "step": 86,
+      "score": 7,
+      "return": 702.91,
+      "reward": 0.09,
+      "state": [
+        1,
+        7,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -746.532,
+        -91.622,
+        -6349.997
+      ]
+    },
+    {
+      "step": 87,
+      "score": 7,
+      "return": 703.0,
+      "reward": 0.09,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 88,
+      "score": 7,
+      "return": 703.09,
+      "reward": 0.09,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 89,
+      "score": 7,
+      "return": 703.18,
+      "reward": 100.0,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 90,
+      "score": 8,
+      "return": 803.18,
+      "reward": 0.09,
+      "state": [
+        0,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -130.019,
+        -264.941,
+        -328.337
+      ]
+    },
+    {
+      "step": 91,
+      "score": 8,
+      "return": 803.27,
+      "reward": 0.09,
+      "state": [
+        0,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -130.019,
+        -264.941,
+        -328.337
+      ]
+    },
+    {
+      "step": 92,
+      "score": 8,
+      "return": 803.36,
+      "reward": 0.09,
+      "state": [
+        0,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -130.019,
+        -264.941,
+        -328.337
+      ]
+    },
+    {
+      "step": 93,
+      "score": 8,
+      "return": 803.45,
+      "reward": 100.0,
+      "state": [
+        4,
+        5,
+        2,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6313.637,
+        -113.878,
+        -1905.356
+      ]
+    },
+    {
+      "step": 94,
+      "score": 9,
+      "return": 903.45,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 95,
+      "score": 9,
+      "return": 903.54,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -658.832,
+        -73.131,
+        -6349.995
+      ]
+    },
+    {
+      "step": 96,
+      "score": 9,
+      "return": 903.63,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 97,
+      "score": 9,
+      "return": 903.72,
+      "reward": 100.0,
+      "state": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -53.424,
+        -710.498,
+        -278.481
+      ]
+    },
+    {
+      "step": 98,
+      "score": 10,
+      "return": 1003.72,
+      "reward": -0.11,
+      "state": [
+        0,
+        3,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -106.861,
+        -732.203,
+        -673.296
+      ]
+    },
+    {
+      "step": 99,
+      "score": 10,
+      "return": 1003.61,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        0,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -631.165,
+        -300.423,
+        -103.727
+      ]
+    },
+    {
+      "step": 100,
+      "score": 10,
+      "return": 1003.5,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -650.425,
+        -104.873,
+        -652.203
+      ]
+    },
+    {
+      "step": 101,
+      "score": 10,
+      "return": 1003.39,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        0,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -631.165,
+        -300.423,
+        -103.727
+      ]
+    },
+    {
+      "step": 102,
+      "score": 10,
+      "return": 1003.28,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -650.425,
+        -104.873,
+        -652.203
+      ]
+    },
+    {
+      "step": 103,
+      "score": 10,
+      "return": 1003.17,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        0,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -631.165,
+        -300.423,
+        -103.727
+      ]
+    },
+    {
+      "step": 104,
+      "score": 10,
+      "return": 1003.06,
+      "reward": -0.11,
+      "state": [
+        4,
+        6,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.997,
+        -105.394,
+        -1731.626
+      ]
+    },
+    {
+      "step": 105,
+      "score": 10,
+      "return": 1002.95,
+      "reward": 0.09,
+      "state": [
+        5,
+        6,
+        0,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6347.39,
+        -91.444,
+        -6341.681
+      ]
+    },
+    {
+      "step": 106,
+      "score": 10,
+      "return": 1003.04,
+      "reward": 0.09,
+      "state": [
+        3,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -97.232,
+        -6191.05,
+        -6323.492
+      ]
+    },
+    {
+      "step": 107,
+      "score": 10,
+      "return": 1003.13,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -88.464,
+        -360.225,
+        -6350.0
+      ]
+    },
+    {
+      "step": 108,
+      "score": 10,
+      "return": 1003.22,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -88.464,
+        -360.225,
+        -6350.0
+      ]
+    },
+    {
+      "step": 109,
+      "score": 10,
+      "return": 1003.31,
+      "reward": 0.09,
+      "state": [
+        1,
+        7,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -746.532,
+        -91.622,
+        -6349.997
+      ]
+    },
+    {
+      "step": 110,
+      "score": 10,
+      "return": 1003.4,
+      "reward": 0.09,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 111,
+      "score": 10,
+      "return": 1003.49,
+      "reward": 0.09,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 112,
+      "score": 10,
+      "return": 1003.58,
+      "reward": 100.0,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 113,
+      "score": 11,
+      "return": 1103.58,
+      "reward": 0.09,
+      "state": [
+        0,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -130.019,
+        -264.941,
+        -328.337
+      ]
+    },
+    {
+      "step": 114,
+      "score": 11,
+      "return": 1103.67,
+      "reward": 0.09,
+      "state": [
+        0,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -130.019,
+        -264.941,
+        -328.337
+      ]
+    },
+    {
+      "step": 115,
+      "score": 11,
+      "return": 1103.76,
+      "reward": -0.11,
+      "state": [
+        0,
+        5,
+        2,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -846.947,
+        -791.558,
+        -158.682
+      ]
+    },
+    {
+      "step": 116,
+      "score": 11,
+      "return": 1103.65,
+      "reward": -0.11,
+      "state": [
+        0,
+        5,
+        3,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -780.514,
+        -579.603,
+        -189.031
+      ]
+    },
+    {
+      "step": 117,
+      "score": 11,
+      "return": 1103.54,
+      "reward": -0.11,
+      "state": [
+        1,
+        8,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -201.953,
+        -687.759,
+        -6313.637
+      ]
+    },
+    {
+      "step": 118,
+      "score": 11,
+      "return": 1103.43,
+      "reward": -0.11,
+      "state": [
+        1,
+        8,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -201.953,
+        -687.759,
+        -6313.637
+      ]
+    },
+    {
+      "step": 119,
+      "score": 11,
+      "return": 1103.32,
+      "reward": -0.11,
+      "state": [
+        1,
+        8,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -201.953,
+        -687.759,
+        -6313.637
+      ]
+    },
+    {
+      "step": 120,
+      "score": 11,
+      "return": 1103.21,
+      "reward": -0.11,
+      "state": [
+        1,
+        8,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -201.953,
+        -687.759,
+        -6313.637
+      ]
+    },
+    {
+      "step": 121,
+      "score": 11,
+      "return": 1103.1,
+      "reward": -0.11,
+      "state": [
+        1,
+        8,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -201.953,
+        -687.759,
+        -6313.637
+      ]
+    },
+    {
+      "step": 122,
+      "score": 11,
+      "return": 1102.99,
+      "reward": -0.11,
+      "state": [
+        4,
+        8,
+        0,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.947,
+        -236.902,
+        -1305.245
+      ]
+    },
+    {
+      "step": 123,
+      "score": 11,
+      "return": 1102.88,
+      "reward": 0.09,
+      "state": [
+        1,
+        8,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -638.694,
+        -171.64,
+        -6350.0
+      ]
+    },
+    {
+      "step": 124,
+      "score": 11,
+      "return": 1102.97,
+      "reward": -0.11,
+      "state": [
+        2,
+        8,
+        2,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -422.461,
+        -6349.647,
+        -275.488
+      ]
+    },
+    {
+      "step": 125,
+      "score": 11,
+      "return": 1102.86,
+      "reward": 0.09,
+      "state": [
+        4,
+        8,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6349.999,
+        -668.165,
+        -1291.467
+      ]
+    },
+    {
+      "step": 126,
+      "score": 11,
+      "return": 1102.95,
+      "reward": 0.09,
+      "state": [
+        1,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -107.355,
+        -694.522,
+        -6350.0
+      ]
+    },
+    {
+      "step": 127,
+      "score": 11,
+      "return": 1103.04,
+      "reward": 0.09,
+      "state": [
+        1,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -107.355,
+        -694.522,
+        -6350.0
+      ]
+    },
+    {
+      "step": 128,
+      "score": 11,
+      "return": 1103.13,
+      "reward": 0.09,
+      "state": [
+        1,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -107.355,
+        -694.522,
+        -6350.0
+      ]
+    },
+    {
+      "step": 129,
+      "score": 11,
+      "return": 1103.22,
+      "reward": 0.09,
+      "state": [
+        1,
+        8,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -107.355,
+        -694.522,
+        -6350.0
+      ]
+    },
+    {
+      "step": 130,
+      "score": 11,
+      "return": 1103.31,
+      "reward": -0.11,
+      "state": [
+        1,
+        5,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -118.607,
+        -762.831,
+        -6349.965
+      ]
+    },
+    {
+      "step": 131,
+      "score": 11,
+      "return": 1103.2,
+      "reward": 0.09,
+      "state": [
+        5,
+        2,
+        2,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6342.513,
+        -79.75,
+        -6349.647
+      ]
+    },
+    {
+      "step": 132,
+      "score": 11,
+      "return": 1103.29,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 133,
+      "score": 11,
+      "return": 1103.38,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 134,
+      "score": 11,
+      "return": 1103.47,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 135,
+      "score": 11,
+      "return": 1103.56,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 136,
+      "score": 11,
+      "return": 1103.65,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 137,
+      "score": 11,
+      "return": 1103.74,
+      "reward": 0.09,
+      "state": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -78.914,
+        -524.143,
+        -6350.0
+      ]
+    },
+    {
+      "step": 138,
+      "score": 11,
+      "return": 1103.83,
+      "reward": 100.0,
+      "state": [
+        5,
+        1,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6107.735,
+        -85.942,
+        -6281.577
+      ]
+    },
+    {
+      "step": 139,
+      "score": 12,
+      "return": 1203.83,
+      "reward": 0.09,
+      "state": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -115.382,
+        -665.544,
+        -6350.0
+      ]
+    },
+    {
+      "step": 140,
+      "score": 12,
+      "return": 1203.92,
+      "reward": 0.09,
+      "state": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -115.382,
+        -665.544,
+        -6350.0
+      ]
+    },
+    {
+      "step": 141,
+      "score": 12,
+      "return": 1204.01,
+      "reward": 0.09,
+      "state": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -115.382,
+        -665.544,
+        -6350.0
+      ]
+    },
+    {
+      "step": 142,
+      "score": 12,
+      "return": 1204.1,
+      "reward": 0.09,
+      "state": [
+        1,
+        3,
+        0,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -702.954,
+        -113.865,
+        -6349.996
+      ]
+    },
+    {
+      "step": 143,
+      "score": 12,
+      "return": 1204.19,
+      "reward": -0.11,
+      "state": [
+        0,
+        3,
+        3,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -233.694,
+        -244.781,
+        -104.568
+      ]
+    },
+    {
+      "step": 144,
+      "score": 12,
+      "return": 1204.08,
+      "reward": -0.11,
+      "state": [
+        0,
+        6,
+        0,
+        1
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -631.165,
+        -300.423,
+        -103.727
+      ]
+    },
+    {
+      "step": 145,
+      "score": 12,
+      "return": 1203.97,
+      "reward": -0.11,
+      "state": [
+        5,
+        6,
+        1,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -5843.483,
+        -107.965,
+        -5396.899
+      ]
+    },
+    {
+      "step": 146,
+      "score": 12,
+      "return": 1203.86,
+      "reward": -0.11,
+      "state": [
+        1,
+        6,
+        0,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -93.685,
+        -700.124,
+        -6350.0
+      ]
+    },
+    {
+      "step": 147,
+      "score": 12,
+      "return": 1203.75,
+      "reward": 0.09,
+      "state": [
+        5,
+        6,
+        0,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -6347.39,
+        -91.444,
+        -6341.681
+      ]
+    },
+    {
+      "step": 148,
+      "score": 12,
+      "return": 1203.84,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -88.464,
+        -360.225,
+        -6350.0
+      ]
+    },
+    {
+      "step": 149,
+      "score": 12,
+      "return": 1203.93,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -88.464,
+        -360.225,
+        -6350.0
+      ]
+    },
+    {
+      "step": 150,
+      "score": 12,
+      "return": 1204.02,
+      "reward": 0.09,
+      "state": [
+        1,
+        6,
+        3,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -88.464,
+        -360.225,
+        -6350.0
+      ]
+    },
+    {
+      "step": 151,
+      "score": 12,
+      "return": 1204.11,
+      "reward": 0.09,
+      "state": [
+        1,
+        7,
+        3,
+        1
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -746.532,
+        -91.622,
+        -6349.997
+      ]
+    },
+    {
+      "step": 152,
+      "score": 12,
+      "return": 1204.2,
+      "reward": 0.09,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 153,
+      "score": 12,
+      "return": 1204.29,
+      "reward": 100.0,
+      "state": [
+        0,
+        7,
+        2,
+        1
+      ],
+      "action": "STRAIGHT",
+      "q_values": [
+        -120.973,
+        -719.04,
+        -518.394
+      ]
+    },
+    {
+      "step": 154,
+      "score": 13,
+      "return": 1304.29,
+      "reward": 0.09,
+      "state": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -1455.515,
+        -928.03,
+        -1427.222
+      ]
+    },
+    {
+      "step": 155,
+      "score": 13,
+      "return": 1304.38,
+      "reward": 0.09,
+      "state": [
+        0,
+        2,
+        1,
+        2
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -1201.516,
+        -838.129,
+        -1576.243
+      ]
+    },
+    {
+      "step": 156,
+      "score": 13,
+      "return": 1304.47,
+      "reward": 100.0,
+      "state": [
+        2,
+        5,
+        0,
+        2
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -1586.085,
+        -4135.892,
+        -808.378
+      ]
+    },
+    {
+      "step": 157,
+      "score": 14,
+      "return": 1404.47,
+      "reward": 0.09,
+      "state": [
+        4,
+        0,
+        1,
+        2
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -5894.135,
+        -1315.403,
+        -3146.584
+      ]
+    },
+    {
+      "step": 158,
+      "score": 14,
+      "return": 1404.56,
+      "reward": 100.0,
+      "state": [
+        4,
+        3,
+        0,
+        2
+      ],
+      "action": "LEFT",
+      "q_values": [
+        -3616.533,
+        -1120.217,
+        -2870.872
+      ]
+    },
+    {
+      "step": 159,
+      "score": 15,
+      "return": 1504.56,
+      "reward": -6350.0,
+      "state": [
+        7,
+        6,
+        3,
+        2
+      ],
+      "action": "RIGHT",
+      "q_values": [
+        -6349.979,
+        -6349.979,
+        -6349.977
+      ]
+    },
+    {
+      "step": 160,
+      "score": 15,
+      "return": -4845.44,
+      "reward": null,
+      "state": [
+        7,
+        6,
+        0,
+        2
+      ],
+      "action": null,
+      "q_values": [
+        -6349.999,
+        -6349.999,
+        -6349.999
+      ]
+    }
+  ]
+}

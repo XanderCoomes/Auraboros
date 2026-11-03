@@ -1,7 +1,7 @@
 """Plot learning curves from log.csv and optionally save an annotated GIF + metadata JSON of the trained agent.
 
 Usage:  python plot.py [--log log.csv] [--q q_table.pkl --size 8 --outdir test_result]
-Outputs in test_result/train_<timestamp>/: curves.png, game.gif (per-frame overlay), game.json (method, state, config, result, tested_at),
+Outputs in test_result/train_<timestamp>_<size>_<features>_ep<N>_seed<S>_a<alpha>_g<gamma>/: curves.png, game.gif (per-frame overlay), game.json (method, state, config, result, tested_at),
 plus copies of the training files (log.csv, q_table.pkl, q_table.json)
 """
 import argparse
@@ -15,7 +15,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ACTION_NAMES = ["STRAIGHT", "LEFT", "RIGHT"]
-HEADING_NAMES = ["UP", "RIGHT", "DOWN", "LEFT"]
 
 
 def moving_avg(x, k):
@@ -38,9 +37,9 @@ def plot_curves(path, window, out):
     print("saved", out)
 
 
-def eval_greedy(agent, size, n=100, seed=1000):
+def eval_greedy(agent, size, fs, n=100, seed=1000):
     from snake_env import SnakeEnv
-    env = SnakeEnv(size=size, seed=seed)
+    env = SnakeEnv(size=size, seed=seed, features=fs)
     scores = []
     for _ in range(n):
         s, done = env.reset(), False
@@ -54,15 +53,18 @@ def save_gif(q_path, size, out, seed=1):
     from matplotlib import animation
     from matplotlib.colors import ListedColormap
     import snake_env
+    from feature_library import make_feature_set
     from q_tabular import QAgent, get_row_by_state
     from snake_env import SnakeEnv
 
-    agent = QAgent()
-    agent.load(q_path)
     cfg_path = q_path.rsplit(".", 1)[0] + ".json"
     train_cfg = json.load(open(cfg_path)) if os.path.exists(cfg_path) else None
+    # Rebuild the feature set used in training (older json files without "features" -> default set)
+    fs = make_feature_set(train_cfg["features"]) if train_cfg and "features" in train_cfg else make_feature_set()
+    agent = QAgent(fs.shape)
+    agent.load(q_path)
 
-    env = SnakeEnv(size=size, seed=seed)
+    env = SnakeEnv(size=size, seed=seed, features=fs)
     # Reward function constants actually used by the environment for this GIF game
     reward_cfg = {"apple": snake_env.R_APPLE, "death": snake_env.R_DEATH,
                   "step": snake_env.R_STEP, "closer_or_farther": snake_env.R_CLOSER}
@@ -75,7 +77,7 @@ def save_gif(q_path, size, out, seed=1):
         frames.append(env.board_array())
         entry = {"step": env.steps, "score": env.score, "return": round(total, 3), "reward": None,
                  "state": list(s), "action": ACTION_NAMES[a],
-                 "q_values": [round(float(v), 3) for v in agent.q[get_row_by_state(s)]]}
+                 "q_values": [round(float(v), 3) for v in agent.q[get_row_by_state(s, fs.shape)]]}
         s, r, done, info = env.step(a)
         total += r
         # reward received for this step; score/return shown on the NEXT frame include it
@@ -84,7 +86,7 @@ def save_gif(q_path, size, out, seed=1):
     frames.append(env.board_array())
     log.append({"step": env.steps, "score": env.score, "return": round(total, 3), "reward": None,
                 "state": list(s), "action": None,
-                "q_values": [round(float(v), 3) for v in agent.q[get_row_by_state(s)]]})
+                "q_values": [round(float(v), 3) for v in agent.q[get_row_by_state(s, fs.shape)]]})
     reason = info.get("reason", "max_frames" if not done else "unknown")
 
     cmap = ListedColormap(["white", "#4caf50", "#1b5e20", "#e53935"])
@@ -104,8 +106,8 @@ def save_gif(q_path, size, out, seed=1):
         title.set_text(
             f"step {e['step']}  score(apples) {e['score']}  return {e['return']:.2f}"
             + (f"  last reward {prev:+.2f}" if prev is not None else "") + "\n"
-            f"action {e['action']}  heading {HEADING_NAMES[st[5]]}\n"
-            f"state: danger S/L/R={st[0]}{st[1]}{st[2]}  apple rowSgn={st[3]} colSgn={st[4]}\n"
+            f"action {e['action']}\n"
+            f"state: {fs.format_state(st)}\n"
             f"Q [S, L, R] = {e['q_values']}\n"
             f"{reward_line}" + (f"\nEND: {reason}" if i == len(log) - 1 else ""))
         im.set_data(frames[i])
@@ -120,7 +122,7 @@ def save_gif(q_path, size, out, seed=1):
         "tested_at": datetime.now().isoformat(timespec="seconds"),
         "gif_game": {"play_seed": seed, "final_score": info["score"], "final_return": round(total, 3),
                      "total_steps": env.steps, "end_reason": reason},
-        "greedy_eval": eval_greedy(agent, size),
+        "greedy_eval": eval_greedy(agent, size, fs),
         "reward_function_used_in_gif": reward_cfg,
         "gif_file": out,
         "method": {
@@ -129,9 +131,8 @@ def save_gif(q_path, size, out, seed=1):
             "action_selection": "epsilon-greedy while training; greedy (epsilon=0) when playing this GIF",
         },
         "state": {
-            "tuple": ["danger_straight", "danger_left", "danger_right",
-                      "apple_row_sign(0 up/1 same/2 down)", "apple_col_sign(0 left/1 same/2 right)", "heading(0 up,1 right,2 down,3 left)"],
-            "num_states": 288,
+            "features": fs.describe(),
+            "num_states": fs.n_states,
             "actions": ACTION_NAMES,
         },
         "training_config": train_cfg,
@@ -145,6 +146,20 @@ def save_gif(q_path, size, out, seed=1):
     print("saved", meta_path)
 
 
+def settings_suffix(q_path, size):
+    """Folder-name suffix describing the training settings, read from the Q-table's json (if there is one)."""
+    parts = [f"{size}x{size}"]
+    cfg_path = q_path.rsplit(".", 1)[0] + ".json" if q_path else None
+    if cfg_path and os.path.exists(cfg_path):
+        cfg = json.load(open(cfg_path))
+        # Older json files have no "features" -> they were trained with the default set
+        parts.append("+".join(cfg.get("features", ["danger", "apple_dir", "heading"])))
+        for key, label in (("episodes", "ep"), ("seed", "seed"), ("alpha", "a"), ("gamma", "g")):
+            if key in cfg:
+                parts.append(f"{label}{cfg[key]}")
+    return "_" + "_".join(parts)
+
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--log", default="log.csv")
@@ -153,8 +168,9 @@ if __name__ == "__main__":
     p.add_argument("--size", type=int, default=8)
     p.add_argument("--outdir", default="test_result")
     a = p.parse_args()
-    # One timestamped folder per run, e.g. test_result/train_20261026_090331/ (sorts chronologically)
-    run_dir = os.path.join(a.outdir, "train_" + datetime.now().strftime("%Y%m%d_%H%M%S"))
+    # One folder per run; the name starts with the timestamp (sorts chronologically) followed by the training
+    # settings, e.g. test_result/train_20261026_090331_8x8_danger+apple_dir+heading_ep20000_seed0_a0.1_g0.95/
+    run_dir = os.path.join(a.outdir, "train_" + datetime.now().strftime("%Y%m%d_%H%M%S") + settings_suffix(a.q, a.size))
     os.makedirs(run_dir, exist_ok=True)
     plot_curves(a.log, a.window, os.path.join(run_dir, "curves.png"))
     if a.q:

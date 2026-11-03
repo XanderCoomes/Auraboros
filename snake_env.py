@@ -8,6 +8,9 @@ from collections import deque
 
 import numpy as np
 
+from feature_library import make_feature_set
+from feature_library.length_bucket import length_bucket
+
 DIRS = [(-1, 0), (0, 1), (1, 0), (0, -1)]  # (d_row, d_col) for up, right, down, left
 STRAIGHT, LEFT, RIGHT = 0, 1, 2
 N_ACTIONS = 3
@@ -19,8 +22,9 @@ R_CLOSER = 0.1   # shaping: moved closer to / farther from the apple
 
 
 class SnakeEnv:
-    def __init__(self, size=15, seed=None, init_length=3, timeout_factor=2):
+    def __init__(self, size=15, seed=None, init_length=3, timeout_factor=2, features=None):
         self.size = size
+        self.features = features if features is not None else make_feature_set()  # which state features to use
         self.init_length = init_length
         self.timeout = timeout_factor * size * size  # max steps without eating
         self.rng = random.Random(seed)
@@ -65,7 +69,7 @@ class SnakeEnv:
         tail = self.snake[-1]
         if not self._in_bounds(head) or (head in self.body and (head != tail or eating)):
             self.done = True
-            return self.get_state(), R_DEATH, True, {"score": self.score, "reason": "collision"}
+            return self.get_state(), R_DEATH, True, self._info(reason="collision")
 
         # Reward: small step penalty by default; +R_APPLE if eating (below);
         # +/-R_CLOSER shaping for moving toward / away from the apple; R_DEATH on collision or timeout
@@ -81,7 +85,7 @@ class SnakeEnv:
             self._place_apple()
             if self.apple is None:  # board full -> win
                 self.done = True
-                return self.get_state(), reward, True, {"score": self.score, "reason": "win"}
+                return self.get_state(), reward, True, self._info(reason="win")
         else:
             self.body.discard(self.snake.pop())
             self.body.add(head)  # head may equal the freed tail cell
@@ -89,33 +93,27 @@ class SnakeEnv:
 
         if self.steps_since_apple > self.timeout:
             self.done = True
-            return self.get_state(), R_DEATH, True, {"score": self.score, "reason": "timeout"}
-        return self.get_state(), reward, False, {"score": self.score}
+            return self.get_state(), R_DEATH, True, self._info(reason="timeout")
+        return self.get_state(), reward, False, self._info()
+
+    def _info(self, **extra):
+        # length/bucket are reported at the moment of the call (i.e. at death for terminal steps)
+        return {"score": self.score, "length": len(self.snake),
+                "bucket": int(length_bucket(len(self.snake), self.size)), **extra}
 
     def _in_bounds(self, p):
         return 0 <= p[0] < self.size and 0 <= p[1] < self.size
 
     # ----------------------------------------------------------------- state
-    def _is_danger(self, heading):
+    def is_danger(self, heading):
+        """1 if moving one cell in `heading` hits a wall or the body (the tail cell counts as free)."""
         dr, dc = DIRS[heading]
         p = (self.snake[0][0] + dr, self.snake[0][1] + dc)
         return int(not self._in_bounds(p) or (p in self.body and p != self.snake[-1]))
 
     def get_state(self):
-        """Compact tuple state for tabular Q-learning (288 states).
-
-        (danger straight, danger left, danger right, apple row sign, apple col sign, heading)
-        """
-        if self.apple is None:  # board is full, no apple left
-            return (0, 0, 0, 1, 1, self.heading)
-        h = self.heading
-        sgn = lambda x: (x > 0) - (x < 0) + 1  # -1/0/+1 -> 0/1/2
-        return (self._is_danger(h),                 # wall/body directly ahead?
-                self._is_danger((h - 1) % 4),       # wall/body to the left?
-                self._is_danger((h + 1) % 4),       # wall/body to the right?
-                sgn(self.apple[0] - self.snake[0][0]),  # apple row vs head: 0 above, 1 same row, 2 below
-                sgn(self.apple[1] - self.snake[0][1]),  # apple col vs head: 0 left, 1 same col, 2 right
-                h)                                  # current heading (0 up, 1 right, 2 down, 3 left)
+        """Discrete state tuple made of the selected features (see features.py)."""
+        return self.features.encode(self)
 
     # --------------------------------------------------------------- display
     def render(self):

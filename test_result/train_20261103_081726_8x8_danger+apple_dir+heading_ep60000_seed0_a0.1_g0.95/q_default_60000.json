@@ -1,0 +1,50 @@
+{
+  "trained_at": "2026-11-03T08:16:42",
+  "q_file": "C:/Users/kk/AppData/Local/Temp/claude/d6b876a5cb22cd7e/824fbb5c-f931-45b6-b58f-db8954abca7b/scratchpad/runs/q_default_60000.pkl",
+  "log_file": "C:/Users/kk/AppData/Local/Temp/claude/d6b876a5cb22cd7e/824fbb5c-f931-45b6-b58f-db8954abca7b/scratchpad/runs/log_default_60000.csv",
+  "board_size": 8,
+  "episodes": 60000,
+  "alpha": 0.1,
+  "gamma": 0.95,
+  "epsilon": {
+    "start": 1.0,
+    "end": 0.01,
+    "linear_decay_fraction": 0.6
+  },
+  "seed": 0,
+  "features": [
+    "danger",
+    "apple_dir",
+    "heading"
+  ],
+  "feature_details": [
+    {
+      "name": "danger",
+      "cardinality": 8,
+      "meaning": "wall/body danger as 3 bits: straight*4 + left*2 + right (0..7)"
+    },
+    {
+      "name": "apple_dir",
+      "cardinality": 9,
+      "meaning": "apple relative to head: rowSign*3 + colSign (row: 0 above/1 same/2 below; col: 0 left/1 same/2 right)"
+    },
+    {
+      "name": "heading",
+      "cardinality": 4,
+      "meaning": "current heading (0 up, 1 right, 2 down, 3 left)"
+    }
+  ],
+  "n_states": 288,
+  "bucket_thresholds_fraction_of_board": [
+    0.1,
+    0.25,
+    0.5
+  ],
+  "final_greedy_eval_score_100_games": 20.59,
+  "rewards": {
+    "apple": 100.0,
+    "death": -6350.0,
+    "step": -0.01,
+    "closer_or_farther": 0.1
+  }
+}
