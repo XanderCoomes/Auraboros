@@ -1,0 +1,43 @@
+{
+  "trained_at": "2026-11-02T21:52:11",
+  "q_file": "q_table.pkl",
+  "log_file": "log.csv",
+  "board_size": 8,
+  "episodes": 20000,
+  "alpha": 0.1,
+  "gamma": 0.95,
+  "epsilon": {
+    "start": 1.0,
+    "end": 0.01,
+    "linear_decay_fraction": 0.6
+  },
+  "seed": 0,
+  "state": {
+    "features": [
+      "danger_straight",
+      "danger_left",
+      "danger_right",
+      "apple_row_sign",
+      "apple_col_sign",
+      "heading",
+      "length"
+    ],
+    "shape": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      8
+    ],
+    "num_states": 2304
+  },
+  "final_greedy_eval_score_100_games": 15.39,
+  "rewards": {
+    "apple": 100.0,
+    "death": -6350.0,
+    "step": -0.01,
+    "closer_or_farther": 0.1
+  }
+}

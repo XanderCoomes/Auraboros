@@ -1,0 +1,6391 @@
+{
+  "tested_at": "2026-11-02T22:12:44",
+  "trained_at": "2026-11-02T22:05:03",
+  "features": [
+    "danger_straight",
+    "danger_left",
+    "danger_right",
+    "apple_row_sign",
+    "apple_col_sign",
+    "heading"
+  ],
+  "training_summary": {
+    "trained_at": "2026-11-02T22:05:03",
+    "training_started_at": "2026-11-02T22:04:36",
+    "training_duration_seconds": 27.2,
+    "command": "python train.py --size 8 --episodes 100000 --alpha 0.1 --gamma 0.95 --eps-start 1.0 --eps-end 0.01 --eps-decay-frac 0.6 --seed 0 --log log.csv --out q_table.pkl --features all",
+    "final_greedy_eval": {
+      "games": 100,
+      "mean_score": 8.2,
+      "max_score": 26,
+      "mean_steps": 188.66,
+      "end_reasons": {
+        "timeout": 70,
+        "collision": 30
+      }
+    },
+    "state_coverage": {
+      "visited": 256,
+      "total": 288,
+      "fraction": 0.8889
+    },
+    "training_end_reasons": {
+      "collision": 94786,
+      "timeout": 5214
+    },
+    "training_last_1000_episodes": {
+      "mean_score": 13.018,
+      "max_score": 37
+    },
+    "training_max_score": 49,
+    "eval_history": [
+      {
+        "episode": 2000,
+        "epsilon": 0.967,
+        "greedy_mean_score": 5.44,
+        "states_visited": 139
+      },
+      {
+        "episode": 4000,
+        "epsilon": 0.934,
+        "greedy_mean_score": 6.0,
+        "states_visited": 153
+      },
+      {
+        "episode": 6000,
+        "epsilon": 0.901,
+        "greedy_mean_score": 6.37,
+        "states_visited": 161
+      },
+      {
+        "episode": 8000,
+        "epsilon": 0.868,
+        "greedy_mean_score": 7.57,
+        "states_visited": 168
+      },
+      {
+        "episode": 10000,
+        "epsilon": 0.835,
+        "greedy_mean_score": 7.97,
+        "states_visited": 174
+      },
+      {
+        "episode": 12000,
+        "epsilon": 0.802,
+        "greedy_mean_score": 9.25,
+        "states_visited": 179
+      },
+      {
+        "episode": 14000,
+        "epsilon": 0.769,
+        "greedy_mean_score": 9.71,
+        "states_visited": 183
+      },
+      {
+        "episode": 16000,
+        "epsilon": 0.736,
+        "greedy_mean_score": 10.38,
+        "states_visited": 189
+      },
+      {
+        "episode": 18000,
+        "epsilon": 0.703,
+        "greedy_mean_score": 11.05,
+        "states_visited": 199
+      },
+      {
+        "episode": 20000,
+        "epsilon": 0.67,
+        "greedy_mean_score": 11.78,
+        "states_visited": 208
+      },
+      {
+        "episode": 22000,
+        "epsilon": 0.637,
+        "greedy_mean_score": 11.63,
+        "states_visited": 212
+      },
+      {
+        "episode": 24000,
+        "epsilon": 0.604,
+        "greedy_mean_score": 11.8,
+        "states_visited": 219
+      },
+      {
+        "episode": 26000,
+        "epsilon": 0.571,
+        "greedy_mean_score": 13.68,
+        "states_visited": 224
+      },
+      {
+        "episode": 28000,
+        "epsilon": 0.538,
+        "greedy_mean_score": 13.39,
+        "states_visited": 233
+      },
+      {
+        "episode": 30000,
+        "epsilon": 0.505,
+        "greedy_mean_score": 16.01,
+        "states_visited": 238
+      },
+      {
+        "episode": 32000,
+        "epsilon": 0.472,
+        "greedy_mean_score": 18.43,
+        "states_visited": 239
+      },
+      {
+        "episode": 34000,
+        "epsilon": 0.439,
+        "greedy_mean_score": 16.49,
+        "states_visited": 241
+      },
+      {
+        "episode": 36000,
+        "epsilon": 0.406,
+        "greedy_mean_score": 15.6,
+        "states_visited": 246
+      },
+      {
+        "episode": 38000,
+        "epsilon": 0.373,
+        "greedy_mean_score": 10.6,
+        "states_visited": 246
+      },
+      {
+        "episode": 40000,
+        "epsilon": 0.34,
+        "greedy_mean_score": 15.61,
+        "states_visited": 247
+      },
+      {
+        "episode": 42000,
+        "epsilon": 0.307,
+        "greedy_mean_score": 16.26,
+        "states_visited": 249
+      },
+      {
+        "episode": 44000,
+        "epsilon": 0.274,
+        "greedy_mean_score": 11.0,
+        "states_visited": 252
+      },
+      {
+        "episode": 46000,
+        "epsilon": 0.241,
+        "greedy_mean_score": 14.47,
+        "states_visited": 254
+      },
+      {
+        "episode": 48000,
+        "epsilon": 0.208,
+        "greedy_mean_score": 14.17,
+        "states_visited": 255
+      },
+      {
+        "episode": 50000,
+        "epsilon": 0.175,
+        "greedy_mean_score": 16.57,
+        "states_visited": 256
+      },
+      {
+        "episode": 52000,
+        "epsilon": 0.142,
+        "greedy_mean_score": 11.19,
+        "states_visited": 256
+      },
+      {
+        "episode": 54000,
+        "epsilon": 0.109,
+        "greedy_mean_score": 10.9,
+        "states_visited": 256
+      },
+      {
+        "episode": 56000,
+        "epsilon": 0.076,
+        "greedy_mean_score": 10.44,
+        "states_visited": 256
+      },
+      {
+        "episode": 58000,
+        "epsilon": 0.043,
+        "greedy_mean_score": 0.95,
+        "states_visited": 256
+      },
+      {
+        "episode": 60000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 15.22,
+        "states_visited": 256
+      },
+      {
+        "episode": 62000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 9.92,
+        "states_visited": 256
+      },
+      {
+        "episode": 64000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 15.98,
+        "states_visited": 256
+      },
+      {
+        "episode": 66000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 6.37,
+        "states_visited": 256
+      },
+      {
+        "episode": 68000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 13.82,
+        "states_visited": 256
+      },
+      {
+        "episode": 70000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 19.14,
+        "states_visited": 256
+      },
+      {
+        "episode": 72000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 16.4,
+        "states_visited": 256
+      },
+      {
+        "episode": 74000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 7.85,
+        "states_visited": 256
+      },
+      {
+        "episode": 76000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 15.15,
+        "states_visited": 256
+      },
+      {
+        "episode": 78000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 21.44,
+        "states_visited": 256
+      },
+      {
+        "episode": 80000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 22.61,
+        "states_visited": 256
+      },
+      {
+        "episode": 82000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 20.21,
+        "states_visited": 256
+      },
+      {
+        "episode": 84000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 20.98,
+        "states_visited": 256
+      },
+      {
+        "episode": 86000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 23.29,
+        "states_visited": 256
+      },
+      {
+        "episode": 88000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 19.24,
+        "states_visited": 256
+      },
+      {
+        "episode": 90000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 21.35,
+        "states_visited": 256
+      },
+      {
+        "episode": 92000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 9.16,
+        "states_visited": 256
+      },
+      {
+        "episode": 94000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 16.55,
+        "states_visited": 256
+      },
+      {
+        "episode": 96000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 7.26,
+        "states_visited": 256
+      },
+      {
+        "episode": 98000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 18.34,
+        "states_visited": 256
+      },
+      {
+        "episode": 100000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 8.57,
+        "states_visited": 256
+      }
+    ],
+    "features": [
+      "danger_straight",
+      "danger_left",
+      "danger_right",
+      "apple_row_sign",
+      "apple_col_sign",
+      "heading"
+    ]
+  },
+  "gif_game": {
+    "play_seed": 1,
+    "final_score": 5,
+    "final_return": -5849.73,
+    "total_steps": 189,
+    "end_reason": "timeout"
+  },
+  "greedy_eval": {
+    "games": 100,
+    "mean_score": 7.98,
+    "max_score": 23
+  },
+  "reward_function_used_in_gif": {
+    "apple": 100.0,
+    "death": -6350.0,
+    "step": -0.01,
+    "closer_or_farther": 0.1
+  },
+  "gif_file": "test_result/train_20261102_220503_test_20261102_221229/game.gif",
+  "method": {
+    "algorithm": "tabular Q-learning",
+    "update": "Q(s,a) += alpha * (r + gamma * max_a' Q(s',a') - Q(s,a)); target = r if terminal",
+    "action_selection": "epsilon-greedy while training; greedy (epsilon=0) when playing this GIF"
+  },
+  "state": {
+    "features": {
+      "danger_straight": {
+        "n_values": 2,
+        "labels": [
+          "safe",
+          "danger"
+        ],
+        "doc": "Wall/body directly ahead?"
+      },
+      "danger_left": {
+        "n_values": 2,
+        "labels": [
+          "safe",
+          "danger"
+        ],
+        "doc": "Wall/body to the left?"
+      },
+      "danger_right": {
+        "n_values": 2,
+        "labels": [
+          "safe",
+          "danger"
+        ],
+        "doc": "Wall/body to the right?"
+      },
+      "apple_row_sign": {
+        "n_values": 3,
+        "labels": [
+          "above",
+          "same_row",
+          "below"
+        ],
+        "doc": "Apple row vs head (absolute frame)."
+      },
+      "apple_col_sign": {
+        "n_values": 3,
+        "labels": [
+          "left",
+          "same_col",
+          "right"
+        ],
+        "doc": "Apple column vs head (absolute frame)."
+      },
+      "heading": {
+        "n_values": 4,
+        "labels": [
+          "up",
+          "right",
+          "down",
+          "left"
+        ],
+        "doc": "Current heading."
+      }
+    },
+    "shape": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "num_states": 288,
+    "actions": [
+      "STRAIGHT",
+      "LEFT",
+      "RIGHT"
+    ]
+  },
+  "training_config": {
+    "trained_at": "2026-11-02T22:05:03",
+    "training_started_at": "2026-11-02T22:04:36",
+    "training_duration_seconds": 27.2,
+    "command": "python train.py --size 8 --episodes 100000 --alpha 0.1 --gamma 0.95 --eps-start 1.0 --eps-end 0.01 --eps-decay-frac 0.6 --seed 0 --log log.csv --out q_table.pkl --features all",
+    "q_file": "q_table.pkl",
+    "log_file": "log.csv",
+    "board_size": 8,
+    "episodes": 100000,
+    "alpha": 0.1,
+    "gamma": 0.95,
+    "epsilon": {
+      "start": 1.0,
+      "end": 0.01,
+      "linear_decay_fraction": 0.6
+    },
+    "seed": 0,
+    "state": {
+      "features": [
+        "danger_straight",
+        "danger_left",
+        "danger_right",
+        "apple_row_sign",
+        "apple_col_sign",
+        "heading"
+      ],
+      "shape": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "num_states": 288,
+      "feature_details": {
+        "danger_straight": {
+          "n_values": 2,
+          "labels": [
+            "safe",
+            "danger"
+          ],
+          "doc": "Wall/body directly ahead?"
+        },
+        "danger_left": {
+          "n_values": 2,
+          "labels": [
+            "safe",
+            "danger"
+          ],
+          "doc": "Wall/body to the left?"
+        },
+        "danger_right": {
+          "n_values": 2,
+          "labels": [
+            "safe",
+            "danger"
+          ],
+          "doc": "Wall/body to the right?"
+        },
+        "apple_row_sign": {
+          "n_values": 3,
+          "labels": [
+            "above",
+            "same_row",
+            "below"
+          ],
+          "doc": "Apple row vs head (absolute frame)."
+        },
+        "apple_col_sign": {
+          "n_values": 3,
+          "labels": [
+            "left",
+            "same_col",
+            "right"
+          ],
+          "doc": "Apple column vs head (absolute frame)."
+        },
+        "heading": {
+          "n_values": 4,
+          "labels": [
+            "up",
+            "right",
+            "down",
+            "left"
+          ],
+          "doc": "Current heading."
+        }
+      }
+    },
+    "final_greedy_eval_score_100_games": 8.2,
+    "final_greedy_eval": {
+      "games": 100,
+      "mean_score": 8.2,
+      "max_score": 26,
+      "mean_steps": 188.66,
+      "end_reasons": {
+        "timeout": 70,
+        "collision": 30
+      }
+    },
+    "eval_history": [
+      {
+        "episode": 2000,
+        "epsilon": 0.967,
+        "greedy_mean_score": 5.44,
+        "states_visited": 139
+      },
+      {
+        "episode": 4000,
+        "epsilon": 0.934,
+        "greedy_mean_score": 6.0,
+        "states_visited": 153
+      },
+      {
+        "episode": 6000,
+        "epsilon": 0.901,
+        "greedy_mean_score": 6.37,
+        "states_visited": 161
+      },
+      {
+        "episode": 8000,
+        "epsilon": 0.868,
+        "greedy_mean_score": 7.57,
+        "states_visited": 168
+      },
+      {
+        "episode": 10000,
+        "epsilon": 0.835,
+        "greedy_mean_score": 7.97,
+        "states_visited": 174
+      },
+      {
+        "episode": 12000,
+        "epsilon": 0.802,
+        "greedy_mean_score": 9.25,
+        "states_visited": 179
+      },
+      {
+        "episode": 14000,
+        "epsilon": 0.769,
+        "greedy_mean_score": 9.71,
+        "states_visited": 183
+      },
+      {
+        "episode": 16000,
+        "epsilon": 0.736,
+        "greedy_mean_score": 10.38,
+        "states_visited": 189
+      },
+      {
+        "episode": 18000,
+        "epsilon": 0.703,
+        "greedy_mean_score": 11.05,
+        "states_visited": 199
+      },
+      {
+        "episode": 20000,
+        "epsilon": 0.67,
+        "greedy_mean_score": 11.78,
+        "states_visited": 208
+      },
+      {
+        "episode": 22000,
+        "epsilon": 0.637,
+        "greedy_mean_score": 11.63,
+        "states_visited": 212
+      },
+      {
+        "episode": 24000,
+        "epsilon": 0.604,
+        "greedy_mean_score": 11.8,
+        "states_visited": 219
+      },
+      {
+        "episode": 26000,
+        "epsilon": 0.571,
+        "greedy_mean_score": 13.68,
+        "states_visited": 224
+      },
+      {
+        "episode": 28000,
+        "epsilon": 0.538,
+        "greedy_mean_score": 13.39,
+        "states_visited": 233
+      },
+      {
+        "episode": 30000,
+        "epsilon": 0.505,
+        "greedy_mean_score": 16.01,
+        "states_visited": 238
+      },
+      {
+        "episode": 32000,
+        "epsilon": 0.472,
+        "greedy_mean_score": 18.43,
+        "states_visited": 239
+      },
+      {
+        "episode": 34000,
+        "epsilon": 0.439,
+        "greedy_mean_score": 16.49,
+        "states_visited": 241
+      },
+      {
+        "episode": 36000,
+        "epsilon": 0.406,
+        "greedy_mean_score": 15.6,
+        "states_visited": 246
+      },
+      {
+        "episode": 38000,
+        "epsilon": 0.373,
+        "greedy_mean_score": 10.6,
+        "states_visited": 246
+      },
+      {
+        "episode": 40000,
+        "epsilon": 0.34,
+        "greedy_mean_score": 15.61,
+        "states_visited": 247
+      },
+      {
+        "episode": 42000,
+        "epsilon": 0.307,
+        "greedy_mean_score": 16.26,
+        "states_visited": 249
+      },
+      {
+        "episode": 44000,
+        "epsilon": 0.274,
+        "greedy_mean_score": 11.0,
+        "states_visited": 252
+      },
+      {
+        "episode": 46000,
+        "epsilon": 0.241,
+        "greedy_mean_score": 14.47,
+        "states_visited": 254
+      },
+      {
+        "episode": 48000,
+        "epsilon": 0.208,
+        "greedy_mean_score": 14.17,
+        "states_visited": 255
+      },
+      {
+        "episode": 50000,
+        "epsilon": 0.175,
+        "greedy_mean_score": 16.57,
+        "states_visited": 256
+      },
+      {
+        "episode": 52000,
+        "epsilon": 0.142,
+        "greedy_mean_score": 11.19,
+        "states_visited": 256
+      },
+      {
+        "episode": 54000,
+        "epsilon": 0.109,
+        "greedy_mean_score": 10.9,
+        "states_visited": 256
+      },
+      {
+        "episode": 56000,
+        "epsilon": 0.076,
+        "greedy_mean_score": 10.44,
+        "states_visited": 256
+      },
+      {
+        "episode": 58000,
+        "epsilon": 0.043,
+        "greedy_mean_score": 0.95,
+        "states_visited": 256
+      },
+      {
+        "episode": 60000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 15.22,
+        "states_visited": 256
+      },
+      {
+        "episode": 62000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 9.92,
+        "states_visited": 256
+      },
+      {
+        "episode": 64000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 15.98,
+        "states_visited": 256
+      },
+      {
+        "episode": 66000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 6.37,
+        "states_visited": 256
+      },
+      {
+        "episode": 68000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 13.82,
+        "states_visited": 256
+      },
+      {
+        "episode": 70000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 19.14,
+        "states_visited": 256
+      },
+      {
+        "episode": 72000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 16.4,
+        "states_visited": 256
+      },
+      {
+        "episode": 74000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 7.85,
+        "states_visited": 256
+      },
+      {
+        "episode": 76000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 15.15,
+        "states_visited": 256
+      },
+      {
+        "episode": 78000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 21.44,
+        "states_visited": 256
+      },
+      {
+        "episode": 80000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 22.61,
+        "states_visited": 256
+      },
+      {
+        "episode": 82000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 20.21,
+        "states_visited": 256
+      },
+      {
+        "episode": 84000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 20.98,
+        "states_visited": 256
+      },
+      {
+        "episode": 86000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 23.29,
+        "states_visited": 256
+      },
+      {
+        "episode": 88000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 19.24,
+        "states_visited": 256
+      },
+      {
+        "episode": 90000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 21.35,
+        "states_visited": 256
+      },
+      {
+        "episode": 92000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 9.16,
+        "states_visited": 256
+      },
+      {
+        "episode": 94000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 16.55,
+        "states_visited": 256
+      },
+      {
+        "episode": 96000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 7.26,
+        "states_visited": 256
+      },
+      {
+        "episode": 98000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 18.34,
+        "states_visited": 256
+      },
+      {
+        "episode": 100000,
+        "epsilon": 0.01,
+        "greedy_mean_score": 8.57,
+        "states_visited": 256
+      }
+    ],
+    "state_coverage": {
+      "visited": 256,
+      "total": 288,
+      "fraction": 0.8889
+    },
+    "training_end_reasons": {
+      "collision": 94786,
+      "timeout": 5214
+    },
+    "training_last_1000_episodes": {
+      "mean_score": 13.018,
+      "max_score": 37
+    },
+    "training_max_score": 49,
+    "rewards": {
+      "apple": 100.0,
+      "death": -6350.0,
+      "step": -0.01,
+      "closer_or_farther": 0.1
+    }
+  },
+  "environment": {
+    "board_size": 8,
+    "initial_length": 3,
+    "timeout_steps_without_apple": 128
+  },
+  "files": {
+    "q_table": "q_table.pkl",
+    "training_log": "log.csv"
+  },
+  "per_step_log": [
+    {
+      "step": 0,
+      "score": 0,
+      "return": 0.0,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "LEFT",
+      "q_values": [
+        -318.123,
+        -173.041,
+        -372.406
+      ]
+    },
+    {
+      "step": 1,
+      "score": 0,
+      "return": -0.11,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -186.867,
+        -871.39,
+        -723.926
+      ]
+    },
+    {
+      "step": 2,
+      "score": 0,
+      "return": -0.22,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -186.867,
+        -871.39,
+        -723.926
+      ]
+    },
+    {
+      "step": 3,
+      "score": 0,
+      "return": -0.33,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -186.867,
+        -871.39,
+        -723.926
+      ]
+    },
+    {
+      "step": 4,
+      "score": 0,
+      "return": -0.44,
+      "reward": 0.09,
+      "state": [
+        1,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -750.472,
+        -243.235
+      ]
+    },
+    {
+      "step": 5,
+      "score": 0,
+      "return": -0.35,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -230.189,
+        -6350.0,
+        -806.449
+      ]
+    },
+    {
+      "step": 6,
+      "score": 0,
+      "return": -0.26,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -230.189,
+        -6350.0,
+        -806.449
+      ]
+    },
+    {
+      "step": 7,
+      "score": 0,
+      "return": -0.17,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6349.999,
+        -6350.0,
+        -166.745
+      ]
+    },
+    {
+      "step": 8,
+      "score": 0,
+      "return": -0.08,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -87.492,
+        -6350.0,
+        -579.107
+      ]
+    },
+    {
+      "step": 9,
+      "score": 0,
+      "return": 0.01,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -87.492,
+        -6350.0,
+        -579.107
+      ]
+    },
+    {
+      "step": 10,
+      "score": 0,
+      "return": 0.1,
+      "reward": 100.0,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -87.492,
+        -6350.0,
+        -579.107
+      ]
+    },
+    {
+      "step": 11,
+      "score": 1,
+      "return": 100.1,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -967.615,
+        -6350.0,
+        -191.424
+      ]
+    },
+    {
+      "step": 12,
+      "score": 1,
+      "return": 100.19,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -165.929,
+        -452.048,
+        -472.032
+      ]
+    },
+    {
+      "step": 13,
+      "score": 1,
+      "return": 100.28,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -165.929,
+        -452.048,
+        -472.032
+      ]
+    },
+    {
+      "step": 14,
+      "score": 1,
+      "return": 100.37,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -165.929,
+        -452.048,
+        -472.032
+      ]
+    },
+    {
+      "step": 15,
+      "score": 1,
+      "return": 100.46,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -165.929,
+        -452.048,
+        -472.032
+      ]
+    },
+    {
+      "step": 16,
+      "score": 1,
+      "return": 100.55,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "LEFT",
+      "q_values": [
+        -595.87,
+        -124.606,
+        -627.298
+      ]
+    },
+    {
+      "step": 17,
+      "score": 1,
+      "return": 100.64,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -94.586,
+        -609.749,
+        -388.521
+      ]
+    },
+    {
+      "step": 18,
+      "score": 1,
+      "return": 100.73,
+      "reward": 100.0,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -94.586,
+        -609.749,
+        -388.521
+      ]
+    },
+    {
+      "step": 19,
+      "score": 2,
+      "return": 200.73,
+      "reward": -0.11,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1503.628,
+        -538.794
+      ]
+    },
+    {
+      "step": 20,
+      "score": 2,
+      "return": 200.62,
+      "reward": -0.11,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        2,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -248.196,
+        -6350.0,
+        -753.46
+      ]
+    },
+    {
+      "step": 21,
+      "score": 2,
+      "return": 200.51,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        2,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -237.982
+      ]
+    },
+    {
+      "step": 22,
+      "score": 2,
+      "return": 200.6,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -745.041,
+        -6350.0,
+        -166.964
+      ]
+    },
+    {
+      "step": 23,
+      "score": 2,
+      "return": 200.69,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "LEFT",
+      "q_values": [
+        -805.474,
+        -165.989,
+        -6350.0
+      ]
+    },
+    {
+      "step": 24,
+      "score": 2,
+      "return": 200.58,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -186.867,
+        -871.39,
+        -723.926
+      ]
+    },
+    {
+      "step": 25,
+      "score": 2,
+      "return": 200.47,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -186.867,
+        -871.39,
+        -723.926
+      ]
+    },
+    {
+      "step": 26,
+      "score": 2,
+      "return": 200.36,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -186.867,
+        -871.39,
+        -723.926
+      ]
+    },
+    {
+      "step": 27,
+      "score": 2,
+      "return": 200.25,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -186.867,
+        -871.39,
+        -723.926
+      ]
+    },
+    {
+      "step": 28,
+      "score": 2,
+      "return": 200.14,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -186.867,
+        -871.39,
+        -723.926
+      ]
+    },
+    {
+      "step": 29,
+      "score": 2,
+      "return": 200.03,
+      "reward": 0.09,
+      "state": [
+        1,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -750.472,
+        -243.235
+      ]
+    },
+    {
+      "step": 30,
+      "score": 2,
+      "return": 200.12,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -230.189,
+        -6350.0,
+        -806.449
+      ]
+    },
+    {
+      "step": 31,
+      "score": 2,
+      "return": 200.21,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -230.189,
+        -6350.0,
+        -806.449
+      ]
+    },
+    {
+      "step": 32,
+      "score": 2,
+      "return": 200.3,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -230.189,
+        -6350.0,
+        -806.449
+      ]
+    },
+    {
+      "step": 33,
+      "score": 2,
+      "return": 200.39,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -230.189,
+        -6350.0,
+        -806.449
+      ]
+    },
+    {
+      "step": 34,
+      "score": 2,
+      "return": 200.48,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -230.189,
+        -6350.0,
+        -806.449
+      ]
+    },
+    {
+      "step": 35,
+      "score": 2,
+      "return": 200.57,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6349.999,
+        -6350.0,
+        -166.745
+      ]
+    },
+    {
+      "step": 36,
+      "score": 2,
+      "return": 200.66,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -87.492,
+        -6350.0,
+        -579.107
+      ]
+    },
+    {
+      "step": 37,
+      "score": 2,
+      "return": 200.75,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -87.492,
+        -6350.0,
+        -579.107
+      ]
+    },
+    {
+      "step": 38,
+      "score": 2,
+      "return": 200.84,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -87.492,
+        -6350.0,
+        -579.107
+      ]
+    },
+    {
+      "step": 39,
+      "score": 2,
+      "return": 200.93,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -87.492,
+        -6350.0,
+        -579.107
+      ]
+    },
+    {
+      "step": 40,
+      "score": 2,
+      "return": 201.02,
+      "reward": 100.0,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "STRAIGHT",
+      "q_values": [
+        -87.492,
+        -6350.0,
+        -579.107
+      ]
+    },
+    {
+      "step": 41,
+      "score": 3,
+      "return": 301.02,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -572.532,
+        -6350.0,
+        -134.807
+      ]
+    },
+    {
+      "step": 42,
+      "score": 3,
+      "return": 301.11,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "LEFT",
+      "q_values": [
+        -327.418,
+        -138.397,
+        -503.225
+      ]
+    },
+    {
+      "step": 43,
+      "score": 3,
+      "return": 301.0,
+      "reward": 0.09,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1819.271,
+        -62.37
+      ]
+    },
+    {
+      "step": 44,
+      "score": 3,
+      "return": 301.09,
+      "reward": 100.0,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -758.698,
+        -6350.0,
+        -72.594
+      ]
+    },
+    {
+      "step": 45,
+      "score": 4,
+      "return": 401.09,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -302.939,
+        -740.117,
+        -6350.0
+      ]
+    },
+    {
+      "step": 46,
+      "score": 4,
+      "return": 401.18,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "LEFT",
+      "q_values": [
+        -580.587,
+        -180.776,
+        -497.234
+      ]
+    },
+    {
+      "step": 47,
+      "score": 4,
+      "return": 401.27,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -180.202,
+        -503.014,
+        -687.184
+      ]
+    },
+    {
+      "step": 48,
+      "score": 4,
+      "return": 401.16,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -276.884,
+        -490.876,
+        -139.552
+      ]
+    },
+    {
+      "step": 49,
+      "score": 4,
+      "return": 401.25,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "LEFT",
+      "q_values": [
+        -610.502,
+        -137.396,
+        -570.403
+      ]
+    },
+    {
+      "step": 50,
+      "score": 4,
+      "return": 401.14,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -276.884,
+        -490.876,
+        -139.552
+      ]
+    },
+    {
+      "step": 51,
+      "score": 4,
+      "return": 401.23,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "LEFT",
+      "q_values": [
+        -610.502,
+        -137.396,
+        -570.403
+      ]
+    },
+    {
+      "step": 52,
+      "score": 4,
+      "return": 401.12,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -276.884,
+        -490.876,
+        -139.552
+      ]
+    },
+    {
+      "step": 53,
+      "score": 4,
+      "return": 401.21,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "LEFT",
+      "q_values": [
+        -610.502,
+        -137.396,
+        -570.403
+      ]
+    },
+    {
+      "step": 54,
+      "score": 4,
+      "return": 401.1,
+      "reward": 0.09,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        2,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1650.716,
+        -160.49
+      ]
+    },
+    {
+      "step": 55,
+      "score": 4,
+      "return": 401.19,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "STRAIGHT",
+      "q_values": [
+        -152.91,
+        -6350.0,
+        -475.6
+      ]
+    },
+    {
+      "step": 56,
+      "score": 4,
+      "return": 401.28,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        2,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "right",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -163.153
+      ]
+    },
+    {
+      "step": 57,
+      "score": 4,
+      "return": 401.37,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -283.215,
+        -6350.0,
+        -642.059
+      ]
+    },
+    {
+      "step": 58,
+      "score": 4,
+      "return": 401.46,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -283.215,
+        -6350.0,
+        -642.059
+      ]
+    },
+    {
+      "step": 59,
+      "score": 4,
+      "return": 401.55,
+      "reward": 100.0,
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "right",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -283.215,
+        -6350.0,
+        -642.059
+      ]
+    },
+    {
+      "step": 60,
+      "score": 5,
+      "return": 501.55,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -959.135,
+        -6350.0,
+        -583.403
+      ]
+    },
+    {
+      "step": 61,
+      "score": 5,
+      "return": 501.64,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -1143.607,
+        -1132.169,
+        -673.067
+      ]
+    },
+    {
+      "step": 62,
+      "score": 5,
+      "return": 501.73,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -243.1,
+        -858.057,
+        -6350.0
+      ]
+    },
+    {
+      "step": 63,
+      "score": 5,
+      "return": 501.82,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -243.1,
+        -858.057,
+        -6350.0
+      ]
+    },
+    {
+      "step": 64,
+      "score": 5,
+      "return": 501.91,
+      "reward": 0.09,
+      "state": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -165.929,
+        -452.048,
+        -472.032
+      ]
+    },
+    {
+      "step": 65,
+      "score": 5,
+      "return": 502.0,
+      "reward": 0.09,
+      "state": [
+        1,
+        0,
+        0,
+        2,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "LEFT",
+      "q_values": [
+        -6350.0,
+        -393.675,
+        -1602.967
+      ]
+    },
+    {
+      "step": 66,
+      "score": 5,
+      "return": 502.09,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "below",
+        "apple_col_sign": "same_col",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "LEFT",
+      "q_values": [
+        -893.436,
+        -719.604,
+        -6350.0
+      ]
+    },
+    {
+      "step": 67,
+      "score": 5,
+      "return": 501.98,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "below",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -959.135,
+        -6350.0,
+        -583.403
+      ]
+    },
+    {
+      "step": 68,
+      "score": 5,
+      "return": 502.07,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "LEFT",
+      "q_values": [
+        -448.046,
+        -158.665,
+        -612.384
+      ]
+    },
+    {
+      "step": 69,
+      "score": 5,
+      "return": 501.96,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "same_row",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -821.226,
+        -806.395,
+        -103.023
+      ]
+    },
+    {
+      "step": 70,
+      "score": 5,
+      "return": 501.85,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "LEFT",
+      "q_values": [
+        -400.852,
+        -148.387,
+        -363.064
+      ]
+    },
+    {
+      "step": 71,
+      "score": 5,
+      "return": 501.74,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 72,
+      "score": 5,
+      "return": 501.63,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 73,
+      "score": 5,
+      "return": 501.52,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 74,
+      "score": 5,
+      "return": 501.41,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 75,
+      "score": 5,
+      "return": 501.3,
+      "reward": -0.11,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1580.146,
+        -179.987
+      ]
+    },
+    {
+      "step": 76,
+      "score": 5,
+      "return": 501.19,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -802.785,
+        -6350.0,
+        -133.053
+      ]
+    },
+    {
+      "step": 77,
+      "score": 5,
+      "return": 501.28,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "LEFT",
+      "q_values": [
+        -521.484,
+        -80.638,
+        -6350.0
+      ]
+    },
+    {
+      "step": 78,
+      "score": 5,
+      "return": 501.17,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "LEFT",
+      "q_values": [
+        -400.852,
+        -148.387,
+        -363.064
+      ]
+    },
+    {
+      "step": 79,
+      "score": 5,
+      "return": 501.06,
+      "reward": -0.11,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6346.777,
+        -6332.608,
+        -189.716
+      ]
+    },
+    {
+      "step": 80,
+      "score": 5,
+      "return": 500.95,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -258.539
+      ]
+    },
+    {
+      "step": 81,
+      "score": 5,
+      "return": 501.04,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 82,
+      "score": 5,
+      "return": 501.13,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 83,
+      "score": 5,
+      "return": 501.22,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 84,
+      "score": 5,
+      "return": 501.31,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 85,
+      "score": 5,
+      "return": 501.4,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 86,
+      "score": 5,
+      "return": 501.49,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 87,
+      "score": 5,
+      "return": 501.58,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -60.982
+      ]
+    },
+    {
+      "step": 88,
+      "score": 5,
+      "return": 501.67,
+      "reward": -0.11,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -648.06,
+        -6350.0,
+        -521.861
+      ]
+    },
+    {
+      "step": 89,
+      "score": 5,
+      "return": 501.56,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 90,
+      "score": 5,
+      "return": 501.45,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 91,
+      "score": 5,
+      "return": 501.34,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 92,
+      "score": 5,
+      "return": 501.23,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 93,
+      "score": 5,
+      "return": 501.12,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 94,
+      "score": 5,
+      "return": 501.01,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 95,
+      "score": 5,
+      "return": 500.9,
+      "reward": -0.11,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1580.146,
+        -179.987
+      ]
+    },
+    {
+      "step": 96,
+      "score": 5,
+      "return": 500.79,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -258.539
+      ]
+    },
+    {
+      "step": 97,
+      "score": 5,
+      "return": 500.88,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 98,
+      "score": 5,
+      "return": 500.97,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 99,
+      "score": 5,
+      "return": 501.06,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 100,
+      "score": 5,
+      "return": 501.15,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 101,
+      "score": 5,
+      "return": 501.24,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 102,
+      "score": 5,
+      "return": 501.33,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 103,
+      "score": 5,
+      "return": 501.42,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -60.982
+      ]
+    },
+    {
+      "step": 104,
+      "score": 5,
+      "return": 501.51,
+      "reward": -0.11,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -648.06,
+        -6350.0,
+        -521.861
+      ]
+    },
+    {
+      "step": 105,
+      "score": 5,
+      "return": 501.4,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 106,
+      "score": 5,
+      "return": 501.29,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 107,
+      "score": 5,
+      "return": 501.18,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 108,
+      "score": 5,
+      "return": 501.07,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 109,
+      "score": 5,
+      "return": 500.96,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 110,
+      "score": 5,
+      "return": 500.85,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 111,
+      "score": 5,
+      "return": 500.74,
+      "reward": -0.11,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1580.146,
+        -179.987
+      ]
+    },
+    {
+      "step": 112,
+      "score": 5,
+      "return": 500.63,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -258.539
+      ]
+    },
+    {
+      "step": 113,
+      "score": 5,
+      "return": 500.72,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 114,
+      "score": 5,
+      "return": 500.81,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 115,
+      "score": 5,
+      "return": 500.9,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 116,
+      "score": 5,
+      "return": 500.99,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 117,
+      "score": 5,
+      "return": 501.08,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 118,
+      "score": 5,
+      "return": 501.17,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 119,
+      "score": 5,
+      "return": 501.26,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -60.982
+      ]
+    },
+    {
+      "step": 120,
+      "score": 5,
+      "return": 501.35,
+      "reward": -0.11,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -648.06,
+        -6350.0,
+        -521.861
+      ]
+    },
+    {
+      "step": 121,
+      "score": 5,
+      "return": 501.24,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 122,
+      "score": 5,
+      "return": 501.13,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 123,
+      "score": 5,
+      "return": 501.02,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 124,
+      "score": 5,
+      "return": 500.91,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 125,
+      "score": 5,
+      "return": 500.8,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 126,
+      "score": 5,
+      "return": 500.69,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 127,
+      "score": 5,
+      "return": 500.58,
+      "reward": -0.11,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1580.146,
+        -179.987
+      ]
+    },
+    {
+      "step": 128,
+      "score": 5,
+      "return": 500.47,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -258.539
+      ]
+    },
+    {
+      "step": 129,
+      "score": 5,
+      "return": 500.56,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 130,
+      "score": 5,
+      "return": 500.65,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 131,
+      "score": 5,
+      "return": 500.74,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 132,
+      "score": 5,
+      "return": 500.83,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 133,
+      "score": 5,
+      "return": 500.92,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 134,
+      "score": 5,
+      "return": 501.01,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 135,
+      "score": 5,
+      "return": 501.1,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -60.982
+      ]
+    },
+    {
+      "step": 136,
+      "score": 5,
+      "return": 501.19,
+      "reward": -0.11,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -648.06,
+        -6350.0,
+        -521.861
+      ]
+    },
+    {
+      "step": 137,
+      "score": 5,
+      "return": 501.08,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 138,
+      "score": 5,
+      "return": 500.97,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 139,
+      "score": 5,
+      "return": 500.86,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 140,
+      "score": 5,
+      "return": 500.75,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 141,
+      "score": 5,
+      "return": 500.64,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 142,
+      "score": 5,
+      "return": 500.53,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 143,
+      "score": 5,
+      "return": 500.42,
+      "reward": -0.11,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1580.146,
+        -179.987
+      ]
+    },
+    {
+      "step": 144,
+      "score": 5,
+      "return": 500.31,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -258.539
+      ]
+    },
+    {
+      "step": 145,
+      "score": 5,
+      "return": 500.4,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 146,
+      "score": 5,
+      "return": 500.49,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 147,
+      "score": 5,
+      "return": 500.58,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 148,
+      "score": 5,
+      "return": 500.67,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 149,
+      "score": 5,
+      "return": 500.76,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 150,
+      "score": 5,
+      "return": 500.85,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 151,
+      "score": 5,
+      "return": 500.94,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -60.982
+      ]
+    },
+    {
+      "step": 152,
+      "score": 5,
+      "return": 501.03,
+      "reward": -0.11,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -648.06,
+        -6350.0,
+        -521.861
+      ]
+    },
+    {
+      "step": 153,
+      "score": 5,
+      "return": 500.92,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 154,
+      "score": 5,
+      "return": 500.81,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 155,
+      "score": 5,
+      "return": 500.7,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 156,
+      "score": 5,
+      "return": 500.59,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 157,
+      "score": 5,
+      "return": 500.48,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 158,
+      "score": 5,
+      "return": 500.37,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 159,
+      "score": 5,
+      "return": 500.26,
+      "reward": -0.11,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1580.146,
+        -179.987
+      ]
+    },
+    {
+      "step": 160,
+      "score": 5,
+      "return": 500.15,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -258.539
+      ]
+    },
+    {
+      "step": 161,
+      "score": 5,
+      "return": 500.24,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 162,
+      "score": 5,
+      "return": 500.33,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 163,
+      "score": 5,
+      "return": 500.42,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 164,
+      "score": 5,
+      "return": 500.51,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 165,
+      "score": 5,
+      "return": 500.6,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 166,
+      "score": 5,
+      "return": 500.69,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 167,
+      "score": 5,
+      "return": 500.78,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -60.982
+      ]
+    },
+    {
+      "step": 168,
+      "score": 5,
+      "return": 500.87,
+      "reward": -0.11,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -648.06,
+        -6350.0,
+        -521.861
+      ]
+    },
+    {
+      "step": 169,
+      "score": 5,
+      "return": 500.76,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 170,
+      "score": 5,
+      "return": 500.65,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 171,
+      "score": 5,
+      "return": 500.54,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 172,
+      "score": 5,
+      "return": 500.43,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 173,
+      "score": 5,
+      "return": 500.32,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 174,
+      "score": 5,
+      "return": 500.21,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 175,
+      "score": 5,
+      "return": 500.1,
+      "reward": -0.11,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -1580.146,
+        -179.987
+      ]
+    },
+    {
+      "step": 176,
+      "score": 5,
+      "return": 499.99,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "down"
+      },
+      "heading": "DOWN",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -258.539
+      ]
+    },
+    {
+      "step": 177,
+      "score": 5,
+      "return": 500.08,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 178,
+      "score": 5,
+      "return": 500.17,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -60.564,
+        -6349.993,
+        -6349.992
+      ]
+    },
+    {
+      "step": 179,
+      "score": 5,
+      "return": 500.26,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 180,
+      "score": 5,
+      "return": 500.35,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 181,
+      "score": 5,
+      "return": 500.44,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 182,
+      "score": 5,
+      "return": 500.53,
+      "reward": 0.09,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -62.941,
+        -6350.0,
+        -489.067
+      ]
+    },
+    {
+      "step": 183,
+      "score": 5,
+      "return": 500.62,
+      "reward": 0.09,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        3
+      ],
+      "state_named": {
+        "danger_straight": "danger",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "left"
+      },
+      "heading": "LEFT",
+      "action": "RIGHT",
+      "q_values": [
+        -6350.0,
+        -6350.0,
+        -60.982
+      ]
+    },
+    {
+      "step": 184,
+      "score": 5,
+      "return": 500.71,
+      "reward": -0.11,
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "danger",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "same_col",
+        "heading": "up"
+      },
+      "heading": "UP",
+      "action": "RIGHT",
+      "q_values": [
+        -648.06,
+        -6350.0,
+        -521.861
+      ]
+    },
+    {
+      "step": 185,
+      "score": 5,
+      "return": 500.6,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 186,
+      "score": 5,
+      "return": 500.49,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "danger",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -171.121,
+        -893.222,
+        -6350.0
+      ]
+    },
+    {
+      "step": 187,
+      "score": 5,
+      "return": 500.38,
+      "reward": -0.11,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 188,
+      "score": 5,
+      "return": 500.27,
+      "reward": -6350.0,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": "STRAIGHT",
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    },
+    {
+      "step": 189,
+      "score": 5,
+      "return": -5849.73,
+      "reward": null,
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "state_named": {
+        "danger_straight": "safe",
+        "danger_left": "safe",
+        "danger_right": "safe",
+        "apple_row_sign": "above",
+        "apple_col_sign": "left",
+        "heading": "right"
+      },
+      "heading": "RIGHT",
+      "action": null,
+      "q_values": [
+        -145.642,
+        -301.2,
+        -258.712
+      ]
+    }
+  ]
+}

@@ -1,9 +1,12 @@
 {
-  "trained_at": "2026-10-26T19:35:32",
+  "trained_at": "2026-11-03T08:00:59",
+  "training_started_at": "2026-11-03T07:58:46",
+  "training_duration_seconds": 133.2,
+  "command": "python train.py --size 8 --episodes 400000 --alpha 0.1 --gamma 0.95 --eps-start 1.0 --eps-end 0.01 --eps-decay-frac 0.6 --seed 0 --log log.csv --out q_table.pkl --features all --rewards apple,death,step,closer",
   "q_file": "q_table.pkl",
   "log_file": "log.csv",
   "board_size": 8,
-  "episodes": 20000,
+  "episodes": 400000,
   "alpha": 0.1,
   "gamma": 0.95,
   "epsilon": {
@@ -12,11 +15,1332 @@
     "linear_decay_fraction": 0.6
   },
   "seed": 0,
-  "final_greedy_eval_score_100_games": 18.44,
+  "state": {
+    "features": [
+      "danger_straight",
+      "danger_left",
+      "danger_right",
+      "apple_row_sign",
+      "apple_col_sign",
+      "heading",
+      "length"
+    ],
+    "shape": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      8
+    ],
+    "num_states": 2304,
+    "feature_details": {
+      "danger_straight": {
+        "n_values": 2,
+        "labels": [
+          "safe",
+          "danger"
+        ],
+        "doc": "Wall/body directly ahead?"
+      },
+      "danger_left": {
+        "n_values": 2,
+        "labels": [
+          "safe",
+          "danger"
+        ],
+        "doc": "Wall/body to the left?"
+      },
+      "danger_right": {
+        "n_values": 2,
+        "labels": [
+          "safe",
+          "danger"
+        ],
+        "doc": "Wall/body to the right?"
+      },
+      "apple_row_sign": {
+        "n_values": 3,
+        "labels": [
+          "above",
+          "same_row",
+          "below"
+        ],
+        "doc": "Apple row vs head (absolute frame)."
+      },
+      "apple_col_sign": {
+        "n_values": 3,
+        "labels": [
+          "left",
+          "same_col",
+          "right"
+        ],
+        "doc": "Apple column vs head (absolute frame)."
+      },
+      "heading": {
+        "n_values": 4,
+        "labels": [
+          "up",
+          "right",
+          "down",
+          "left"
+        ],
+        "doc": "Current heading."
+      },
+      "length": {
+        "n_values": 8,
+        "labels": [
+          "perfect",
+          "micro",
+          "short",
+          "average",
+          "long",
+          "gargantuan",
+          "huge",
+          "packin"
+        ],
+        "doc": "Snake length bucket: board area split into equal slices (8x8 board -> 1-8, 9-16, ..., 57-64)."
+      }
+    }
+  },
+  "final_greedy_eval_score_100_games": 12.61,
+  "final_greedy_eval": {
+    "games": 100,
+    "mean_score": 12.61,
+    "max_score": 30,
+    "mean_steps": 189.9,
+    "end_reasons": {
+      "collision": 87,
+      "timeout": 13
+    }
+  },
+  "eval_history": [
+    {
+      "episode": 2000,
+      "epsilon": 0.9918,
+      "greedy_mean_score": 4.71,
+      "states_visited": 138
+    },
+    {
+      "episode": 4000,
+      "epsilon": 0.9835,
+      "greedy_mean_score": 4.78,
+      "states_visited": 153
+    },
+    {
+      "episode": 6000,
+      "epsilon": 0.9753,
+      "greedy_mean_score": 5.42,
+      "states_visited": 159
+    },
+    {
+      "episode": 8000,
+      "epsilon": 0.967,
+      "greedy_mean_score": 5.14,
+      "states_visited": 164
+    },
+    {
+      "episode": 10000,
+      "epsilon": 0.9588,
+      "greedy_mean_score": 5.56,
+      "states_visited": 171
+    },
+    {
+      "episode": 12000,
+      "epsilon": 0.9505,
+      "greedy_mean_score": 5.7,
+      "states_visited": 173
+    },
+    {
+      "episode": 14000,
+      "epsilon": 0.9423,
+      "greedy_mean_score": 5.64,
+      "states_visited": 178
+    },
+    {
+      "episode": 16000,
+      "epsilon": 0.934,
+      "greedy_mean_score": 5.72,
+      "states_visited": 182
+    },
+    {
+      "episode": 18000,
+      "epsilon": 0.9258,
+      "greedy_mean_score": 5.54,
+      "states_visited": 184
+    },
+    {
+      "episode": 20000,
+      "epsilon": 0.9175,
+      "greedy_mean_score": 5.9,
+      "states_visited": 184
+    },
+    {
+      "episode": 22000,
+      "epsilon": 0.9093,
+      "greedy_mean_score": 5.89,
+      "states_visited": 185
+    },
+    {
+      "episode": 24000,
+      "epsilon": 0.901,
+      "greedy_mean_score": 5.85,
+      "states_visited": 187
+    },
+    {
+      "episode": 26000,
+      "epsilon": 0.8928,
+      "greedy_mean_score": 5.79,
+      "states_visited": 187
+    },
+    {
+      "episode": 28000,
+      "epsilon": 0.8845,
+      "greedy_mean_score": 5.87,
+      "states_visited": 189
+    },
+    {
+      "episode": 30000,
+      "epsilon": 0.8763,
+      "greedy_mean_score": 5.93,
+      "states_visited": 190
+    },
+    {
+      "episode": 32000,
+      "epsilon": 0.868,
+      "greedy_mean_score": 5.94,
+      "states_visited": 191
+    },
+    {
+      "episode": 34000,
+      "epsilon": 0.8598,
+      "greedy_mean_score": 5.92,
+      "states_visited": 193
+    },
+    {
+      "episode": 36000,
+      "epsilon": 0.8515,
+      "greedy_mean_score": 5.95,
+      "states_visited": 195
+    },
+    {
+      "episode": 38000,
+      "epsilon": 0.8433,
+      "greedy_mean_score": 6.0,
+      "states_visited": 195
+    },
+    {
+      "episode": 40000,
+      "epsilon": 0.835,
+      "greedy_mean_score": 5.76,
+      "states_visited": 197
+    },
+    {
+      "episode": 42000,
+      "epsilon": 0.8268,
+      "greedy_mean_score": 6.06,
+      "states_visited": 198
+    },
+    {
+      "episode": 44000,
+      "epsilon": 0.8185,
+      "greedy_mean_score": 6.0,
+      "states_visited": 201
+    },
+    {
+      "episode": 46000,
+      "epsilon": 0.8103,
+      "greedy_mean_score": 5.93,
+      "states_visited": 202
+    },
+    {
+      "episode": 48000,
+      "epsilon": 0.802,
+      "greedy_mean_score": 6.02,
+      "states_visited": 203
+    },
+    {
+      "episode": 50000,
+      "epsilon": 0.7938,
+      "greedy_mean_score": 5.99,
+      "states_visited": 204
+    },
+    {
+      "episode": 52000,
+      "epsilon": 0.7855,
+      "greedy_mean_score": 5.98,
+      "states_visited": 204
+    },
+    {
+      "episode": 54000,
+      "epsilon": 0.7773,
+      "greedy_mean_score": 6.01,
+      "states_visited": 207
+    },
+    {
+      "episode": 56000,
+      "epsilon": 0.769,
+      "greedy_mean_score": 5.97,
+      "states_visited": 207
+    },
+    {
+      "episode": 58000,
+      "epsilon": 0.7608,
+      "greedy_mean_score": 6.05,
+      "states_visited": 209
+    },
+    {
+      "episode": 60000,
+      "epsilon": 0.7525,
+      "greedy_mean_score": 5.99,
+      "states_visited": 214
+    },
+    {
+      "episode": 62000,
+      "epsilon": 0.7443,
+      "greedy_mean_score": 6.01,
+      "states_visited": 216
+    },
+    {
+      "episode": 64000,
+      "epsilon": 0.736,
+      "greedy_mean_score": 6.0,
+      "states_visited": 229
+    },
+    {
+      "episode": 66000,
+      "epsilon": 0.7278,
+      "greedy_mean_score": 6.07,
+      "states_visited": 230
+    },
+    {
+      "episode": 68000,
+      "epsilon": 0.7195,
+      "greedy_mean_score": 6.14,
+      "states_visited": 233
+    },
+    {
+      "episode": 70000,
+      "epsilon": 0.7113,
+      "greedy_mean_score": 6.18,
+      "states_visited": 239
+    },
+    {
+      "episode": 72000,
+      "epsilon": 0.703,
+      "greedy_mean_score": 6.05,
+      "states_visited": 248
+    },
+    {
+      "episode": 74000,
+      "epsilon": 0.6948,
+      "greedy_mean_score": 6.12,
+      "states_visited": 254
+    },
+    {
+      "episode": 76000,
+      "epsilon": 0.6865,
+      "greedy_mean_score": 5.17,
+      "states_visited": 256
+    },
+    {
+      "episode": 78000,
+      "epsilon": 0.6783,
+      "greedy_mean_score": 5.97,
+      "states_visited": 262
+    },
+    {
+      "episode": 80000,
+      "epsilon": 0.67,
+      "greedy_mean_score": 5.96,
+      "states_visited": 268
+    },
+    {
+      "episode": 82000,
+      "epsilon": 0.6618,
+      "greedy_mean_score": 6.28,
+      "states_visited": 278
+    },
+    {
+      "episode": 84000,
+      "epsilon": 0.6535,
+      "greedy_mean_score": 6.42,
+      "states_visited": 282
+    },
+    {
+      "episode": 86000,
+      "epsilon": 0.6453,
+      "greedy_mean_score": 6.02,
+      "states_visited": 287
+    },
+    {
+      "episode": 88000,
+      "epsilon": 0.637,
+      "greedy_mean_score": 6.54,
+      "states_visited": 294
+    },
+    {
+      "episode": 90000,
+      "epsilon": 0.6288,
+      "greedy_mean_score": 5.91,
+      "states_visited": 297
+    },
+    {
+      "episode": 92000,
+      "epsilon": 0.6205,
+      "greedy_mean_score": 6.98,
+      "states_visited": 321
+    },
+    {
+      "episode": 94000,
+      "epsilon": 0.6123,
+      "greedy_mean_score": 7.35,
+      "states_visited": 333
+    },
+    {
+      "episode": 96000,
+      "epsilon": 0.604,
+      "greedy_mean_score": 7.53,
+      "states_visited": 338
+    },
+    {
+      "episode": 98000,
+      "epsilon": 0.5958,
+      "greedy_mean_score": 7.25,
+      "states_visited": 344
+    },
+    {
+      "episode": 100000,
+      "epsilon": 0.5875,
+      "greedy_mean_score": 6.85,
+      "states_visited": 354
+    },
+    {
+      "episode": 102000,
+      "epsilon": 0.5793,
+      "greedy_mean_score": 6.36,
+      "states_visited": 363
+    },
+    {
+      "episode": 104000,
+      "epsilon": 0.571,
+      "greedy_mean_score": 7.33,
+      "states_visited": 365
+    },
+    {
+      "episode": 106000,
+      "epsilon": 0.5628,
+      "greedy_mean_score": 7.54,
+      "states_visited": 372
+    },
+    {
+      "episode": 108000,
+      "epsilon": 0.5545,
+      "greedy_mean_score": 7.38,
+      "states_visited": 382
+    },
+    {
+      "episode": 110000,
+      "epsilon": 0.5463,
+      "greedy_mean_score": 8.51,
+      "states_visited": 394
+    },
+    {
+      "episode": 112000,
+      "epsilon": 0.538,
+      "greedy_mean_score": 8.99,
+      "states_visited": 397
+    },
+    {
+      "episode": 114000,
+      "epsilon": 0.5298,
+      "greedy_mean_score": 8.0,
+      "states_visited": 405
+    },
+    {
+      "episode": 116000,
+      "epsilon": 0.5215,
+      "greedy_mean_score": 7.79,
+      "states_visited": 416
+    },
+    {
+      "episode": 118000,
+      "epsilon": 0.5133,
+      "greedy_mean_score": 9.96,
+      "states_visited": 431
+    },
+    {
+      "episode": 120000,
+      "epsilon": 0.505,
+      "greedy_mean_score": 9.81,
+      "states_visited": 440
+    },
+    {
+      "episode": 122000,
+      "epsilon": 0.4968,
+      "greedy_mean_score": 10.7,
+      "states_visited": 442
+    },
+    {
+      "episode": 124000,
+      "epsilon": 0.4885,
+      "greedy_mean_score": 11.26,
+      "states_visited": 446
+    },
+    {
+      "episode": 126000,
+      "epsilon": 0.4803,
+      "greedy_mean_score": 10.87,
+      "states_visited": 449
+    },
+    {
+      "episode": 128000,
+      "epsilon": 0.472,
+      "greedy_mean_score": 11.6,
+      "states_visited": 452
+    },
+    {
+      "episode": 130000,
+      "epsilon": 0.4638,
+      "greedy_mean_score": 11.42,
+      "states_visited": 457
+    },
+    {
+      "episode": 132000,
+      "epsilon": 0.4555,
+      "greedy_mean_score": 11.45,
+      "states_visited": 460
+    },
+    {
+      "episode": 134000,
+      "epsilon": 0.4473,
+      "greedy_mean_score": 11.73,
+      "states_visited": 465
+    },
+    {
+      "episode": 136000,
+      "epsilon": 0.439,
+      "greedy_mean_score": 11.64,
+      "states_visited": 470
+    },
+    {
+      "episode": 138000,
+      "epsilon": 0.4308,
+      "greedy_mean_score": 9.7,
+      "states_visited": 474
+    },
+    {
+      "episode": 140000,
+      "epsilon": 0.4225,
+      "greedy_mean_score": 12.34,
+      "states_visited": 479
+    },
+    {
+      "episode": 142000,
+      "epsilon": 0.4143,
+      "greedy_mean_score": 12.14,
+      "states_visited": 480
+    },
+    {
+      "episode": 144000,
+      "epsilon": 0.406,
+      "greedy_mean_score": 12.24,
+      "states_visited": 483
+    },
+    {
+      "episode": 146000,
+      "epsilon": 0.3978,
+      "greedy_mean_score": 12.28,
+      "states_visited": 485
+    },
+    {
+      "episode": 148000,
+      "epsilon": 0.3895,
+      "greedy_mean_score": 11.76,
+      "states_visited": 486
+    },
+    {
+      "episode": 150000,
+      "epsilon": 0.3813,
+      "greedy_mean_score": 12.61,
+      "states_visited": 489
+    },
+    {
+      "episode": 152000,
+      "epsilon": 0.373,
+      "greedy_mean_score": 11.83,
+      "states_visited": 489
+    },
+    {
+      "episode": 154000,
+      "epsilon": 0.3648,
+      "greedy_mean_score": 11.11,
+      "states_visited": 496
+    },
+    {
+      "episode": 156000,
+      "epsilon": 0.3565,
+      "greedy_mean_score": 12.42,
+      "states_visited": 500
+    },
+    {
+      "episode": 158000,
+      "epsilon": 0.3483,
+      "greedy_mean_score": 7.11,
+      "states_visited": 501
+    },
+    {
+      "episode": 160000,
+      "epsilon": 0.34,
+      "greedy_mean_score": 10.27,
+      "states_visited": 503
+    },
+    {
+      "episode": 162000,
+      "epsilon": 0.3318,
+      "greedy_mean_score": 12.6,
+      "states_visited": 506
+    },
+    {
+      "episode": 164000,
+      "epsilon": 0.3235,
+      "greedy_mean_score": 12.4,
+      "states_visited": 508
+    },
+    {
+      "episode": 166000,
+      "epsilon": 0.3153,
+      "greedy_mean_score": 12.78,
+      "states_visited": 513
+    },
+    {
+      "episode": 168000,
+      "epsilon": 0.307,
+      "greedy_mean_score": 8.41,
+      "states_visited": 514
+    },
+    {
+      "episode": 170000,
+      "epsilon": 0.2988,
+      "greedy_mean_score": 10.32,
+      "states_visited": 521
+    },
+    {
+      "episode": 172000,
+      "epsilon": 0.2905,
+      "greedy_mean_score": 10.25,
+      "states_visited": 521
+    },
+    {
+      "episode": 174000,
+      "epsilon": 0.2823,
+      "greedy_mean_score": 12.12,
+      "states_visited": 527
+    },
+    {
+      "episode": 176000,
+      "epsilon": 0.274,
+      "greedy_mean_score": 11.58,
+      "states_visited": 530
+    },
+    {
+      "episode": 178000,
+      "epsilon": 0.2658,
+      "greedy_mean_score": 8.95,
+      "states_visited": 530
+    },
+    {
+      "episode": 180000,
+      "epsilon": 0.2575,
+      "greedy_mean_score": 12.04,
+      "states_visited": 530
+    },
+    {
+      "episode": 182000,
+      "epsilon": 0.2493,
+      "greedy_mean_score": 3.97,
+      "states_visited": 531
+    },
+    {
+      "episode": 184000,
+      "epsilon": 0.241,
+      "greedy_mean_score": 13.61,
+      "states_visited": 531
+    },
+    {
+      "episode": 186000,
+      "epsilon": 0.2328,
+      "greedy_mean_score": 12.74,
+      "states_visited": 542
+    },
+    {
+      "episode": 188000,
+      "epsilon": 0.2245,
+      "greedy_mean_score": 11.12,
+      "states_visited": 554
+    },
+    {
+      "episode": 190000,
+      "epsilon": 0.2163,
+      "greedy_mean_score": 8.75,
+      "states_visited": 566
+    },
+    {
+      "episode": 192000,
+      "epsilon": 0.208,
+      "greedy_mean_score": 10.88,
+      "states_visited": 579
+    },
+    {
+      "episode": 194000,
+      "epsilon": 0.1998,
+      "greedy_mean_score": 12.58,
+      "states_visited": 594
+    },
+    {
+      "episode": 196000,
+      "epsilon": 0.1915,
+      "greedy_mean_score": 9.03,
+      "states_visited": 598
+    },
+    {
+      "episode": 198000,
+      "epsilon": 0.1833,
+      "greedy_mean_score": 10.63,
+      "states_visited": 601
+    },
+    {
+      "episode": 200000,
+      "epsilon": 0.175,
+      "greedy_mean_score": 4.45,
+      "states_visited": 605
+    },
+    {
+      "episode": 202000,
+      "epsilon": 0.1668,
+      "greedy_mean_score": 12.07,
+      "states_visited": 608
+    },
+    {
+      "episode": 204000,
+      "epsilon": 0.1585,
+      "greedy_mean_score": 14.01,
+      "states_visited": 620
+    },
+    {
+      "episode": 206000,
+      "epsilon": 0.1503,
+      "greedy_mean_score": 11.46,
+      "states_visited": 622
+    },
+    {
+      "episode": 208000,
+      "epsilon": 0.142,
+      "greedy_mean_score": 9.98,
+      "states_visited": 622
+    },
+    {
+      "episode": 210000,
+      "epsilon": 0.1338,
+      "greedy_mean_score": 11.45,
+      "states_visited": 627
+    },
+    {
+      "episode": 212000,
+      "epsilon": 0.1255,
+      "greedy_mean_score": 11.8,
+      "states_visited": 640
+    },
+    {
+      "episode": 214000,
+      "epsilon": 0.1173,
+      "greedy_mean_score": 12.71,
+      "states_visited": 654
+    },
+    {
+      "episode": 216000,
+      "epsilon": 0.109,
+      "greedy_mean_score": 7.77,
+      "states_visited": 659
+    },
+    {
+      "episode": 218000,
+      "epsilon": 0.1008,
+      "greedy_mean_score": 11.96,
+      "states_visited": 668
+    },
+    {
+      "episode": 220000,
+      "epsilon": 0.0925,
+      "greedy_mean_score": 12.86,
+      "states_visited": 678
+    },
+    {
+      "episode": 222000,
+      "epsilon": 0.0843,
+      "greedy_mean_score": 4.27,
+      "states_visited": 694
+    },
+    {
+      "episode": 224000,
+      "epsilon": 0.076,
+      "greedy_mean_score": 2.86,
+      "states_visited": 716
+    },
+    {
+      "episode": 226000,
+      "epsilon": 0.0678,
+      "greedy_mean_score": 14.69,
+      "states_visited": 744
+    },
+    {
+      "episode": 228000,
+      "epsilon": 0.0595,
+      "greedy_mean_score": 17.24,
+      "states_visited": 787
+    },
+    {
+      "episode": 230000,
+      "epsilon": 0.0513,
+      "greedy_mean_score": 15.86,
+      "states_visited": 792
+    },
+    {
+      "episode": 232000,
+      "epsilon": 0.043,
+      "greedy_mean_score": 10.7,
+      "states_visited": 805
+    },
+    {
+      "episode": 234000,
+      "epsilon": 0.0348,
+      "greedy_mean_score": 16.65,
+      "states_visited": 839
+    },
+    {
+      "episode": 236000,
+      "epsilon": 0.0265,
+      "greedy_mean_score": 3.17,
+      "states_visited": 867
+    },
+    {
+      "episode": 238000,
+      "epsilon": 0.0183,
+      "greedy_mean_score": 17.11,
+      "states_visited": 902
+    },
+    {
+      "episode": 240000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.16,
+      "states_visited": 925
+    },
+    {
+      "episode": 242000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 16.33,
+      "states_visited": 946
+    },
+    {
+      "episode": 244000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 14.8,
+      "states_visited": 969
+    },
+    {
+      "episode": 246000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.88,
+      "states_visited": 975
+    },
+    {
+      "episode": 248000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 6.98,
+      "states_visited": 988
+    },
+    {
+      "episode": 250000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 15.87,
+      "states_visited": 1004
+    },
+    {
+      "episode": 252000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 7.28,
+      "states_visited": 1022
+    },
+    {
+      "episode": 254000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 18.14,
+      "states_visited": 1041
+    },
+    {
+      "episode": 256000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 14.33,
+      "states_visited": 1044
+    },
+    {
+      "episode": 258000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 18.94,
+      "states_visited": 1044
+    },
+    {
+      "episode": 260000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 14.77,
+      "states_visited": 1045
+    },
+    {
+      "episode": 262000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 19.65,
+      "states_visited": 1052
+    },
+    {
+      "episode": 264000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 14.06,
+      "states_visited": 1056
+    },
+    {
+      "episode": 266000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 19.3,
+      "states_visited": 1058
+    },
+    {
+      "episode": 268000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 20.74,
+      "states_visited": 1058
+    },
+    {
+      "episode": 270000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 15.65,
+      "states_visited": 1058
+    },
+    {
+      "episode": 272000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.06,
+      "states_visited": 1058
+    },
+    {
+      "episode": 274000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 20.02,
+      "states_visited": 1086
+    },
+    {
+      "episode": 276000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 24.86,
+      "states_visited": 1137
+    },
+    {
+      "episode": 278000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 22.8,
+      "states_visited": 1169
+    },
+    {
+      "episode": 280000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 8.91,
+      "states_visited": 1177
+    },
+    {
+      "episode": 282000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 9.01,
+      "states_visited": 1187
+    },
+    {
+      "episode": 284000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 12.11,
+      "states_visited": 1192
+    },
+    {
+      "episode": 286000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 4.65,
+      "states_visited": 1197
+    },
+    {
+      "episode": 288000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 14.72,
+      "states_visited": 1198
+    },
+    {
+      "episode": 290000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.82,
+      "states_visited": 1198
+    },
+    {
+      "episode": 292000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 16.03,
+      "states_visited": 1198
+    },
+    {
+      "episode": 294000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 10.96,
+      "states_visited": 1198
+    },
+    {
+      "episode": 296000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 9.41,
+      "states_visited": 1198
+    },
+    {
+      "episode": 298000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 8.73,
+      "states_visited": 1198
+    },
+    {
+      "episode": 300000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 11.64,
+      "states_visited": 1198
+    },
+    {
+      "episode": 302000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 17.24,
+      "states_visited": 1199
+    },
+    {
+      "episode": 304000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 10.22,
+      "states_visited": 1199
+    },
+    {
+      "episode": 306000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 16.16,
+      "states_visited": 1200
+    },
+    {
+      "episode": 308000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 15.82,
+      "states_visited": 1200
+    },
+    {
+      "episode": 310000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 11.86,
+      "states_visited": 1201
+    },
+    {
+      "episode": 312000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 10.28,
+      "states_visited": 1203
+    },
+    {
+      "episode": 314000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.43,
+      "states_visited": 1203
+    },
+    {
+      "episode": 316000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 17.07,
+      "states_visited": 1203
+    },
+    {
+      "episode": 318000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 15.93,
+      "states_visited": 1203
+    },
+    {
+      "episode": 320000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 15.36,
+      "states_visited": 1203
+    },
+    {
+      "episode": 322000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 19.13,
+      "states_visited": 1203
+    },
+    {
+      "episode": 324000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 16.36,
+      "states_visited": 1206
+    },
+    {
+      "episode": 326000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 15.56,
+      "states_visited": 1217
+    },
+    {
+      "episode": 328000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 19.3,
+      "states_visited": 1220
+    },
+    {
+      "episode": 330000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 16.54,
+      "states_visited": 1221
+    },
+    {
+      "episode": 332000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 9.29,
+      "states_visited": 1223
+    },
+    {
+      "episode": 334000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 2.83,
+      "states_visited": 1224
+    },
+    {
+      "episode": 336000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 12.69,
+      "states_visited": 1228
+    },
+    {
+      "episode": 338000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 14.61,
+      "states_visited": 1228
+    },
+    {
+      "episode": 340000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 16.3,
+      "states_visited": 1228
+    },
+    {
+      "episode": 342000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.44,
+      "states_visited": 1229
+    },
+    {
+      "episode": 344000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 18.18,
+      "states_visited": 1229
+    },
+    {
+      "episode": 346000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.98,
+      "states_visited": 1231
+    },
+    {
+      "episode": 348000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 14.15,
+      "states_visited": 1232
+    },
+    {
+      "episode": 350000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 10.39,
+      "states_visited": 1235
+    },
+    {
+      "episode": 352000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 18.69,
+      "states_visited": 1236
+    },
+    {
+      "episode": 354000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 12.35,
+      "states_visited": 1237
+    },
+    {
+      "episode": 356000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 17.86,
+      "states_visited": 1241
+    },
+    {
+      "episode": 358000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 15.66,
+      "states_visited": 1246
+    },
+    {
+      "episode": 360000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 18.01,
+      "states_visited": 1246
+    },
+    {
+      "episode": 362000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 18.5,
+      "states_visited": 1255
+    },
+    {
+      "episode": 364000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 17.83,
+      "states_visited": 1259
+    },
+    {
+      "episode": 366000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 18.09,
+      "states_visited": 1259
+    },
+    {
+      "episode": 368000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 12.29,
+      "states_visited": 1259
+    },
+    {
+      "episode": 370000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 20.09,
+      "states_visited": 1261
+    },
+    {
+      "episode": 372000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 18.9,
+      "states_visited": 1261
+    },
+    {
+      "episode": 374000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.97,
+      "states_visited": 1262
+    },
+    {
+      "episode": 376000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 10.87,
+      "states_visited": 1262
+    },
+    {
+      "episode": 378000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 4.23,
+      "states_visited": 1266
+    },
+    {
+      "episode": 380000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 10.05,
+      "states_visited": 1266
+    },
+    {
+      "episode": 382000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 17.54,
+      "states_visited": 1266
+    },
+    {
+      "episode": 384000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 14.68,
+      "states_visited": 1267
+    },
+    {
+      "episode": 386000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 20.63,
+      "states_visited": 1267
+    },
+    {
+      "episode": 388000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 21.87,
+      "states_visited": 1268
+    },
+    {
+      "episode": 390000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 15.74,
+      "states_visited": 1268
+    },
+    {
+      "episode": 392000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 10.55,
+      "states_visited": 1269
+    },
+    {
+      "episode": 394000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 22.61,
+      "states_visited": 1271
+    },
+    {
+      "episode": 396000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 11.05,
+      "states_visited": 1271
+    },
+    {
+      "episode": 398000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 12.45,
+      "states_visited": 1271
+    },
+    {
+      "episode": 400000,
+      "epsilon": 0.01,
+      "greedy_mean_score": 13.62,
+      "states_visited": 1271
+    }
+  ],
+  "state_coverage": {
+    "visited": 1271,
+    "total": 2304,
+    "fraction": 0.5516
+  },
+  "training_end_reasons": {
+    "collision": 382439,
+    "timeout": 17561
+  },
+  "training_last_1000_episodes": {
+    "mean_score": 8.509,
+    "max_score": 34
+  },
+  "training_max_score": 38,
   "rewards": {
     "apple": 100.0,
     "death": -6350.0,
     "step": -0.01,
-    "closer_or_farther": 0.1
+    "closer": 0.1
+  },
+  "reward_details": {
+    "apple": "1 when an apple is eaten (including the last one, which wins).",
+    "death": "1 on collision or timeout (too long without eating).",
+    "step": "1 on every ordinary move (no apple, no death): a small cost for wasting time.",
+    "closer": "Shaping: +1 if an ordinary move got closer to the apple, -1 if it got farther."
   }
 }
