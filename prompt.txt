@@ -1,0 +1,52 @@
+Great, so we are going to break down this problem into a few highlevel design choices.  These should cover most of our expert domain knowledge and you will be our code monkey. 
+
+Goal:
+
+Implement Deep Q-learning with a specified model architecture and state board representation. 
+
+First Architecture for the model:
+
+CNN: 
+
+Input layer: is the size of the specifed state 
+
+Well used a 3x3 kernel, stride of 1
+
+Well do the idea of doubling the numver of filters halfing dims down of image
+
+lets add residual connections
+
+RELU activation 
+
+do pooling as needed
+
+Last layer image size to be 8 and 4, lets do 2 sep models
+
+Then well flatten this, adding 3 fully connecyted layers with the last output layer being sotmax to 3.
+Game state Board representation:
+Approach 1:
+We will represent the game board as follows:
+
+Lets assume this inital 8x8 gameboard 
+
+It will be a 8x8x5 tensor
+
+unless 1 hot encoding makes sense, then do 2x8x8x5 for represting the {0,1}
+
+Each X_i is an element of {0,1}, where 0 represent no such item in our encoding.
+
+#1 The first 4 of 5 tensors will be the snakes direction. The will be encoded as follows, in the first instace it will have 1's in all the locations in which a snake is going left: what this means, a representation of a snake is that each node connects to the previous node of which all lead to the head or tail of a snake. So well do this indepedntly for each direction. So encoding all areas in which the snake is heading up, left, right, and down across all different directions. Now the last 8x8 tensor will just be the areas in which there is a apple or not, so almost 1 hot encoding for that. 
+
+#2 The second Idea is reprsenting the body of a snake, head, and apple. So it will be a 8x8x3. Same idea as above except we condense down the body taking on a 1 and not idea of where the snakes bodys direction is. 
+
+#3 Lets also do an augmented version of #2 above where we represnt the order of the body by counting, so the head will be some number and as the head increase in length, we count each body part that follows with a number to encode the path of the snake
+
+Well also have to encapsualte where the snake heading in some direction, so in the end, well need to add this idea somehwere in the model encoding. 
+
+Well want to recycle most of the current code that is possible with the game such that were adding to it not really editing whats not needed. Lets treat this an an extension not a full rewrite. 
+
+Also make sure we can watch and see the ending with some game viewer that actaully shows which weights are being activated in the output layers, just the last 2/3 layers. 
+
+Before we fire this gives us some feedback on possible refinements.
+
+Make sure to make the model plug and play and state representation.

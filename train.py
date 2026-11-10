@@ -60,8 +60,8 @@ def main():
     p.add_argument("--eps-decay-frac", type=float, default=0.6,
                    help="fraction of episodes over which epsilon decays linearly")
     p.add_argument("--seed", type=int, default=0)
-    p.add_argument("--log", default="log.csv")
-    p.add_argument("--out", default="q_table.pkl")
+    p.add_argument("--log", default=None)
+    p.add_argument("--out", default=None)
     p.add_argument("--features", default=",".join(features.DEFAULT_FEATURES),
                    help="comma-separated state features from features.py (order = state tuple order), or 'all'")
     p.add_argument("--list-features", action="store_true", help="print the available features and exit")
@@ -69,6 +69,8 @@ def main():
                    help="comma-separated reward terms from rewards.py, each optionally =weight "
                         "(e.g. apple=100,death=-1000,step,closer), or 'all'")
     p.add_argument("--list-rewards", action="store_true", help="print the available reward terms and exit")
+    from train_dqn import add_arguments, train as train_dqn
+    add_arguments(p)
     args = p.parse_args()
 
     if args.list_features:
@@ -80,6 +82,11 @@ def main():
             print(f"{name:20s} default weight {t['default_weight']:+g}  {t['doc']}")
         return
 
+    if args.agent == "dqn":
+        train_dqn(args)
+        return
+    args.log = args.log or "log.csv"
+    args.out = args.out or "q_table.pkl"
     names = list(features.FEATURES) if args.features == "all" else args.features.split(",")
     env = SnakeEnv(size=args.size, seed=args.seed, features=names, rewards=rewards.RewardSpec.parse(args.rewards))
     agent = QAgent(env.spec, alpha=args.alpha, gamma=args.gamma, seed=args.seed)

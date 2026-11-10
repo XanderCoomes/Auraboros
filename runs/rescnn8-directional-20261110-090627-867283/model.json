@@ -1,0 +1,109 @@
+{
+  "board_size": 8,
+  "encoder": {
+    "name": "directional",
+    "encoding": "onehot"
+  },
+  "model": {
+    "name": "rescnn8",
+    "input_shape": [
+      2,
+      8,
+      8,
+      5
+    ],
+    "context_dim": 7,
+    "base_channels": 8,
+    "hidden_dims": [
+      64,
+      32
+    ]
+  },
+  "rewards": {
+    "apple": 1.0,
+    "death": -1.0,
+    "step": -0.01,
+    "closer": 0.05
+  },
+  "reward_scale": 1.0,
+  "seed": 0,
+  "initial_length": 3,
+  "timeout_factor": 2,
+  "algorithm": "dqn",
+  "training_started_at": "2026-11-10T09:06:27.867691",
+  "q_file": "runs/rescnn8-directional-20261110-090627-867283/model.pt",
+  "log_file": "runs/rescnn8-directional-20261110-090627-867283/log.csv",
+  "episodes": 20000,
+  "state": {
+    "features": [
+      "up",
+      "right",
+      "down",
+      "left",
+      "apple"
+    ],
+    "shape": [
+      2,
+      8,
+      8,
+      5
+    ],
+    "context": [
+      "up",
+      "right",
+      "down",
+      "left",
+      "head_row",
+      "head_col",
+      "hunger"
+    ]
+  },
+  "settings": {
+    "learning_rate": 0.001,
+    "gamma": 0.95,
+    "batch_size": 64,
+    "capacity": 10000,
+    "warmup": 1000,
+    "train_every": 4,
+    "target_every": 250,
+    "reward_scale": 1.0,
+    "seed": 0
+  },
+  "epsilon": {
+    "start": 1.0,
+    "end": 0.01,
+    "linear_decay_fraction": 0.6
+  },
+  "trained_at": "2026-11-10T09:06:51.999608",
+  "completed_episodes": 1000,
+  "training_duration_seconds": 24.132378792157397,
+  "eval_history": [
+    {
+      "episode": 1000,
+      "games": 100,
+      "mean_score": 1.97,
+      "max_score": 6,
+      "mean_steps": 128.46,
+      "end_reasons": {
+        "collision": 61,
+        "timeout": 39
+      }
+    }
+  ],
+  "training_max_score": 2,
+  "training_last_1000_episodes": {
+    "mean_score": 0.204
+  },
+  "final_greedy_eval": {
+    "episode": 1000,
+    "games": 100,
+    "mean_score": 1.97,
+    "max_score": 6,
+    "mean_steps": 128.46,
+    "end_reasons": {
+      "collision": 61,
+      "timeout": 39
+    }
+  },
+  "final_greedy_eval_score_100_games": 1.97
+}

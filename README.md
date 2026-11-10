@@ -1,6 +1,11 @@
 # Auraboros
 Reinforcement Learning for Snake
 
+Deep Q-learning with board encoders, residual CNNs, and an activation replay
+viewer is documented in [DQN.md](DQN.md). Start with
+`python train.py --agent dqn --model rescnn8` after installing
+`requirements-dqn.txt`.
+
 ## Setup
 ```
 pip install numpy matplotlib pillow
