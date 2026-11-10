@@ -51,6 +51,7 @@ class QAgent:
     def load(self, path):
         with open(path, "rb") as f:
             q = pickle.load(f)
-        if q.shape[0] != int(np.prod(self.shape)):
-            raise ValueError(f"Q-table has {q.shape[0]} states but the feature set needs {int(np.prod(self.shape))}")
+        expected = (int(np.prod(self.shape)), N_ACTIONS)
+        if q.shape != expected:
+            raise ValueError(f"Q-table has shape {q.shape} but the feature set/actions need {expected}")
         self.q = q

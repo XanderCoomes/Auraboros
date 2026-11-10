@@ -26,7 +26,7 @@ from feature_library.length_bucket import BUCKET_THRESHOLDS, LengthBucket, lengt
 from plot import moving_avg
 from q_tabular import QAgent
 from snake_env import SnakeEnv
-from train import run_episode
+from rollout import run_episode
 
 BUCKETS = [b.name for b in LengthBucket]
 REASONS = ["collision", "timeout", "win"]

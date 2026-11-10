@@ -1,9 +1,18 @@
 # Auraboros
 Reinforcement Learning for Snake
 
+The root-level scripts implement the tabular baseline. The separate
+[approx/ implementation](approx/README.md) provides linear approximate Q-learning
+with continuous action features, configurable rewards, and saved-weight evaluation.
+Its settings, rewards, features and agent are together in [approx/snake.py](approx/snake.py).
+
 ## Setup
 ```
 pip install numpy matplotlib pillow
+```
+For the optional live viewer, also install Pygame in the same Python environment:
+```
+python -m pip install pygame
 ```
 
 ## Train
@@ -16,6 +25,42 @@ Outputs (in the current folder):
 - `log.csv` - per-episode epsilon, score, steps, return, max_length, final_bucket (bucket where the game ended)
 - `q_table.pkl` - the learned Q-table
 - `q_table.json` - the training config used (including the feature set)
+
+### Watch training and evaluation live
+```
+# Watch training moves and its periodic/final greedy evaluation games
+python train.py --size 8 --episodes 20000 --visual --fps 30
+
+# Train at full speed between evaluations; watch only the evaluation games
+python train.py --size 8 --episodes 20000 --visual-eval --eval-every 2000 --eval-games 10
+
+# Sample training episodes rather than animating all 20,000
+python train.py --size 8 --episodes 20000 --visual --visual-every 100 --fps 60
+```
+The Pygame window shows the board, episode/game, score, length, steps, epsilon, rewards,
+features, and recent scores. **Space** pauses/resumes; **Up/Down** changes playback speed;
+**Escape** or closing the window stops the run. Stopping training saves the current Q-table,
+logs completed episodes, and marks the config as interrupted (a partial episode may have learned
+before you stopped). Ctrl+C also saves progress.
+
+`--visual` slows displayed games to `--fps` steps per second (default 30, range 1..240).
+`--visual-eval` keeps a periodically refreshed training preview between animated evaluations.
+Without either flag, no Pygame dependency or window is needed. `--eval-every 0` disables periodic
+evaluations; a final evaluation still runs. Evaluation uses a separate environment and preserves
+the agent's random-generator state, so evaluation checks do not alter subsequent training.
+
+## Evaluate a saved agent (no training)
+```
+# Watch the saved agent play greedily, with learning disabled
+python eval.py --q q_table.pkl --games 10 --visual --fps 15
+
+# Get evaluation statistics without graphics
+python eval.py --q q_bucket.pkl --games 100 --seed 1000
+```
+`eval.py` reads the board size and feature set from the matching `.json`, loads the `.pkl`,
+and reports mean/max apples over the requested games. It does not write models or training logs.
+If the JSON is missing, supply both `--size 8` and `--features danger,apple_dir,heading` explicitly.
+Overrides that disagree with saved size/features are rejected.
 
 ## Running with different features
 The state the agent sees is made of pluggable discrete features. Pick them with `--features`
