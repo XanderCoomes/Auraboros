@@ -14,6 +14,7 @@ state-space shape / size and the flattening into a Q-table row automatically.
 """
 import numpy as np
 
+
 # name -> Feature; filled by the @feature decorator below
 FEATURES = {}
 

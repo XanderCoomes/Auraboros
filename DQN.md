@@ -37,6 +37,8 @@ For an 8×8 board the default convolutional path is
     -> fully connected 3, raw Q-values
 ```
 
+XC: Consider deeper/different architecture?
+
 `rescnn4` and `rescnn8` choose the number of learned values before the fully
 connected layers. Spatial convolutions use 3×3 kernels, stride 1, and padding 1.
 Each residual block has two convolutions and a skip connection. A 1×1 skip
