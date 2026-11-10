@@ -1,0 +1,157 @@
+{
+  "args": {
+    "size": 8,
+    "episodes": 20000,
+    "seeds": 10,
+    "max_steps": 2000,
+    "features": "danger,apple_dir,heading",
+    "eval_trials": 100,
+    "workers": 16
+  },
+  "results": {
+    "baseline": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -0.01,
+        "r_closer": 0.1,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 6.486550493253441,
+      "apples_per_100_steps_std": 2.254033244239776,
+      "mean_apples_mean": 13.934999999999999,
+      "mean_apples_std": 4.756585434952262
+    },
+    "r_apple=10": {
+      "rewards": {
+        "r_apple": 10.0,
+        "r_step": -0.01,
+        "r_closer": 0.1,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 5.895153791573662,
+      "apples_per_100_steps_std": 1.8705607561070783,
+      "mean_apples_mean": 13.823999999999998,
+      "mean_apples_std": 5.931603830331221
+    },
+    "r_apple=1000": {
+      "rewards": {
+        "r_apple": 1000.0,
+        "r_step": -0.01,
+        "r_closer": 0.1,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 13.258152082600835,
+      "apples_per_100_steps_std": 1.2439012610647873,
+      "mean_apples_mean": 15.082999999999998,
+      "mean_apples_std": 0.9947869118560011
+    },
+    "r_step=0": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": 0.0,
+        "r_closer": 0.1,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 7.274769611965111,
+      "apples_per_100_steps_std": 1.6469961869126208,
+      "mean_apples_mean": 16.344,
+      "mean_apples_std": 6.291252975361903
+    },
+    "r_step=-0.1": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -0.1,
+        "r_closer": 0.1,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 6.813444916352916,
+      "apples_per_100_steps_std": 1.596702222106122,
+      "mean_apples_mean": 13.607999999999999,
+      "mean_apples_std": 3.787336267087991
+    },
+    "r_step=-1": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -1.0,
+        "r_closer": 0.1,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 6.170348180042008,
+      "apples_per_100_steps_std": 1.9903931791383749,
+      "mean_apples_mean": 11.776,
+      "mean_apples_std": 3.7017811928853925
+    },
+    "r_closer=0": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -0.01,
+        "r_closer": 0.0,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 7.124039562612815,
+      "apples_per_100_steps_std": 2.2188084469021176,
+      "mean_apples_mean": 14.223000000000003,
+      "mean_apples_std": 5.489491870838321
+    },
+    "r_closer=1": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -0.01,
+        "r_closer": 1.0,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 8.128097924520679,
+      "apples_per_100_steps_std": 1.417923055748027,
+      "mean_apples_mean": 18.630000000000003,
+      "mean_apples_std": 2.2832257882215674
+    },
+    "r_closer=5": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -0.01,
+        "r_closer": 5.0,
+        "r_death": -6350.0
+      },
+      "apples_per_100_steps_mean": 7.415472586672462,
+      "apples_per_100_steps_std": 1.7334693459251889,
+      "mean_apples_mean": 16.804,
+      "mean_apples_std": 6.465862974112581
+    },
+    "r_death=-10": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -0.01,
+        "r_closer": 0.1,
+        "r_death": -10.0
+      },
+      "apples_per_100_steps_mean": 15.316254315186782,
+      "apples_per_100_steps_std": 0.3452357469728976,
+      "mean_apples_mean": 15.808000000000002,
+      "mean_apples_std": 0.6347408920181524
+    },
+    "r_death=-100": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -0.01,
+        "r_closer": 0.1,
+        "r_death": -100.0
+      },
+      "apples_per_100_steps_mean": 15.230287854267653,
+      "apples_per_100_steps_std": 0.28874658192454933,
+      "mean_apples_mean": 15.588,
+      "mean_apples_std": 0.45509998901340387
+    },
+    "r_death=-1000": {
+      "rewards": {
+        "r_apple": 100.0,
+        "r_step": -0.01,
+        "r_closer": 0.1,
+        "r_death": -1000.0
+      },
+      "apples_per_100_steps_mean": 11.467291259618099,
+      "apples_per_100_steps_std": 1.4204353446601221,
+      "mean_apples_mean": 16.058,
+      "mean_apples_std": 1.9094229494797637
+    }
+  }
+}

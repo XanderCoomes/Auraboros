@@ -47,6 +47,11 @@ def main():
     p.add_argument("--eps-decay-frac", type=float, default=0.6,
                    help="fraction of episodes over which epsilon decays linearly")
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--r-apple", type=float, default=snake_env.R_APPLE)
+    p.add_argument("--r-death", type=float, default=snake_env.R_DEATH)
+    p.add_argument("--r-step", type=float, default=snake_env.R_STEP)
+    p.add_argument("--r-closer", type=float, default=snake_env.R_CLOSER)
+    p.add_argument("--max-steps", type=int, default=2000, help="hard step cap per game (train and eval)")
     p.add_argument("--features", default=",".join(feat.DEFAULT_FEATURES),
                    help=f"comma-separated state features, available: {','.join(feat.REGISTRY)}")
     p.add_argument("--log", default="log.csv")
@@ -55,7 +60,8 @@ def main():
 
     fs = make_feature_set(args.features)
     print(f"features: {fs} ({fs.n_states} states)")
-    env = SnakeEnv(size=args.size, seed=args.seed, features=fs)
+    env = SnakeEnv(size=args.size, seed=args.seed, features=fs, max_steps=args.max_steps,
+                   r_apple=args.r_apple, r_death=args.r_death, r_step=args.r_step, r_closer=args.r_closer)
     agent = QAgent(fs.shape, alpha=args.alpha, gamma=args.gamma, seed=args.seed)
     decay_eps = max(1, int(args.episodes * args.eps_decay_frac))
 
@@ -87,13 +93,14 @@ def main():
         "epsilon": {"start": args.eps_start, "end": args.eps_end,
                     "linear_decay_fraction": args.eps_decay_frac},
         "seed": args.seed,
+        "max_steps": args.max_steps,
         "features": fs.names,
         "feature_details": fs.describe(),
         "n_states": fs.n_states,
         "bucket_thresholds_fraction_of_board": BUCKET_THRESHOLDS,
         "final_greedy_eval_score_100_games": final,
-        "rewards": {"apple": snake_env.R_APPLE, "death": snake_env.R_DEATH,
-                    "step": snake_env.R_STEP, "closer_or_farther": snake_env.R_CLOSER},
+        "rewards": {"apple": args.r_apple, "death": args.r_death,
+                    "step": args.r_step, "closer_or_farther": args.r_closer},
     }
     with open(args.out.rsplit(".", 1)[0] + ".json", "w") as f:
         json.dump(config, f, indent=2)

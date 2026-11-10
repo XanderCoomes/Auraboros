@@ -1,0 +1,51 @@
+{
+  "trained_at": "2026-11-10T13:44:33",
+  "q_file": "q_space.pkl",
+  "log_file": "log_space.csv",
+  "board_size": 8,
+  "episodes": 20000,
+  "alpha": 0.1,
+  "gamma": 0.95,
+  "epsilon": {
+    "start": 1.0,
+    "end": 0.01,
+    "linear_decay_fraction": 0.6
+  },
+  "seed": 0,
+  "max_steps": 2000,
+  "features": [
+    "space",
+    "apple_dir",
+    "heading"
+  ],
+  "feature_details": [
+    {
+      "name": "space",
+      "cardinality": 27,
+      "meaning": "room per direction (straight*9 + left*3 + right), each 0 blocked / 1 tight (reachable < length) / 2 roomy; replaces danger"
+    },
+    {
+      "name": "apple_dir",
+      "cardinality": 9,
+      "meaning": "apple relative to head: rowSign*3 + colSign (row: 0 above/1 same/2 below; col: 0 left/1 same/2 right)"
+    },
+    {
+      "name": "heading",
+      "cardinality": 4,
+      "meaning": "current heading (0 up, 1 right, 2 down, 3 left)"
+    }
+  ],
+  "n_states": 972,
+  "bucket_thresholds_fraction_of_board": [
+    0.1,
+    0.25,
+    0.5
+  ],
+  "final_greedy_eval_score_100_games": 25.04,
+  "rewards": {
+    "apple": 100.0,
+    "death": -100.0,
+    "step": -0.01,
+    "closer_or_farther": 0.1
+  }
+}

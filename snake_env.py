@@ -22,11 +22,14 @@ R_CLOSER = 0.1   # shaping: moved closer to / farther from the apple
 
 
 class SnakeEnv:
-    def __init__(self, size=15, seed=None, init_length=3, timeout_factor=2, features=None):
+    def __init__(self, size=15, seed=None, init_length=3, timeout_factor=2, features=None, max_steps=2000,
+                 r_apple=R_APPLE, r_death=R_DEATH, r_step=R_STEP, r_closer=R_CLOSER):
         self.size = size
         self.features = features if features is not None else make_feature_set()  # which state features to use
         self.init_length = init_length
         self.timeout = timeout_factor * size * size  # max steps without eating
+        self.r_apple, self.r_death, self.r_step, self.r_closer = r_apple, r_death, r_step, r_closer  # reward values
+        self.max_steps = max_steps  # hard cap on total steps per game (None = no cap)
         self.rng = random.Random(seed)
         self.reset()
 
@@ -69,18 +72,18 @@ class SnakeEnv:
         tail = self.snake[-1]
         if not self._in_bounds(head) or (head in self.body and (head != tail or eating)):
             self.done = True
-            return self.get_state(), R_DEATH, True, self._info(reason="collision")
+            return self.get_state(), self.r_death, True, self._info(reason="collision")
 
-        # Reward: small step penalty by default; +R_APPLE if eating (below);
-        # +/-R_CLOSER shaping for moving toward / away from the apple; R_DEATH on collision or timeout
-        reward = R_STEP
+        # Reward: small step penalty by default; +self.r_apple if eating (below);
+        # +/-self.r_closer shaping for moving toward / away from the apple; self.r_death on collision or timeout
+        reward = self.r_step
         prev_dist = self._dist_to_apple(old_head)
         self.snake.appendleft(head)
         self.body.add(head)
 
         if eating:
             self.score += 1
-            reward = R_APPLE
+            reward = self.r_apple
             self.steps_since_apple = 0
             self._place_apple()
             if self.apple is None:  # board full -> win
@@ -89,11 +92,15 @@ class SnakeEnv:
         else:
             self.body.discard(self.snake.pop())
             self.body.add(head)  # head may equal the freed tail cell
-            reward += R_CLOSER if self._dist_to_apple(head) < prev_dist else -R_CLOSER
+            reward += self.r_closer if self._dist_to_apple(head) < prev_dist else -self.r_closer
 
         if self.steps_since_apple > self.timeout:
             self.done = True
-            return self.get_state(), R_DEATH, True, self._info(reason="timeout")
+            return self.get_state(), self.r_death, True, self._info(reason="timeout")
+        if self.max_steps is not None and self.steps >= self.max_steps:
+            # Step cap reached while alive: end the game without a death penalty
+            self.done = True
+            return self.get_state(), reward, True, self._info(reason="max_steps")
         return self.get_state(), reward, False, self._info()
 
     def _info(self, **extra):

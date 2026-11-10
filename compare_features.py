@@ -29,7 +29,7 @@ from snake_env import SnakeEnv
 from train import run_episode
 
 BUCKETS = [b.name for b in LengthBucket]
-REASONS = ["collision", "timeout", "win"]
+REASONS = ["collision", "timeout", "win", "max_steps"]
 COLORS = ["#4c78a8", "#f58518", "#54a24b", "#b279a2", "#e45756", "#72b7b2"]
 
 
@@ -64,7 +64,7 @@ def eval_buckets(agent, size, fs, n_games, seed=1000):
             reached[b] += 1
         reason = info["reason"]
         reasons[reason] += 1
-        if reason != "win":  # collision / timeout count as a death in the bucket where the game ended
+        if reason not in ("win", "max_steps"):  # collision / timeout count as a death in the bucket where the game ended
             deaths[info["bucket"]] += 1
         reasons_by_bucket[BUCKETS[info["bucket"]]][reason] += 1
         scores.append(info["score"])
