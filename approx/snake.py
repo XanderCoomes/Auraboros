@@ -6,8 +6,6 @@ From the project root:
     python -m approx.snake eval --model approx/runs/first --games 100
     python -m approx.snake eval --model approx/runs/first --games 1 --visual
 
-The tabular baseline is separate. This file reuses its Snake physics and the
-shared Pygame viewer. The previous approx.train / approx.eval commands also work.
 """
 import argparse
 from collections import Counter, deque
@@ -43,12 +41,12 @@ EPSILON = 0.2                  # Initial chance of choosing a random action.
 EPSILON_END = 0.01             # Set to EPSILON for constant exploration.
 EPSILON_DECAY_FRAC = 0.6       # Decay linearly over the first 60% of training.
 
-LIVING_REWARD = 0.0            # reward just for surviving.
+LIVING_REWARD = -0.2           # reward just for surviving.
 APPLE_REWARD = 100.0           # reward when the snake eats an apple.
 WALL_DEATH_REWARD = -6350.0    # penalize wall collision.
 BODY_DEATH_REWARD = -6350.0    # penalize running into body.
 TIMEOUT_REWARD = -6350.0       # penalize taking too long to eat.
-DISTANCE_SHAPING = 0.0         # Optional potential-based distance reward; off.
+DISTANCE_SHAPING = 0.0         # Optional potential-based distance reward
 
 
 ##################
@@ -271,11 +269,6 @@ class ApproxQAgent:
         # this feature is 0 if the tail is unreachable (bool from above), and scales with the length
         # model learns to maintain tail access as it grows
         features["length_x_tail"] = length * tail
-
-        # Historical version-2 models need this 12th feature to reproduce their
-        # learned policy. New version-1 training excludes it entirely.
-        if "apple_reachable" in self.feature_names:
-            features["apple_reachable"] = apple_reachable
         return features
 
     def getFeatureMatrix(self, state):

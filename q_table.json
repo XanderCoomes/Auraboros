@@ -1,9 +1,11 @@
 {
-  "trained_at": "2026-11-03T16:52:57",
+  "trained_at": "2026-11-10T13:39:52",
   "q_file": "q_table.pkl",
   "log_file": "log.csv",
   "board_size": 8,
   "episodes": 20000,
+  "requested_episodes": 20000,
+  "interrupted": false,
   "alpha": 0.1,
   "gamma": 0.95,
   "epsilon": {
@@ -40,11 +42,16 @@
     0.25,
     0.5
   ],
-  "final_greedy_eval_score_100_games": 18.44,
+  "evaluation": {
+    "games": 100,
+    "seed": 1000,
+    "mean_score": 19.06
+  },
   "rewards": {
     "apple": 100.0,
     "death": -6350.0,
     "step": -0.01,
     "closer_or_farther": 0.1
-  }
+  },
+  "final_greedy_eval_score_100_games": 19.06
 }

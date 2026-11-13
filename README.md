@@ -6,6 +6,9 @@ The root-level scripts implement the tabular baseline. The separate
 with continuous action features, configurable rewards, and saved-weight evaluation.
 Its settings, rewards, features and agent are together in [approx/snake.py](approx/snake.py).
 
+The separate [deepq/ implementation](deepq/README.md) uses a neural network,
+ordered-board inputs, replay memory and a target network for deep Q-learning.
+
 ## Setup
 ```
 pip install numpy matplotlib pillow
