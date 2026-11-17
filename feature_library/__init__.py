@@ -12,9 +12,10 @@ from .danger import DangerFeature
 from .heading import HeadingFeature
 from .length_bucket import LengthBucketFeature
 from .space import SpaceFeature
+from .tail import TailFeature
 
 # The order here fixes the order of the state tuple (and Q-table layout) for make_feature_set().
-REGISTRY = {cls.name: cls for cls in (DangerFeature, SpaceFeature, AppleDirFeature, HeadingFeature, LengthBucketFeature)}
+REGISTRY = {cls.name: cls for cls in (DangerFeature, SpaceFeature, AppleDirFeature, HeadingFeature, LengthBucketFeature, TailFeature)}
 
 DEFAULT_FEATURES = ("danger", "apple_dir", "heading")
 

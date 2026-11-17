@@ -1,0 +1,3988 @@
+{
+ "q_table": "test_result/tail_compare_20261117_121305/q_tables/q_danger+apple_dir+heading+tail_ep60000_seed5.pkl",
+ "features": [
+  "danger",
+  "apple_dir",
+  "heading",
+  "tail"
+ ],
+ "board_size": 8,
+ "play_seed": 1,
+ "max_steps": 2000,
+ "final_score": 49,
+ "total_steps": 793,
+ "end_reason": "timeout",
+ "frames": 794,
+ "per_step_log": [
+  {
+   "step": 0,
+   "score": 0,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 1,
+   "score": 0,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 2,
+   "score": 0,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 3,
+   "score": 1,
+   "action": "RIGHT"
+  },
+  {
+   "step": 4,
+   "score": 1,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 5,
+   "score": 1,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 6,
+   "score": 1,
+   "action": "RIGHT"
+  },
+  {
+   "step": 7,
+   "score": 1,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 8,
+   "score": 1,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 9,
+   "score": 1,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 10,
+   "score": 1,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 11,
+   "score": 2,
+   "action": "RIGHT"
+  },
+  {
+   "step": 12,
+   "score": 2,
+   "action": "RIGHT"
+  },
+  {
+   "step": 13,
+   "score": 3,
+   "action": "LEFT"
+  },
+  {
+   "step": 14,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 15,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 16,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 17,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 18,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 19,
+   "score": 3,
+   "action": "RIGHT"
+  },
+  {
+   "step": 20,
+   "score": 3,
+   "action": "RIGHT"
+  },
+  {
+   "step": 21,
+   "score": 3,
+   "action": "LEFT"
+  },
+  {
+   "step": 22,
+   "score": 3,
+   "action": "LEFT"
+  },
+  {
+   "step": 23,
+   "score": 3,
+   "action": "RIGHT"
+  },
+  {
+   "step": 24,
+   "score": 3,
+   "action": "RIGHT"
+  },
+  {
+   "step": 25,
+   "score": 3,
+   "action": "LEFT"
+  },
+  {
+   "step": 26,
+   "score": 3,
+   "action": "RIGHT"
+  },
+  {
+   "step": 27,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 28,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 29,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 30,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 31,
+   "score": 3,
+   "action": "RIGHT"
+  },
+  {
+   "step": 32,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 33,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 34,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 35,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 36,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 37,
+   "score": 3,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 38,
+   "score": 4,
+   "action": "RIGHT"
+  },
+  {
+   "step": 39,
+   "score": 4,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 40,
+   "score": 4,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 41,
+   "score": 4,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 42,
+   "score": 4,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 43,
+   "score": 4,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 44,
+   "score": 4,
+   "action": "RIGHT"
+  },
+  {
+   "step": 45,
+   "score": 4,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 46,
+   "score": 4,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 47,
+   "score": 4,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 48,
+   "score": 5,
+   "action": "RIGHT"
+  },
+  {
+   "step": 49,
+   "score": 5,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 50,
+   "score": 5,
+   "action": "LEFT"
+  },
+  {
+   "step": 51,
+   "score": 5,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 52,
+   "score": 5,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 53,
+   "score": 6,
+   "action": "RIGHT"
+  },
+  {
+   "step": 54,
+   "score": 6,
+   "action": "RIGHT"
+  },
+  {
+   "step": 55,
+   "score": 6,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 56,
+   "score": 6,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 57,
+   "score": 6,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 58,
+   "score": 6,
+   "action": "RIGHT"
+  },
+  {
+   "step": 59,
+   "score": 6,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 60,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 61,
+   "score": 7,
+   "action": "RIGHT"
+  },
+  {
+   "step": 62,
+   "score": 7,
+   "action": "RIGHT"
+  },
+  {
+   "step": 63,
+   "score": 7,
+   "action": "LEFT"
+  },
+  {
+   "step": 64,
+   "score": 7,
+   "action": "LEFT"
+  },
+  {
+   "step": 65,
+   "score": 7,
+   "action": "RIGHT"
+  },
+  {
+   "step": 66,
+   "score": 7,
+   "action": "RIGHT"
+  },
+  {
+   "step": 67,
+   "score": 7,
+   "action": "LEFT"
+  },
+  {
+   "step": 68,
+   "score": 7,
+   "action": "RIGHT"
+  },
+  {
+   "step": 69,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 70,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 71,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 72,
+   "score": 7,
+   "action": "RIGHT"
+  },
+  {
+   "step": 73,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 74,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 75,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 76,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 77,
+   "score": 7,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 78,
+   "score": 8,
+   "action": "RIGHT"
+  },
+  {
+   "step": 79,
+   "score": 8,
+   "action": "RIGHT"
+  },
+  {
+   "step": 80,
+   "score": 8,
+   "action": "LEFT"
+  },
+  {
+   "step": 81,
+   "score": 8,
+   "action": "RIGHT"
+  },
+  {
+   "step": 82,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 83,
+   "score": 8,
+   "action": "LEFT"
+  },
+  {
+   "step": 84,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 85,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 86,
+   "score": 8,
+   "action": "RIGHT"
+  },
+  {
+   "step": 87,
+   "score": 8,
+   "action": "RIGHT"
+  },
+  {
+   "step": 88,
+   "score": 8,
+   "action": "LEFT"
+  },
+  {
+   "step": 89,
+   "score": 8,
+   "action": "LEFT"
+  },
+  {
+   "step": 90,
+   "score": 8,
+   "action": "RIGHT"
+  },
+  {
+   "step": 91,
+   "score": 8,
+   "action": "RIGHT"
+  },
+  {
+   "step": 92,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 93,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 94,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 95,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 96,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 97,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 98,
+   "score": 8,
+   "action": "RIGHT"
+  },
+  {
+   "step": 99,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 100,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 101,
+   "score": 8,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 102,
+   "score": 9,
+   "action": "RIGHT"
+  },
+  {
+   "step": 103,
+   "score": 9,
+   "action": "RIGHT"
+  },
+  {
+   "step": 104,
+   "score": 9,
+   "action": "LEFT"
+  },
+  {
+   "step": 105,
+   "score": 9,
+   "action": "RIGHT"
+  },
+  {
+   "step": 106,
+   "score": 9,
+   "action": "LEFT"
+  },
+  {
+   "step": 107,
+   "score": 9,
+   "action": "LEFT"
+  },
+  {
+   "step": 108,
+   "score": 9,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 109,
+   "score": 9,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 110,
+   "score": 9,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 111,
+   "score": 9,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 112,
+   "score": 10,
+   "action": "RIGHT"
+  },
+  {
+   "step": 113,
+   "score": 10,
+   "action": "RIGHT"
+  },
+  {
+   "step": 114,
+   "score": 10,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 115,
+   "score": 10,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 116,
+   "score": 10,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 117,
+   "score": 10,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 118,
+   "score": 10,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 119,
+   "score": 11,
+   "action": "LEFT"
+  },
+  {
+   "step": 120,
+   "score": 11,
+   "action": "RIGHT"
+  },
+  {
+   "step": 121,
+   "score": 11,
+   "action": "RIGHT"
+  },
+  {
+   "step": 122,
+   "score": 11,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 123,
+   "score": 11,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 124,
+   "score": 11,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 125,
+   "score": 12,
+   "action": "RIGHT"
+  },
+  {
+   "step": 126,
+   "score": 12,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 127,
+   "score": 12,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 128,
+   "score": 12,
+   "action": "RIGHT"
+  },
+  {
+   "step": 129,
+   "score": 12,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 130,
+   "score": 13,
+   "action": "LEFT"
+  },
+  {
+   "step": 131,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 132,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 133,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 134,
+   "score": 13,
+   "action": "RIGHT"
+  },
+  {
+   "step": 135,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 136,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 137,
+   "score": 13,
+   "action": "RIGHT"
+  },
+  {
+   "step": 138,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 139,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 140,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 141,
+   "score": 13,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 142,
+   "score": 14,
+   "action": "RIGHT"
+  },
+  {
+   "step": 143,
+   "score": 14,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 144,
+   "score": 14,
+   "action": "LEFT"
+  },
+  {
+   "step": 145,
+   "score": 14,
+   "action": "LEFT"
+  },
+  {
+   "step": 146,
+   "score": 14,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 147,
+   "score": 14,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 148,
+   "score": 15,
+   "action": "RIGHT"
+  },
+  {
+   "step": 149,
+   "score": 15,
+   "action": "RIGHT"
+  },
+  {
+   "step": 150,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 151,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 152,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 153,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 154,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 155,
+   "score": 15,
+   "action": "RIGHT"
+  },
+  {
+   "step": 156,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 157,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 158,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 159,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 160,
+   "score": 15,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 161,
+   "score": 16,
+   "action": "RIGHT"
+  },
+  {
+   "step": 162,
+   "score": 16,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 163,
+   "score": 16,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 164,
+   "score": 16,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 165,
+   "score": 16,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 166,
+   "score": 16,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 167,
+   "score": 17,
+   "action": "RIGHT"
+  },
+  {
+   "step": 168,
+   "score": 17,
+   "action": "RIGHT"
+  },
+  {
+   "step": 169,
+   "score": 17,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 170,
+   "score": 17,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 171,
+   "score": 17,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 172,
+   "score": 18,
+   "action": "LEFT"
+  },
+  {
+   "step": 173,
+   "score": 18,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 174,
+   "score": 18,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 175,
+   "score": 18,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 176,
+   "score": 19,
+   "action": "LEFT"
+  },
+  {
+   "step": 177,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 178,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 179,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 180,
+   "score": 19,
+   "action": "RIGHT"
+  },
+  {
+   "step": 181,
+   "score": 19,
+   "action": "RIGHT"
+  },
+  {
+   "step": 182,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 183,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 184,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 185,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 186,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 187,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 188,
+   "score": 19,
+   "action": "RIGHT"
+  },
+  {
+   "step": 189,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 190,
+   "score": 19,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 191,
+   "score": 20,
+   "action": "RIGHT"
+  },
+  {
+   "step": 192,
+   "score": 20,
+   "action": "RIGHT"
+  },
+  {
+   "step": 193,
+   "score": 20,
+   "action": "LEFT"
+  },
+  {
+   "step": 194,
+   "score": 20,
+   "action": "LEFT"
+  },
+  {
+   "step": 195,
+   "score": 20,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 196,
+   "score": 20,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 197,
+   "score": 20,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 198,
+   "score": 20,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 199,
+   "score": 20,
+   "action": "RIGHT"
+  },
+  {
+   "step": 200,
+   "score": 20,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 201,
+   "score": 20,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 202,
+   "score": 20,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 203,
+   "score": 20,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 204,
+   "score": 21,
+   "action": "RIGHT"
+  },
+  {
+   "step": 205,
+   "score": 21,
+   "action": "RIGHT"
+  },
+  {
+   "step": 206,
+   "score": 21,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 207,
+   "score": 21,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 208,
+   "score": 21,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 209,
+   "score": 21,
+   "action": "LEFT"
+  },
+  {
+   "step": 210,
+   "score": 21,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 211,
+   "score": 21,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 212,
+   "score": 21,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 213,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 214,
+   "score": 22,
+   "action": "RIGHT"
+  },
+  {
+   "step": 215,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 216,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 217,
+   "score": 22,
+   "action": "RIGHT"
+  },
+  {
+   "step": 218,
+   "score": 22,
+   "action": "RIGHT"
+  },
+  {
+   "step": 219,
+   "score": 22,
+   "action": "LEFT"
+  },
+  {
+   "step": 220,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 221,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 222,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 223,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 224,
+   "score": 22,
+   "action": "RIGHT"
+  },
+  {
+   "step": 225,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 226,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 227,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 228,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 229,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 230,
+   "score": 22,
+   "action": "RIGHT"
+  },
+  {
+   "step": 231,
+   "score": 22,
+   "action": "RIGHT"
+  },
+  {
+   "step": 232,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 233,
+   "score": 22,
+   "action": "LEFT"
+  },
+  {
+   "step": 234,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 235,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 236,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 237,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 238,
+   "score": 22,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 239,
+   "score": 23,
+   "action": "RIGHT"
+  },
+  {
+   "step": 240,
+   "score": 23,
+   "action": "RIGHT"
+  },
+  {
+   "step": 241,
+   "score": 23,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 242,
+   "score": 23,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 243,
+   "score": 23,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 244,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 245,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 246,
+   "score": 24,
+   "action": "LEFT"
+  },
+  {
+   "step": 247,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 248,
+   "score": 24,
+   "action": "LEFT"
+  },
+  {
+   "step": 249,
+   "score": 24,
+   "action": "LEFT"
+  },
+  {
+   "step": 250,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 251,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 252,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 253,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 254,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 255,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 256,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 257,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 258,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 259,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 260,
+   "score": 24,
+   "action": "LEFT"
+  },
+  {
+   "step": 261,
+   "score": 24,
+   "action": "LEFT"
+  },
+  {
+   "step": 262,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 263,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 264,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 265,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 266,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 267,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 268,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 269,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 270,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 271,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 272,
+   "score": 24,
+   "action": "LEFT"
+  },
+  {
+   "step": 273,
+   "score": 24,
+   "action": "LEFT"
+  },
+  {
+   "step": 274,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 275,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 276,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 277,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 278,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 279,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 280,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 281,
+   "score": 24,
+   "action": "RIGHT"
+  },
+  {
+   "step": 282,
+   "score": 24,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 283,
+   "score": 25,
+   "action": "LEFT"
+  },
+  {
+   "step": 284,
+   "score": 25,
+   "action": "RIGHT"
+  },
+  {
+   "step": 285,
+   "score": 25,
+   "action": "RIGHT"
+  },
+  {
+   "step": 286,
+   "score": 25,
+   "action": "LEFT"
+  },
+  {
+   "step": 287,
+   "score": 25,
+   "action": "LEFT"
+  },
+  {
+   "step": 288,
+   "score": 25,
+   "action": "RIGHT"
+  },
+  {
+   "step": 289,
+   "score": 25,
+   "action": "RIGHT"
+  },
+  {
+   "step": 290,
+   "score": 25,
+   "action": "LEFT"
+  },
+  {
+   "step": 291,
+   "score": 25,
+   "action": "LEFT"
+  },
+  {
+   "step": 292,
+   "score": 25,
+   "action": "RIGHT"
+  },
+  {
+   "step": 293,
+   "score": 25,
+   "action": "RIGHT"
+  },
+  {
+   "step": 294,
+   "score": 25,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 295,
+   "score": 25,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 296,
+   "score": 25,
+   "action": "RIGHT"
+  },
+  {
+   "step": 297,
+   "score": 25,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 298,
+   "score": 25,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 299,
+   "score": 25,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 300,
+   "score": 25,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 301,
+   "score": 25,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 302,
+   "score": 26,
+   "action": "LEFT"
+  },
+  {
+   "step": 303,
+   "score": 26,
+   "action": "LEFT"
+  },
+  {
+   "step": 304,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 305,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 306,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 307,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 308,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 309,
+   "score": 26,
+   "action": "RIGHT"
+  },
+  {
+   "step": 310,
+   "score": 26,
+   "action": "RIGHT"
+  },
+  {
+   "step": 311,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 312,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 313,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 314,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 315,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 316,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 317,
+   "score": 26,
+   "action": "RIGHT"
+  },
+  {
+   "step": 318,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 319,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 320,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 321,
+   "score": 26,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 322,
+   "score": 26,
+   "action": "RIGHT"
+  },
+  {
+   "step": 323,
+   "score": 27,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 324,
+   "score": 27,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 325,
+   "score": 28,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 326,
+   "score": 28,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 327,
+   "score": 29,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 328,
+   "score": 30,
+   "action": "RIGHT"
+  },
+  {
+   "step": 329,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 330,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 331,
+   "score": 30,
+   "action": "RIGHT"
+  },
+  {
+   "step": 332,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 333,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 334,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 335,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 336,
+   "score": 30,
+   "action": "LEFT"
+  },
+  {
+   "step": 337,
+   "score": 30,
+   "action": "LEFT"
+  },
+  {
+   "step": 338,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 339,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 340,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 341,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 342,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 343,
+   "score": 30,
+   "action": "RIGHT"
+  },
+  {
+   "step": 344,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 345,
+   "score": 30,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 346,
+   "score": 31,
+   "action": "RIGHT"
+  },
+  {
+   "step": 347,
+   "score": 31,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 348,
+   "score": 32,
+   "action": "RIGHT"
+  },
+  {
+   "step": 349,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 350,
+   "score": 32,
+   "action": "LEFT"
+  },
+  {
+   "step": 351,
+   "score": 32,
+   "action": "LEFT"
+  },
+  {
+   "step": 352,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 353,
+   "score": 32,
+   "action": "RIGHT"
+  },
+  {
+   "step": 354,
+   "score": 32,
+   "action": "RIGHT"
+  },
+  {
+   "step": 355,
+   "score": 32,
+   "action": "LEFT"
+  },
+  {
+   "step": 356,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 357,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 358,
+   "score": 32,
+   "action": "RIGHT"
+  },
+  {
+   "step": 359,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 360,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 361,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 362,
+   "score": 32,
+   "action": "RIGHT"
+  },
+  {
+   "step": 363,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 364,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 365,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 366,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 367,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 368,
+   "score": 32,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 369,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 370,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 371,
+   "score": 33,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 372,
+   "score": 33,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 373,
+   "score": 33,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 374,
+   "score": 33,
+   "action": "LEFT"
+  },
+  {
+   "step": 375,
+   "score": 33,
+   "action": "LEFT"
+  },
+  {
+   "step": 376,
+   "score": 33,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 377,
+   "score": 33,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 378,
+   "score": 33,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 379,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 380,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 381,
+   "score": 33,
+   "action": "LEFT"
+  },
+  {
+   "step": 382,
+   "score": 33,
+   "action": "LEFT"
+  },
+  {
+   "step": 383,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 384,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 385,
+   "score": 33,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 386,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 387,
+   "score": 33,
+   "action": "LEFT"
+  },
+  {
+   "step": 388,
+   "score": 33,
+   "action": "LEFT"
+  },
+  {
+   "step": 389,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 390,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 391,
+   "score": 33,
+   "action": "LEFT"
+  },
+  {
+   "step": 392,
+   "score": 33,
+   "action": "RIGHT"
+  },
+  {
+   "step": 393,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 394,
+   "score": 34,
+   "action": "LEFT"
+  },
+  {
+   "step": 395,
+   "score": 34,
+   "action": "LEFT"
+  },
+  {
+   "step": 396,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 397,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 398,
+   "score": 34,
+   "action": "RIGHT"
+  },
+  {
+   "step": 399,
+   "score": 34,
+   "action": "RIGHT"
+  },
+  {
+   "step": 400,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 401,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 402,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 403,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 404,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 405,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 406,
+   "score": 34,
+   "action": "RIGHT"
+  },
+  {
+   "step": 407,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 408,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 409,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 410,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 411,
+   "score": 34,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 412,
+   "score": 35,
+   "action": "RIGHT"
+  },
+  {
+   "step": 413,
+   "score": 35,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 414,
+   "score": 36,
+   "action": "RIGHT"
+  },
+  {
+   "step": 415,
+   "score": 36,
+   "action": "LEFT"
+  },
+  {
+   "step": 416,
+   "score": 36,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 417,
+   "score": 36,
+   "action": "LEFT"
+  },
+  {
+   "step": 418,
+   "score": 36,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 419,
+   "score": 36,
+   "action": "RIGHT"
+  },
+  {
+   "step": 420,
+   "score": 36,
+   "action": "RIGHT"
+  },
+  {
+   "step": 421,
+   "score": 36,
+   "action": "LEFT"
+  },
+  {
+   "step": 422,
+   "score": 36,
+   "action": "LEFT"
+  },
+  {
+   "step": 423,
+   "score": 36,
+   "action": "RIGHT"
+  },
+  {
+   "step": 424,
+   "score": 36,
+   "action": "RIGHT"
+  },
+  {
+   "step": 425,
+   "score": 36,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 426,
+   "score": 36,
+   "action": "RIGHT"
+  },
+  {
+   "step": 427,
+   "score": 36,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 428,
+   "score": 37,
+   "action": "LEFT"
+  },
+  {
+   "step": 429,
+   "score": 37,
+   "action": "LEFT"
+  },
+  {
+   "step": 430,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 431,
+   "score": 37,
+   "action": "RIGHT"
+  },
+  {
+   "step": 432,
+   "score": 37,
+   "action": "RIGHT"
+  },
+  {
+   "step": 433,
+   "score": 37,
+   "action": "LEFT"
+  },
+  {
+   "step": 434,
+   "score": 37,
+   "action": "RIGHT"
+  },
+  {
+   "step": 435,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 436,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 437,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 438,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 439,
+   "score": 37,
+   "action": "LEFT"
+  },
+  {
+   "step": 440,
+   "score": 37,
+   "action": "LEFT"
+  },
+  {
+   "step": 441,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 442,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 443,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 444,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 445,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 446,
+   "score": 37,
+   "action": "RIGHT"
+  },
+  {
+   "step": 447,
+   "score": 37,
+   "action": "RIGHT"
+  },
+  {
+   "step": 448,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 449,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 450,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 451,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 452,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 453,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 454,
+   "score": 37,
+   "action": "RIGHT"
+  },
+  {
+   "step": 455,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 456,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 457,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 458,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 459,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 460,
+   "score": 37,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 461,
+   "score": 38,
+   "action": "RIGHT"
+  },
+  {
+   "step": 462,
+   "score": 38,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 463,
+   "score": 38,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 464,
+   "score": 38,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 465,
+   "score": 38,
+   "action": "RIGHT"
+  },
+  {
+   "step": 466,
+   "score": 38,
+   "action": "LEFT"
+  },
+  {
+   "step": 467,
+   "score": 38,
+   "action": "LEFT"
+  },
+  {
+   "step": 468,
+   "score": 38,
+   "action": "RIGHT"
+  },
+  {
+   "step": 469,
+   "score": 38,
+   "action": "RIGHT"
+  },
+  {
+   "step": 470,
+   "score": 38,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 471,
+   "score": 38,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 472,
+   "score": 38,
+   "action": "LEFT"
+  },
+  {
+   "step": 473,
+   "score": 38,
+   "action": "RIGHT"
+  },
+  {
+   "step": 474,
+   "score": 38,
+   "action": "RIGHT"
+  },
+  {
+   "step": 475,
+   "score": 38,
+   "action": "LEFT"
+  },
+  {
+   "step": 476,
+   "score": 38,
+   "action": "RIGHT"
+  },
+  {
+   "step": 477,
+   "score": 38,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 478,
+   "score": 38,
+   "action": "RIGHT"
+  },
+  {
+   "step": 479,
+   "score": 38,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 480,
+   "score": 39,
+   "action": "RIGHT"
+  },
+  {
+   "step": 481,
+   "score": 39,
+   "action": "LEFT"
+  },
+  {
+   "step": 482,
+   "score": 39,
+   "action": "LEFT"
+  },
+  {
+   "step": 483,
+   "score": 39,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 484,
+   "score": 39,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 485,
+   "score": 40,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 486,
+   "score": 40,
+   "action": "LEFT"
+  },
+  {
+   "step": 487,
+   "score": 40,
+   "action": "LEFT"
+  },
+  {
+   "step": 488,
+   "score": 40,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 489,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 490,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 491,
+   "score": 41,
+   "action": "LEFT"
+  },
+  {
+   "step": 492,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 493,
+   "score": 41,
+   "action": "LEFT"
+  },
+  {
+   "step": 494,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 495,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 496,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 497,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 498,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 499,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 500,
+   "score": 41,
+   "action": "LEFT"
+  },
+  {
+   "step": 501,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 502,
+   "score": 41,
+   "action": "LEFT"
+  },
+  {
+   "step": 503,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 504,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 505,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 506,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 507,
+   "score": 41,
+   "action": "LEFT"
+  },
+  {
+   "step": 508,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 509,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 510,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 511,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 512,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 513,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 514,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 515,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 516,
+   "score": 41,
+   "action": "LEFT"
+  },
+  {
+   "step": 517,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 518,
+   "score": 41,
+   "action": "RIGHT"
+  },
+  {
+   "step": 519,
+   "score": 41,
+   "action": "LEFT"
+  },
+  {
+   "step": 520,
+   "score": 41,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 521,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 522,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 523,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 524,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 525,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 526,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 527,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 528,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 529,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 530,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 531,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 532,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 533,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 534,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 535,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 536,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 537,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 538,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 539,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 540,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 541,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 542,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 543,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 544,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 545,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 546,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 547,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 548,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 549,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 550,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 551,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 552,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 553,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 554,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 555,
+   "score": 42,
+   "action": "LEFT"
+  },
+  {
+   "step": 556,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 557,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 558,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 559,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 560,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 561,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 562,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 563,
+   "score": 42,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 564,
+   "score": 42,
+   "action": "RIGHT"
+  },
+  {
+   "step": 565,
+   "score": 43,
+   "action": "RIGHT"
+  },
+  {
+   "step": 566,
+   "score": 43,
+   "action": "LEFT"
+  },
+  {
+   "step": 567,
+   "score": 43,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 568,
+   "score": 43,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 569,
+   "score": 43,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 570,
+   "score": 43,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 571,
+   "score": 43,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 572,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 573,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 574,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 575,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 576,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 577,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 578,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 579,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 580,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 581,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 582,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 583,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 584,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 585,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 586,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 587,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 588,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 589,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 590,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 591,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 592,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 593,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 594,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 595,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 596,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 597,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 598,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 599,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 600,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 601,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 602,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 603,
+   "score": 44,
+   "action": "LEFT"
+  },
+  {
+   "step": 604,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 605,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 606,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 607,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 608,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 609,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 610,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 611,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 612,
+   "score": 44,
+   "action": "RIGHT"
+  },
+  {
+   "step": 613,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 614,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 615,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 616,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 617,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 618,
+   "score": 44,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 619,
+   "score": 45,
+   "action": "RIGHT"
+  },
+  {
+   "step": 620,
+   "score": 45,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 621,
+   "score": 45,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 622,
+   "score": 46,
+   "action": "RIGHT"
+  },
+  {
+   "step": 623,
+   "score": 46,
+   "action": "RIGHT"
+  },
+  {
+   "step": 624,
+   "score": 46,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 625,
+   "score": 46,
+   "action": "LEFT"
+  },
+  {
+   "step": 626,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 627,
+   "score": 47,
+   "action": "RIGHT"
+  },
+  {
+   "step": 628,
+   "score": 47,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 629,
+   "score": 47,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 630,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 631,
+   "score": 47,
+   "action": "RIGHT"
+  },
+  {
+   "step": 632,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 633,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 634,
+   "score": 47,
+   "action": "RIGHT"
+  },
+  {
+   "step": 635,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 636,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 637,
+   "score": 47,
+   "action": "RIGHT"
+  },
+  {
+   "step": 638,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 639,
+   "score": 47,
+   "action": "RIGHT"
+  },
+  {
+   "step": 640,
+   "score": 47,
+   "action": "RIGHT"
+  },
+  {
+   "step": 641,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 642,
+   "score": 47,
+   "action": "RIGHT"
+  },
+  {
+   "step": 643,
+   "score": 47,
+   "action": "RIGHT"
+  },
+  {
+   "step": 644,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 645,
+   "score": 47,
+   "action": "LEFT"
+  },
+  {
+   "step": 646,
+   "score": 47,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 647,
+   "score": 48,
+   "action": "RIGHT"
+  },
+  {
+   "step": 648,
+   "score": 48,
+   "action": "RIGHT"
+  },
+  {
+   "step": 649,
+   "score": 48,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 650,
+   "score": 48,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 651,
+   "score": 48,
+   "action": "RIGHT"
+  },
+  {
+   "step": 652,
+   "score": 48,
+   "action": "LEFT"
+  },
+  {
+   "step": 653,
+   "score": 48,
+   "action": "LEFT"
+  },
+  {
+   "step": 654,
+   "score": 48,
+   "action": "RIGHT"
+  },
+  {
+   "step": 655,
+   "score": 48,
+   "action": "RIGHT"
+  },
+  {
+   "step": 656,
+   "score": 48,
+   "action": "LEFT"
+  },
+  {
+   "step": 657,
+   "score": 48,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 658,
+   "score": 48,
+   "action": "RIGHT"
+  },
+  {
+   "step": 659,
+   "score": 48,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 660,
+   "score": 48,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 661,
+   "score": 48,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 662,
+   "score": 48,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 663,
+   "score": 48,
+   "action": "RIGHT"
+  },
+  {
+   "step": 664,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 665,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 666,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 667,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 668,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 669,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 670,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 671,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 672,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 673,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 674,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 675,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 676,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 677,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 678,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 679,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 680,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 681,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 682,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 683,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 684,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 685,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 686,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 687,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 688,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 689,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 690,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 691,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 692,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 693,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 694,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 695,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 696,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 697,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 698,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 699,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 700,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 701,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 702,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 703,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 704,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 705,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 706,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 707,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 708,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 709,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 710,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 711,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 712,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 713,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 714,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 715,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 716,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 717,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 718,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 719,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 720,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 721,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 722,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 723,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 724,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 725,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 726,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 727,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 728,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 729,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 730,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 731,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 732,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 733,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 734,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 735,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 736,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 737,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 738,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 739,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 740,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 741,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 742,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 743,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 744,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 745,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 746,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 747,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 748,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 749,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 750,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 751,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 752,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 753,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 754,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 755,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 756,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 757,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 758,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 759,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 760,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 761,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 762,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 763,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 764,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 765,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 766,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 767,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 768,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 769,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 770,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 771,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 772,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 773,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 774,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 775,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 776,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 777,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 778,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 779,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 780,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 781,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 782,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 783,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 784,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 785,
+   "score": 49,
+   "action": "STRAIGHT"
+  },
+  {
+   "step": 786,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 787,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 788,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 789,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 790,
+   "score": 49,
+   "action": "RIGHT"
+  },
+  {
+   "step": 791,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 792,
+   "score": 49,
+   "action": "LEFT"
+  },
+  {
+   "step": 793,
+   "score": 49,
+   "action": null
+  }
+ ]
+}
