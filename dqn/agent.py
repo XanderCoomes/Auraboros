@@ -52,24 +52,21 @@ class DQNAgent:
         self.loss_fn = nn.SmoothL1Loss()
 
     # Convert one state into tensors.
+    
     def _state_to_tensors(self, state):
 
         if isinstance(state, tuple):
-            board, heading = state
 
-            board = torch.as_tensor(
-                board,
-                dtype=torch.float32,
-                device=self.device,
-            ).unsqueeze(0)
+            tensors = tuple(
+                torch.as_tensor(
+                    component,
+                    dtype=torch.float32,
+                    device=self.device,
+                ).unsqueeze(0)
+                for component in state
+            )
 
-            heading = torch.as_tensor(
-                heading,
-                dtype=torch.float32,
-                device=self.device,
-            ).unsqueeze(0)
-
-            return board, heading
+            return tensors
 
         return torch.as_tensor(
             state,
@@ -78,32 +75,37 @@ class DQNAgent:
         ).unsqueeze(0)
 
 
+
     # Convert a batch of states into tensors.
+    
     def _batch_to_tensors(self, states):
 
         if isinstance(states[0], tuple):
-            boards = np.stack([state[0] for state in states])
-            headings = np.stack([state[1] for state in states])
 
-            boards = torch.as_tensor(
-                boards,
-                dtype=torch.float32,
-                device=self.device,
-            )
+            components = []
 
-            headings = torch.as_tensor(
-                headings,
-                dtype=torch.float32,
-                device=self.device,
-            )
+            for index in range(len(states[0])):
 
-            return boards, headings
+                batch_component = np.stack(
+                    [state[index] for state in states]
+                )
+
+                tensor = torch.as_tensor(
+                    batch_component,
+                    dtype=torch.float32,
+                    device=self.device,
+                )
+
+                components.append(tensor)
+
+            return tuple(components)
 
         return torch.as_tensor(
             np.asarray(states),
             dtype=torch.float32,
             device=self.device,
         )
+
 
     # Forward pass supporting both model architectures.
     def _forward(self, model, state_tensors):

@@ -15,8 +15,8 @@ DIRS = [(-1, 0), (0, 1), (1, 0), (0, -1)]  # (d_row, d_col) for up, right, down,
 STRAIGHT, LEFT, RIGHT = 0, 1, 2
 N_ACTIONS = 3
 
-R_APPLE = 100.0
-R_DEATH = -6350.0
+R_APPLE = 10.0
+R_DEATH = -10.0
 R_STEP = -0.01
 R_CLOSER = 0.1   # shaping: moved closer to / farther from the apple
 

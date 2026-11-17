@@ -1,0 +1,19 @@
+{
+    "size": 8,
+    "episodes": 10000,
+    "batch_size": 64,
+    "buffer_size": 100000,
+    "gamma": 0.95,
+    "learning_rate": 0.001,
+    "target_update_interval": 1000,
+    "eps_start": 1.0,
+    "eps_end": 0.01,
+    "eps_decay_frac": 0.6,
+    "eval_interval": 1000,
+    "eval_episodes": 100,
+    "seed": 21,
+    "out": "dqn/hybrid/hybrid_snake_dqn.pth",
+    "log": "dqn/hybrid/hybrid_training.csv",
+    "device": "cuda",
+    "training_steps": 1225699
+}

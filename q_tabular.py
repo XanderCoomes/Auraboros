@@ -42,7 +42,7 @@ class QAgent:
         # If the episode ended there is no next state, so the target is just the reward.
         target = reward if done else reward + self.gamma * self.q[rowAfter].max()
         # Move Q(s,a) a fraction alpha of the way toward the target (target - Q is the error)
-        self.q[rowBefore, selectedAction] += self.alpha * (target - self.q[rowBefore, selectedAction])
+        self.q[rowBefore, selectedAction] += self.alpha * (target - self.q[rowBefore, selectedAction])  #Temporal - Difference Error (TD error)
 
     def save(self, path):
         with open(path, "wb") as f:

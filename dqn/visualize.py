@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, PillowWriter
 from matplotlib.colors import ListedColormap
 
+from dqn.features.tail_features import get_feature_matrix
+
 
 def record_episode(
     model,
@@ -20,56 +22,43 @@ def record_episode(
     seed=42,
 ):
     """
-    Run one greedy episode and record all information
-    required for gameplay and state visualizations.
+    Run one greedy hybrid DQN episode and record gameplay,
+    state representation, and action-specific features.
     """
 
     env = SnakeEnv(size=size, seed=seed)
     env.reset()
 
     frames = []
-
     done = False
     total_reward = 0.0
 
     while not done:
 
-        # Encode current state.
-        state = encoder.encode(env)
+        # Encode the current state.
+        board, heading = encoder.encode(env)
+        features = get_feature_matrix(env)
+
+        # Convert inputs to tensors.
+        board_tensor = torch.as_tensor(
+            board, dtype=torch.float32, device=device
+        ).unsqueeze(0)
+
+        heading_tensor = torch.as_tensor(
+            heading, dtype=torch.float32, device=device
+        ).unsqueeze(0)
+
+        features_tensor = torch.as_tensor(
+            features, dtype=torch.float32, device=device
+        ).unsqueeze(0)
 
         # Obtain Q-values.
-        if isinstance(state, tuple):
-
-            board, heading = state
-
-            board_tensor = torch.as_tensor(
-                board,
-                dtype=torch.float32,
-                device=device
-            ).unsqueeze(0)
-
-            heading_tensor = torch.as_tensor(
-                heading,
-                dtype=torch.float32,
-                device=device
-            ).unsqueeze(0)
-
-            with torch.no_grad():
-                q_values = model(
-                    board_tensor,
-                    heading_tensor
-                )
-
-        else:
-
-            state_tensor = torch.as_tensor(
-                state,
-                dtype=torch.float32,
-                device=device
-            ).unsqueeze(0)
-
-            with torch.no_grad():
-                q_values = model(state_tensor)
+        with torch.no_grad():
+            q_values = model(
+                board_tensor,
+                heading_tensor,
+                features_tensor
+            )
 
         q_values = q_values.squeeze(0).cpu().numpy()
 
@@ -79,7 +68,7 @@ def record_episode(
         # Capture state before executing the action.
         frames.append({
             "board": env.board_array().copy(),
-            "state": state,
+            "state": (board.copy(), heading.copy(), features.copy()),
             "heading": env.heading,
             "action": action,
             "q_values": q_values.copy(),
@@ -93,18 +82,19 @@ def record_episode(
 
         total_reward += reward
 
-        # Record the resulting reward.
         frames[-1]["reward"] = reward
         frames[-1]["total_reward"] = total_reward
 
     # Record terminal information.
     frames[-1]["done"] = True
     frames[-1]["end_reason"] = info.get(
-        "reason",
-        "unknown"
+        "reason", "unknown"
     )
 
+    frames[-1]["final_score"] = env.score
+
     return frames
+
 
 
 
@@ -159,8 +149,8 @@ def save_gameplay_gif(frames, output_path, fps=6):
 
     action_names = {
         0: "Straight",
-        1: "Right",
-        2: "Left"
+        1: "Left",
+        2: "Right"
     }
 
     heading_names = {
@@ -194,6 +184,7 @@ def save_gameplay_gif(frames, output_path, fps=6):
         if frame_index == len(frames) - 1:
             info += (
                 f"\n\nGAME OVER\n"
+                f"Final score: {frame['final_score']}\n"
                 f"Reason: {frame['end_reason']}"
             )
 
@@ -334,6 +325,150 @@ def save_state_gif(frames, model_type, output_path, fps=6):
             )
 
             return tuple(bars)
+
+
+    elif model_type == "hybrid":
+        fig = plt.figure(figsize=(14, 8))
+        grid = fig.add_gridspec(
+            2, 4,
+            height_ratios=[2, 1.5]
+        )
+
+        # Four CNN input channels.
+        channel_names = [
+            "Snake occupancy",
+            "Apple position",
+            "Head position",
+            "Temporal body encoding"
+        ]
+
+        channel_axes = [
+            fig.add_subplot(grid[0, i])
+            for i in range(4)
+        ]
+
+        channel_images = []
+
+        for ax, name in zip(channel_axes, channel_names):
+            image = ax.imshow(
+                np.zeros((8, 8)),
+                cmap="viridis",
+                vmin=0,
+                vmax=1
+            )
+
+            ax.set_title(name)
+            ax.set_xticks([])
+            ax.set_yticks([])
+            channel_images.append(image)
+
+        # Heading one-hot vector.
+        ax_heading = fig.add_subplot(grid[1, 0])
+
+        heading_names = ["Up", "Right", "Down", "Left"]
+
+        heading_bars = ax_heading.bar(
+            range(4),
+            [0, 0, 0, 0]
+        )
+
+        ax_heading.set_xticks(range(4), heading_names)
+        ax_heading.set_ylim(0, 1.2)
+        ax_heading.set_title("Heading")
+        ax_heading.set_ylabel("Value")
+
+        # Action-specific feature matrix: 3 actions x 11 features.
+        ax_features = fig.add_subplot(grid[1, 1:])
+
+        feature_names = [
+            "Bias",
+            "Apple dist.",
+            "Would eat",
+            "Wall collision",
+            "Body collision",
+            "Length frac.",
+            "Reachable space",
+            "Tail reachable",
+            "Length × dist.",
+            "Length × space",
+            "Length × tail"
+        ]
+
+        action_names = ["Straight", "Left", "Right"]
+
+        feature_image = ax_features.imshow(
+            np.zeros((3, 11)),
+            cmap="viridis",
+            vmin=0,
+            vmax=1,
+            aspect="auto"
+        )
+
+        ax_features.set_xticks(
+            range(11),
+            feature_names,
+            rotation=45,
+            ha="right"
+        )
+
+        ax_features.set_yticks(
+            range(3),
+            action_names
+        )
+
+        ax_features.set_title(
+            "Action-specific feature matrix (3 × 11)"
+        )
+
+        # Numeric values inside each feature cell.
+        feature_texts = []
+
+        def update(frame_index):
+            frame = frames[frame_index]
+
+            board, heading, features = frame["state"]
+
+            # Update CNN channels.
+            for channel, image in enumerate(channel_images):
+                image.set_data(board[channel])
+
+            # Update heading.
+            for bar, value in zip(heading_bars, heading):
+                bar.set_height(float(value))
+
+            # Update feature matrix.
+            feature_image.set_data(features)
+
+            # Remove annotations from previous frame.
+            for annotation in feature_texts:
+                annotation.remove()
+
+            feature_texts.clear()
+
+            # Add current numerical feature values.
+            for row in range(3):
+                for col in range(11):
+                    annotation = ax_features.text(
+                        col,
+                        row,
+                        f"{features[row, col]:.2f}",
+                        ha="center",
+                        va="center",
+                        fontsize=7,
+                        color="white"
+                    )
+                    feature_texts.append(annotation)
+
+            fig.suptitle(
+                f"Hybrid DQN Inputs | Frame {frame_index + 1}/{len(frames)}"
+            )
+
+            return (
+                *channel_images,
+                *heading_bars,
+                feature_image,
+                *feature_texts
+            )
 
     else:
         raise ValueError(

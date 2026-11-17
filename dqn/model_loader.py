@@ -1,14 +1,13 @@
-
 import json
 from pathlib import Path
 
 import torch
 
 from dqn.encoders.engineered import EngineeredEncoder
-from dqn.encoders.board import BoardEncoder
-
+from dqn.encoders.board import BoardEncoder, BoardEncoderWithTime
 from dqn.models.mlp import DQNMLP
 from dqn.models.cnn import DQNCNN
+from dqn.models.hybrid import DQNHybrid
 
 
 def load_trained_model(model_type, model_path, config_path=None):
@@ -24,7 +23,6 @@ def load_trained_model(model_type, model_path, config_path=None):
         "cuda" if torch.cuda.is_available() else "cpu"
     )
 
-    # Load training configuration if available.
     if config_path is None:
         config_path = model_path.with_suffix(".json")
 
@@ -36,7 +34,6 @@ def load_trained_model(model_type, model_path, config_path=None):
         with open(config_path, "r") as file:
             config = json.load(file)
 
-    # Reconstruct architecture and encoder.
     if model_type == "mlp":
 
         encoder = EngineeredEncoder()
@@ -51,12 +48,17 @@ def load_trained_model(model_type, model_path, config_path=None):
 
         model = DQNCNN()
 
+    elif model_type == "hybrid":
+
+        encoder = BoardEncoderWithTime()
+
+        model = DQNHybrid()
+
     else:
         raise ValueError(
-            "model_type must be 'mlp' or 'cnn'"
+            "model_type must be 'mlp', 'cnn', or 'hybrid'"
         )
 
-    # Load trained parameters.
     state_dict = torch.load(
         model_path,
         map_location=device,

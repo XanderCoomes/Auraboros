@@ -50,3 +50,31 @@ class BoardEncoder(StateEncoder):
         heading[env.heading] = 1.0
 
         return board, heading
+
+
+class BoardEncoderWithTime(BoardEncoder):
+    def __init__(self):
+        self._input_shape = (4, 8, 8)
+        self._heading_shape = (4,)
+
+    def encode(self, env):
+        board = np.zeros((4, env.size, env.size), dtype=np.float32)
+
+        snake_length = len(env.snake)
+
+        for index, (r, c) in enumerate(env.snake):
+            board[0, r, c] = 1.0
+            board[3, r, c] = snake_length - index
+
+        if env.apple is not None:
+            apple_r, apple_c = env.apple
+            board[1, apple_r, apple_c] = 1.0
+
+        head_r, head_c = env.snake[0]
+        board[2, head_r, head_c] = 1.0
+
+        heading = np.zeros(4, dtype=np.float32)
+        heading[env.heading] = 1.0
+
+        return board, heading
+
