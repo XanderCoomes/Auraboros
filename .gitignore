@@ -12,3 +12,5 @@ __pycache__/
 # Generated experiment results
 test_result/
 Test_result/
+# DQN v2 training logs
+dqn/v2/*.log

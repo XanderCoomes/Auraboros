@@ -5,6 +5,7 @@ Headings: 0 = up, 1 = right, 2 = down, 3 = left.
 """
 import random
 from collections import deque
+from dataclasses import dataclass
 
 import numpy as np
 
@@ -21,14 +22,61 @@ R_STEP = -0.01
 R_CLOSER = 0.1   # shaping: moved closer to / farther from the apple
 
 
+@dataclass(frozen=True)
+class RewardConfig:
+    """Reward scheme of the environment.
+
+    The defaults reproduce the original (legacy) rewards exactly, so tabular / MLP / CNN / hybrid
+    agents keep working unchanged. The DQN v2 agent uses `RewardConfig.v2(gamma)` instead.
+
+    shaping:
+      "distance"  legacy: +closer if the head moved closer to the apple, -closer otherwise.
+                  NOT potential-based -> it can change the optimal policy (it pushes the snake to
+                  beeline to the apple, which is what traps long snakes in the endgame).
+      "potential" F = gamma * phi(s') - phi(s), phi(s) = -closer * w(len) * dist(head, apple) / max_dist.
+                  Potential-based shaping (Ng et al., 1999) provably keeps the optimal policy unchanged;
+                  w(len) = 1 - len / area fades the hint out as the snake grows (hint is useful early,
+                  harmful late when the safe path is rarely the shortest one).
+      "none"      no shaping.
+    """
+    apple: float = R_APPLE
+    death: float = R_DEATH
+    step: float = R_STEP
+    closer: float = R_CLOSER
+    win: float = 0.0            # extra bonus for filling the board (legacy: none)
+    shaping: str = "distance"
+    gamma: float = 0.99         # only used by potential shaping (must match the agent's gamma)
+
+    @staticmethod
+    def v2(gamma=0.99):
+        return RewardConfig(apple=1.0, death=-1.0, step=-0.005, closer=0.2,
+                            win=10.0, shaping="potential", gamma=gamma)
+
+
 class SnakeEnv:
-    def __init__(self, size=15, seed=None, init_length=3, timeout_factor=2, features=None):
+    def __init__(self, size=15, seed=None, init_length=3, timeout_factor=2, features=None, rewards=None,
+                 length_timeout=False):
+        """length_timeout=False (legacy): fixed timeout = timeout_factor * area steps without eating.
+        length_timeout=True: timeout = area / 2 + timeout_factor * length. A short snake can always reach the
+        apple in under `size` steps, so long loops early on are pure waste and end the episode sooner; a long
+        snake may need ~area steps of tail-chasing before the apple becomes reachable, so its budget grows.
+        """
         self.size = size
         self.features = features if features is not None else make_feature_set()  # which state features to use
         self.init_length = init_length
-        self.timeout = timeout_factor * size * size  # max steps without eating
+        self.timeout_factor = timeout_factor
+        self.length_timeout = length_timeout
+        self.rewards = rewards if rewards is not None else RewardConfig()
         self.rng = random.Random(seed)
         self.reset()
+
+    @property
+    def timeout(self):
+        """Max steps without eating before the episode ends (see __init__)."""
+        area = self.size * self.size
+        if self.length_timeout:
+            return area // 2 + self.timeout_factor * len(self.snake)
+        return self.timeout_factor * area
 
     # ------------------------------------------------------------------ core
     def reset(self):
@@ -67,34 +115,55 @@ class SnakeEnv:
         # Wall / self collision (the tail cell frees up unless an apple is eaten)
         eating = head == self.apple
         tail = self.snake[-1]
+        cfg = self.rewards
         if not self._in_bounds(head) or (head in self.body and (head != tail or eating)):
             self.done = True
-            return self.get_state(), R_DEATH, True, self._info(reason="collision")
+            # Potential of a terminal state is 0, so potential shaping adds -phi(s) here.
+            return self.get_state(), cfg.death + self._terminal_shaping(), True, self._info(reason="collision")
 
-        # Reward: small step penalty by default; +R_APPLE if eating (below);
-        # +/-R_CLOSER shaping for moving toward / away from the apple; R_DEATH on collision or timeout
-        reward = R_STEP
+        # Reward: small step penalty by default; +apple if eating (below);
+        # shaping for moving toward / away from the apple; death reward on collision or timeout
+        reward = cfg.step
         prev_dist = self._dist_to_apple(old_head)
+        prev_potential = self._potential()
         self.snake.appendleft(head)
         self.body.add(head)
 
         if eating:
             self.score += 1
-            reward = R_APPLE
+            reward = cfg.apple
             self.steps_since_apple = 0
             self._place_apple()
             if self.apple is None:  # board full -> win
                 self.done = True
-                return self.get_state(), reward, True, self._info(reason="win")
+                return self.get_state(), reward + cfg.win - prev_potential, True, self._info(reason="win")
+            if cfg.shaping == "potential":
+                reward += cfg.gamma * self._potential() - prev_potential
         else:
             self.body.discard(self.snake.pop())
             self.body.add(head)  # head may equal the freed tail cell
-            reward += R_CLOSER if self._dist_to_apple(head) < prev_dist else -R_CLOSER
+            if cfg.shaping == "distance":
+                reward += cfg.closer if self._dist_to_apple(head) < prev_dist else -cfg.closer
+            elif cfg.shaping == "potential":
+                reward += cfg.gamma * self._potential() - prev_potential
 
         if self.steps_since_apple > self.timeout:
             self.done = True
-            return self.get_state(), R_DEATH, True, self._info(reason="timeout")
+            return self.get_state(), cfg.death - prev_potential, True, self._info(reason="timeout")
         return self.get_state(), reward, False, self._info()
+
+    def _potential(self):
+        """phi(s) for potential-based shaping (0 when shaping is not 'potential')."""
+        cfg = self.rewards
+        if cfg.shaping != "potential" or self.apple is None:
+            return 0.0
+        area = self.size * self.size
+        weight = 1.0 - len(self.snake) / area
+        return -cfg.closer * weight * self._dist_to_apple(self.snake[0]) / (2 * (self.size - 1))
+
+    def _terminal_shaping(self):
+        # Called before the snake moves: F = gamma * 0 - phi(s)
+        return -self._potential()
 
     def _info(self, **extra):
         # length/bucket are reported at the moment of the call (i.e. at death for terminal steps)
