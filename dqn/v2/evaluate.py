@@ -3,6 +3,11 @@
 Every policy plays the SAME games: game i uses env seed base_seed + i, so apple sequences match as long as
 the policies make the same moves. This pairing removes apple-placement luck from comparisons.
 
+Seed sets (kept disjoint to avoid selection bias):
+    VALIDATION_SEED = 10_000   used by train.py to pick best.pth, and for tuning inference-time settings
+    TEST_SEED       = 20_000   default here: only for the numbers reported in the paper
+Reporting a checkpoint on the same games that were used to select it would overstate its win rate.
+
 Usage (from the repo root):
     python -m dqn.v2.evaluate --games 1000 --out dqn/v2/eval/main \
         --policies random greedy_bfs hamiltonian tabular old_hybrid \
@@ -22,11 +27,14 @@ from snake_env import SnakeEnv
 from . import stats
 from .baselines import build_policy
 
+VALIDATION_SEED = 10_000
+TEST_SEED = 20_000
+
 RECORD_FIELDS = ("policy", "game", "seed", "score", "length", "steps", "win", "reason", "bucket",
                  "head_r", "head_c", "steps_per_apple")
 
 
-def run_games(policy, n_games, size=8, base_seed=10_000, batch=256, length_timeout=False, max_steps=None):
+def run_games(policy, n_games, size=8, base_seed=TEST_SEED, batch=256, length_timeout=False, max_steps=None):
     """Play n_games greedy games of `policy` in lockstep batches -> list of per-game dicts."""
     records = []
     for start in range(0, n_games, batch):
@@ -99,7 +107,8 @@ def main():
     ap.add_argument("--policies", nargs="+", required=True, help="see baselines.build_policy")
     ap.add_argument("--games", type=int, default=1000)
     ap.add_argument("--size", type=int, default=8)
-    ap.add_argument("--base-seed", type=int, default=10_000)
+    ap.add_argument("--base-seed", type=int, default=TEST_SEED,
+                    help=f"first env seed (test set {TEST_SEED}; use {VALIDATION_SEED} only for tuning)")
     ap.add_argument("--length-timeout", action="store_true", help="evaluate with the length-scaled timeout")
     ap.add_argument("--reference", default=None, help="policy name every other policy is compared against "
                                                       "(default: the first policy)")

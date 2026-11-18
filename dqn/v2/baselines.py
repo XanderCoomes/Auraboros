@@ -18,7 +18,7 @@ import torch
 
 from snake_env import DIRS, LEFT, RIGHT, STRAIGHT, N_ACTIONS
 
-from .shield import action_mask
+from .shield import action_mask, lookahead_mask
 from .state import analyze_space, encode_state, neighbor_table, preview
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -183,24 +183,32 @@ class OldHybridPolicy(Policy):
 
 class DQNv2Policy(Policy):
     """Greedy DQN v2 policy. Immediate-death moves are always masked; `shield=True` also masks moves that
-    lose the escape route (see shield.py)."""
+    lose the escape route; `lookahead=<hunger threshold>` adds the virtual-snake apple-route check on top of
+    the shield (see shield.py)."""
 
-    def __init__(self, model, device, shield=False, name=None):
+    def __init__(self, model, device, shield=False, lookahead=None, name=None):
         self.model = model.eval()
         self.device = device
-        self.shield = shield
-        self.name = name or ("dqn_v2+shield" if shield else "dqn_v2")
+        self.shield = shield or lookahead is not None
+        self.lookahead = lookahead
+        default = ("dqn_v2+lookahead" if lookahead is not None else "dqn_v2+shield" if shield else "dqn_v2")
+        self.name = name or default
 
     @classmethod
-    def from_checkpoint(cls, path, shield=False, name=None):
+    def from_checkpoint(cls, path, shield=False, lookahead=None, name=None):
         from .agent import load_model
         model, _, device = load_model(path)
-        return cls(model, device, shield=shield, name=name)
+        return cls(model, device, shield=shield, lookahead=lookahead, name=name)
+
+    def _mask(self, env, features):
+        if self.lookahead is not None:
+            return lookahead_mask(env, features, self.lookahead)
+        return action_mask(features, self.shield)
 
     def act_batch(self, envs):
         states = [encode_state(env) for env in envs]
         boards, scalars, feats = (np.stack(x) for x in zip(*states))
-        masks = np.stack([action_mask(f, self.shield) for f in feats])
+        masks = np.stack([self._mask(env, f) for env, f in zip(envs, feats)])
         t = lambda x: torch.as_tensor(x, dtype=torch.float32, device=self.device)
         with torch.no_grad():
             q = self.model(t(boards), t(scalars), t(feats)).cpu().numpy()
@@ -209,7 +217,7 @@ class DQNv2Policy(Policy):
 
 def build_policy(spec):
     """Policy from a CLI spec: random | greedy_bfs | hamiltonian | tabular | tabular_bucket | old_hybrid |
-    v2:<checkpoint> | v2shield:<checkpoint>   (optionally '=<name>' to rename, e.g. v2:runs/a/best.pth=seed0)."""
+    v2:<checkpoint> | v2shield:<checkpoint> | v2look[threshold]:<checkpoint>   (optionally '=<name>' to rename, e.g. v2:runs/a/best.pth=seed0)."""
     spec, _, rename = spec.partition("=")
     kind, _, arg = spec.partition(":")
     if kind == "random":
@@ -226,6 +234,8 @@ def build_policy(spec):
         p = OldHybridPolicy()
     elif kind in ("v2", "v2shield"):
         p = DQNv2Policy.from_checkpoint(arg, shield=kind == "v2shield")
+    elif kind.startswith("v2look"):   # v2look:<ckpt> (hunger threshold 0 = always) or v2look0.5:<ckpt>
+        p = DQNv2Policy.from_checkpoint(arg, lookahead=float(kind[len("v2look"):] or 0.0))
     else:
         raise ValueError(f"unknown policy spec {spec!r}")
     if rename:
