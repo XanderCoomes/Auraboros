@@ -9,9 +9,16 @@ __pycache__/
 *.pth
 *.csv
 
-# Generated experiment results
-test_result/
-Test_result/
+# Generated experiment results: local only, except the published Deep-Q results
+# (built by `python -m dqn.make_test_results`). "test_result/*" instead of "test_result/" so the
+# exceptions below can re-include subfolders.
+test_result/*
+!test_result/mlp/
+!test_result/hybrid/
+test_result/hybrid/visualizations/
+# Scoped to its folder: Git on Windows is case-insensitive, so a bare "Test_result/" also
+# matched (and re-ignored) the published test_result/ folders above.
+dqn/Test_result/
 # DQN v2 training logs
 dqn/v2/*.log
 

@@ -6,13 +6,18 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-def plot_learning_curves(log_path, output_dir, window=500):
+def plot_learning_curves(log_path, output_dir, window=500, title="Hybrid DQN Training Analysis"):
 
     log_path = Path(log_path)
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     df = pd.read_csv(log_path)
+
+    # The MLP trainer logs its periodic evaluation as "average_score" and has no
+    # max-score / win-rate columns; those panels are left empty with a note.
+    if "eval_average_score" not in df.columns and "average_score" in df.columns:
+        df = df.rename(columns={"average_score": "eval_average_score"})
 
     required_columns = {
         "episode",
@@ -21,14 +26,16 @@ def plot_learning_curves(log_path, output_dir, window=500):
         "steps",
         "total_reward",
         "eval_average_score",
-        "eval_max_score",
-        "eval_win_rate",
     }
 
     missing = required_columns - set(df.columns)
 
     if missing:
         raise ValueError(f"Missing CSV columns: {missing}")
+
+    def not_logged(ax, what):
+        ax.text(0.5, 0.5, f"{what} not logged\nfor this run", ha="center", va="center",
+                transform=ax.transAxes, color="gray")
 
     # Moving averages for training metrics.
     df["score_ma"] = df["score"].rolling(
@@ -67,24 +74,28 @@ def plot_learning_curves(log_path, output_dir, window=500):
         evaluation["episode"], evaluation["eval_average_score"],
         marker="o", label="Average score"
     )
-    axes[0, 1].plot(
-        evaluation["episode"], evaluation["eval_max_score"],
-        marker="s", label="Maximum score"
-    )
+    if "eval_max_score" in evaluation.columns:
+        axes[0, 1].plot(
+            evaluation["episode"], evaluation["eval_max_score"],
+            marker="s", label="Maximum score"
+        )
     axes[0, 1].set_title("Evaluation Performance")
     axes[0, 1].set_ylabel("Apples")
     axes[0, 1].legend()
     axes[0, 1].grid(alpha=0.3)
 
     # 3. Evaluation win rate.
-    axes[1, 0].plot(
-        evaluation["episode"], evaluation["eval_win_rate"],
-        marker="o", label="Win rate"
-    )
+    if "eval_win_rate" in evaluation.columns:
+        axes[1, 0].plot(
+            evaluation["episode"], evaluation["eval_win_rate"],
+            marker="o", label="Win rate"
+        )
+        axes[1, 0].legend()
+    else:
+        not_logged(axes[1, 0], "Win rate")
     axes[1, 0].set_title("Evaluation Win Rate")
     axes[1, 0].set_ylabel("Win rate (%)")
     axes[1, 0].set_ylim(bottom=0)
-    axes[1, 0].legend()
     axes[1, 0].grid(alpha=0.3)
 
     # 4. Episode length.
@@ -121,7 +132,7 @@ def plot_learning_curves(log_path, output_dir, window=500):
     for ax in axes.flat:
         ax.set_xlabel("Episode")
 
-    fig.suptitle("Hybrid DQN Training Analysis", fontsize=16)
+    fig.suptitle(title, fontsize=16)
     fig.tight_layout()
 
     output_path = output_dir / "curves.png"
@@ -153,10 +164,17 @@ if __name__ == "__main__":
         default=500
     )
 
+    parser.add_argument(
+        "--title",
+        type=str,
+        default="Hybrid DQN Training Analysis"
+    )
+
     args = parser.parse_args()
 
     plot_learning_curves(
         args.log,
         args.output_dir,
-        args.window
+        args.window,
+        args.title
     )

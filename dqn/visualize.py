@@ -96,6 +96,53 @@ def record_episode(
     return frames
 
 
+def record_episode_mlp(model, encoder, device, size=8, seed=42):
+    """
+    Run one greedy MLP DQN episode and record frames in the same format as
+    record_episode, with "state" = the 13-feature vector (for save_state_gif "mlp").
+    """
+
+    env = SnakeEnv(size=size, seed=seed)
+    env.reset()
+
+    frames = []
+    done = False
+    total_reward = 0.0
+    info = {}
+
+    while not done:
+        state = encoder.encode(env)
+
+        with torch.no_grad():
+            q_values = model(
+                torch.as_tensor(state, dtype=torch.float32, device=device).unsqueeze(0)
+            ).squeeze(0).cpu().numpy()
+
+        action = int(np.argmax(q_values))
+
+        frames.append({
+            "board": env.board_array().copy(),
+            "state": state.copy(),
+            "heading": env.heading,
+            "action": action,
+            "q_values": q_values.copy(),
+            "score": env.score,
+            "steps": env.steps,
+            "total_reward": total_reward,
+        })
+
+        _, reward, done, info = env.step(action)
+        total_reward += reward
+        frames[-1]["reward"] = reward
+        frames[-1]["total_reward"] = total_reward
+
+    frames[-1]["done"] = True
+    frames[-1]["end_reason"] = info.get("reason", "unknown")
+    frames[-1]["final_score"] = env.score
+
+    return frames
+
+
 
 
 def save_gameplay_gif(frames, output_path, fps=6):
@@ -174,9 +221,10 @@ def save_gameplay_gif(frames, output_path, fps=6):
             f"Heading: {heading_names[frame['heading']]}\n\n"
             f"Action: {action_names[frame['action']]}\n\n"
             f"Q-values:\n"
+            # Action order matches snake_env: 0 = straight, 1 = left, 2 = right
             f"  Straight: {q_values[0]:8.3f}\n"
-            f"  Right:    {q_values[1]:8.3f}\n"
-            f"  Left:     {q_values[2]:8.3f}\n\n"
+            f"  Left:     {q_values[1]:8.3f}\n"
+            f"  Right:    {q_values[2]:8.3f}\n\n"
             f"Last reward: {frame['reward']:.2f}\n"
             f"Total reward: {frame['total_reward']:.2f}"
         )
