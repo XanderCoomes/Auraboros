@@ -1,4 +1,0 @@
-rescnn4: input (2, 8, 8, 5) + 7 context values
-Checkpoint /Users/jaydenjardine/Dev/school/UCSD/Probabilistic Models/auraboros/Auraboros/final_test/20261120-102230-908180/models/01-rescnn4-directional-20261109-204457-081021/01-rescnn4-directional-20261109-204457-081021-attempt-01/model.pt
-Training log /Users/jaydenjardine/Dev/school/UCSD/Probabilistic Models/auraboros/Auraboros/final_test/20261120-102230-908180/models/01-rescnn4-directional-20261109-204457-081021/01-rescnn4-directional-20261109-204457-081021-attempt-01/log.csv
-Estimated forward FLOPs/state: 420,416; budget: 10000000000000
