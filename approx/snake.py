@@ -252,8 +252,8 @@ class ApproxQAgent:
         # 7-8. SPACE / ESCAPE: static connectivity of the post-move board.
         # Reachable Space: How much empty space is accessible to the head in a given state,
         # e.g. how much empty room the head can reach that isn't blocked by the body or a wall
-        space, tail, apple_reachable = ((0.0, 0.0, 0.0) if wall or body else
-                                        _connectivity(snake, state.size, state.apple))
+        space, tail = ((0.0, 0.0, 0.0) if wall or body else
+                                        _connectivity(snake, state.size))
         features["reachable_space"] = space
         features["tail_reachable"] = tail # Bool on whether the body has blocked the snake from the head
 
