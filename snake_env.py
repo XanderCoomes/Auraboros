@@ -8,7 +8,6 @@ from collections import deque
 
 import numpy as np
 
-from features import StateSpec
 from rewards import RewardSpec
 
 DIRS = [(-1, 0), (0, 1), (1, 0), (0, -1)]  # (d_row, d_col) for up, right, down, left
@@ -17,9 +16,8 @@ N_ACTIONS = 3
 
 
 class SnakeEnv:
-    def __init__(self, size=15, seed=None, init_length=3, timeout_factor=2, features=None, rewards=None):
+    def __init__(self, size=15, seed=None, init_length=3, timeout_factor=2, rewards=None):
         self.size = size
-        self.spec = StateSpec(features)  # which state features get_state() returns; None = features.DEFAULT_FEATURES
         # reward terms + weights (see rewards.py); None = rewards.DEFAULT_REWARDS at default weights
         self.rewards = rewards if isinstance(rewards, RewardSpec) else RewardSpec(rewards)
         self.init_length = init_length
@@ -102,14 +100,10 @@ class SnakeEnv:
         return 0 <= p[0] < self.size and 0 <= p[1] < self.size
 
     # ----------------------------------------------------------------- state
-    def _is_danger(self, heading):
-        dr, dc = DIRS[heading]
-        p = (self.snake[0][0] + dr, self.snake[0][1] + dc)
-        return int(not self._in_bounds(p) or (p in self.body and p != self.snake[-1]))
-
     def get_state(self):
-        """State tuple for tabular Q-learning: one int per feature selected in self.spec (see features.py)."""
-        return self.spec.encode(self)
+        """What the agent observes. This class holds only the rules and rewards, so it returns
+        None; state_encoders.BoardSnakeEnv overrides this with the board observation."""
+        return None
 
     # --------------------------------------------------------------- display
     def render(self):
@@ -147,4 +141,3 @@ if __name__ == "__main__":
     print(f"random agent: mean score {np.mean(scores):.2f}, max {max(scores)}, mean steps {np.mean(lengths):.1f}")
     env.reset()
     print(env.render())
-    print("state:", env.get_state())

@@ -1,4 +1,4 @@
-"""DQN training, dispatched by train.py --agent dqn."""
+"""DQN arguments and training loop, run by train.py."""
 import csv
 import json
 import time
@@ -9,7 +9,8 @@ import numpy as np
 
 
 def add_arguments(parser):
-    parser.add_argument("--agent", choices=("tabular", "dqn"), default="tabular")
+    parser.add_argument("--agent", choices=("dqn",), default="dqn",
+                        help="dqn is the only agent; the flag is kept so existing commands still run")
     parser.add_argument("--encoder", default="entities_tail")
     parser.add_argument("--encoding", choices=("auto", "onehot", "binary"), default="auto")
     parser.add_argument("--model", default="rescnn8", help="rescnn4 or rescnn8, or a registered model")

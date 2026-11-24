@@ -122,9 +122,10 @@ accepts batched `board, context` tensors and returns `(batch,3)` Q-values. For
 the viewer, support `return_activations=True` with `fc1`, `fc2`, and `q` tensors
 and expose the final linear layer as `output`.
 
-`BoardSnakeEnv` overrides only observation construction. `train.py --agent dqn`
-dispatches to `train_dqn.py`, which reuses `run_episode` and `evaluate_details`.
-The original tabular command remains `python train.py --episodes 20000`.
+`SnakeEnv` holds the rules and rewards; `BoardSnakeEnv` adds the observation.
+`train.py` parses the arguments and hands off to `train_dqn.py`, which reuses its
+`run_episode` and `evaluate_details`. DQN is the only agent, so `--agent dqn` is
+optional; the flag is still accepted.
 
 ## Verify
 
