@@ -172,9 +172,9 @@ def _neighbors(cell, size):
             yield neighbor
 
 
-def _connectivity(snake, size, apple=None):
-    # Body INCLUDING the post-move tail blocks the free-space flood fill.
-    # The head counts as accessible space; normalize against the whole board.
+def _connectivity(snake, size):
+    """Return reachable board fraction and whether the head can reach the tail."""
+    # The body, including the tail, blocks the space calculation.
     blocked = set(snake[1:])
     reachable, queue = {snake[0]}, deque([snake[0]])
     while queue:
@@ -182,14 +182,10 @@ def _connectivity(snake, size, apple=None):
             if cell not in blocked and cell not in reachable:
                 reachable.add(cell)
                 queue.append(cell)
-    # For the tail-path check alone, allow the tail as the destination. It may
-    # eventually vacate; the rest of the body is still considered blocked.
+    # Allow the tail as a destination only for the tail-reachability check.
     tail = snake[-1]
     tail_reachable = tail in reachable or any(cell in reachable for cell in _neighbors(tail, size))
-    # Unlike the tail, the apple must be reachable through the currently open
-    # cells. The same flood fill measures space and checks the path to food.
-    apple_reachable = apple is not None and apple in reachable
-    return len(reachable) / (size * size), float(tail_reachable), float(apple_reachable)
+    return len(reachable) / (size * size), float(tail_reachable)
 
 
 class DisplayFeatures:
@@ -252,7 +248,7 @@ class ApproxQAgent:
         # 7-8. SPACE / ESCAPE: static connectivity of the post-move board.
         # Reachable Space: How much empty space is accessible to the head in a given state,
         # e.g. how much empty room the head can reach that isn't blocked by the body or a wall
-        space, tail = ((0.0, 0.0, 0.0) if wall or body else
+        space, tail = ((0.0, 0.0) if wall or body else
                                         _connectivity(snake, state.size))
         features["reachable_space"] = space
         features["tail_reachable"] = tail # Bool on whether the body has blocked the snake from the head
