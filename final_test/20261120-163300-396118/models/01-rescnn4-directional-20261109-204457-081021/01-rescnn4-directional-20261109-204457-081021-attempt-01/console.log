@@ -1,0 +1,20 @@
+rescnn4: input (2, 8, 8, 5) + 7 context values
+Checkpoint /Users/jaydenjardine/Dev/school/UCSD/Probabilistic Models/auraboros/Auraboros/final_test/20261120-163300-396118/models/01-rescnn4-directional-20261109-204457-081021/01-rescnn4-directional-20261109-204457-081021-attempt-01/model.pt
+Training log /Users/jaydenjardine/Dev/school/UCSD/Probabilistic Models/auraboros/Auraboros/final_test/20261120-163300-396118/models/01-rescnn4-directional-20261109-204457-081021/01-rescnn4-directional-20261109-204457-081021-attempt-01/log.csv
+Estimated forward FLOPs/state: 420,416; budget: None
+Episode 1000: mean apples 0.67, updates 3276, loss 0.011647294275462627, FLOPs 3.538e+11
+Episode 2000: mean apples 3.09, updates 7106, loss 0.009105535224080086, FLOPs 7.675e+11
+Episode 3000: mean apples 3.63, updates 11042, loss 0.012412156909704208, FLOPs 1.193e+12
+Episode 4000: mean apples 4.79, updates 15023, loss 0.006271624006330967, FLOPs 1.624e+12
+Episode 5000: mean apples 4.92, updates 19308, loss 0.010359187610447407, FLOPs 2.087e+12
+Episode 6000: mean apples 5.20, updates 23643, loss 0.004900077357888222, FLOPs 2.557e+12
+Episode 7000: mean apples 5.60, updates 28245, loss 0.016299406066536903, FLOPs 3.055e+12
+Episode 8000: mean apples 5.26, updates 32755, loss 0.01113049779087305, FLOPs 3.544e+12
+Episode 9000: mean apples 5.75, updates 37392, loss 0.11490562558174133, FLOPs 4.047e+12
+Episode 10000: mean apples 6.66, updates 41953, loss 0.00864282064139843, FLOPs 4.541e+12
+Episode 11000: mean apples 7.00, updates 46753, loss 0.04724385589361191, FLOPs 5.062e+12
+Episode 12000: mean apples 6.28, updates 51768, loss 0.011626907624304295, FLOPs 5.607e+12
+Episode 13000: mean apples 6.46, updates 57024, loss 0.012822058983147144, FLOPs 6.178e+12
+Episode 14000: mean apples 6.91, updates 62234, loss 0.01070288848131895, FLOPs 6.744e+12
+Episode 15000: mean apples 6.77, updates 67469, loss 0.012452122755348682, FLOPs 7.314e+12
+Episode 16000: mean apples 7.40, updates 72904, loss 0.017221935093402863, FLOPs 7.905e+12

@@ -1,0 +1,298 @@
+{
+  "board_size": 8,
+  "encoder": {
+    "name": "directional",
+    "encoding": "onehot"
+  },
+  "model": {
+    "name": "rescnn4",
+    "input_shape": [
+      2,
+      8,
+      8,
+      5
+    ],
+    "context_dim": 7,
+    "base_channels": 8,
+    "hidden_dims": [
+      64,
+      32
+    ]
+  },
+  "rewards": {
+    "apple": 1.0,
+    "death": -1.0,
+    "step": -0.01,
+    "closer": 0.05
+  },
+  "reward_scale": 1.0,
+  "seed": 0,
+  "initial_length": 3,
+  "timeout_factor": 2,
+  "algorithm": "dqn",
+  "training_started_at": "2026-11-20T16:33:02.858739",
+  "q_file": "/Users/jaydenjardine/Dev/school/UCSD/Probabilistic Models/auraboros/Auraboros/final_test/20261120-163300-396118/models/01-rescnn4-directional-20261109-204457-081021/01-rescnn4-directional-20261109-204457-081021-attempt-01/model.pt",
+  "log_file": "/Users/jaydenjardine/Dev/school/UCSD/Probabilistic Models/auraboros/Auraboros/final_test/20261120-163300-396118/models/01-rescnn4-directional-20261109-204457-081021/01-rescnn4-directional-20261109-204457-081021-attempt-01/log.csv",
+  "episodes": 50000,
+  "state": {
+    "features": [
+      "up",
+      "right",
+      "down",
+      "left",
+      "apple"
+    ],
+    "shape": [
+      2,
+      8,
+      8,
+      5
+    ],
+    "context": [
+      "up",
+      "right",
+      "down",
+      "left",
+      "head_row",
+      "head_col",
+      "hunger"
+    ]
+  },
+  "settings": {
+    "learning_rate": 0.001,
+    "gamma": 0.95,
+    "batch_size": 64,
+    "capacity": 10000,
+    "warmup": 1000,
+    "train_every": 4,
+    "target_every": 250,
+    "reward_scale": 1.0,
+    "seed": 0
+  },
+  "epsilon": {
+    "start": 1.0,
+    "end": 0.01,
+    "linear_decay_fraction": 0.6
+  },
+  "trained_at": "2026-11-20T16:42:55.792542",
+  "completed_episodes": 16000,
+  "training_duration_seconds": 532.6807135839481,
+  "eval_history": [
+    {
+      "episode": 1000,
+      "training_flops": 353753985560,
+      "games": 100,
+      "mean_score": 0.67,
+      "max_score": 4,
+      "mean_steps": 131.88,
+      "end_reasons": {
+        "timeout": 80,
+        "collision": 20
+      }
+    },
+    {
+      "episode": 2000,
+      "training_flops": 767544121444,
+      "games": 100,
+      "mean_score": 3.09,
+      "max_score": 9,
+      "mean_steps": 47.11,
+      "end_reasons": {
+        "collision": 83,
+        "timeout": 17
+      }
+    },
+    {
+      "episode": 3000,
+      "training_flops": 1193016856036,
+      "games": 100,
+      "mean_score": 3.63,
+      "max_score": 9,
+      "mean_steps": 37.08,
+      "end_reasons": {
+        "collision": 91,
+        "timeout": 9
+      }
+    },
+    {
+      "episode": 4000,
+      "training_flops": 1623579279374,
+      "games": 100,
+      "mean_score": 4.79,
+      "max_score": 12,
+      "mean_steps": 34.4,
+      "end_reasons": {
+        "collision": 98,
+        "timeout": 2
+      }
+    },
+    {
+      "episode": 5000,
+      "training_flops": 2087251386520,
+      "games": 100,
+      "mean_score": 4.92,
+      "max_score": 11,
+      "mean_steps": 35.93,
+      "end_reasons": {
+        "collision": 99,
+        "timeout": 1
+      }
+    },
+    {
+      "episode": 6000,
+      "training_flops": 2556557589158,
+      "games": 100,
+      "mean_score": 5.2,
+      "max_score": 13,
+      "mean_steps": 34.12,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 7000,
+      "training_flops": 3055036264122,
+      "games": 100,
+      "mean_score": 5.6,
+      "max_score": 13,
+      "mean_steps": 37.94,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 8000,
+      "training_flops": 3543819220950,
+      "games": 100,
+      "mean_score": 5.26,
+      "max_score": 13,
+      "mean_steps": 33.9,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 9000,
+      "training_flops": 4046582551968,
+      "games": 100,
+      "mean_score": 5.75,
+      "max_score": 13,
+      "mean_steps": 36.53,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 10000,
+      "training_flops": 4541371161554,
+      "games": 100,
+      "mean_score": 6.66,
+      "max_score": 13,
+      "mean_steps": 45.32,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 11000,
+      "training_flops": 5062328802450,
+      "games": 100,
+      "mean_score": 7.0,
+      "max_score": 14,
+      "mean_steps": 49.66,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 12000,
+      "training_flops": 5606944399280,
+      "games": 100,
+      "mean_score": 6.28,
+      "max_score": 13,
+      "mean_steps": 41.49,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 13000,
+      "training_flops": 6178018513088,
+      "games": 100,
+      "mean_score": 6.46,
+      "max_score": 14,
+      "mean_steps": 43.89,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 14000,
+      "training_flops": 6744358280148,
+      "games": 100,
+      "mean_score": 6.91,
+      "max_score": 16,
+      "mean_steps": 45.67,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 15000,
+      "training_flops": 7313683681770,
+      "games": 100,
+      "mean_score": 6.77,
+      "max_score": 16,
+      "mean_steps": 45.74,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 16000,
+      "training_flops": 7905119583952,
+      "games": 100,
+      "mean_score": 7.4,
+      "max_score": 14,
+      "mean_steps": 49.78,
+      "end_reasons": {
+        "collision": 100
+      }
+    }
+  ],
+  "training_max_score": 7,
+  "training_last_1000_episodes": {
+    "mean_score": 1.746
+  },
+  "compute": {
+    "convention": "estimated-v1: Conv2d/Linear multiply-add=2 FLOPs, backward=2x online forward, Adam=14 FLOPs/trainable parameter/update; excludes biases, activations, pooling, loss, clipping, scalar overhead, environment and data-generation costs",
+    "forward_flops_per_state": 420416,
+    "training_flops": 7905119583952,
+    "history_complete": true,
+    "training_breakdown": {
+      "action_inference": 34663719616,
+      "online_forward": 1961600516096,
+      "target_forward": 1961600516096,
+      "backward": 3923201032192,
+      "adam": 24053799952
+    },
+    "pretraining_flops": 0,
+    "evaluation_flops": 31549698304,
+    "max_train_flops": null,
+    "estimated": true
+  },
+  "stop_reason": "checkpoint",
+  "partial_last_episode": false,
+  "final_greedy_eval": {
+    "episode": 16000,
+    "training_flops": 7905119583952,
+    "games": 100,
+    "mean_score": 7.4,
+    "max_score": 14,
+    "mean_steps": 49.78,
+    "end_reasons": {
+      "collision": 100
+    }
+  },
+  "final_greedy_eval_score_100_games": 7.4
+}

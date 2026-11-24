@@ -74,9 +74,9 @@
     "end": 0.01,
     "linear_decay_fraction": 0.6
   },
-  "trained_at": "2026-11-10T09:06:51.999608",
-  "completed_episodes": 1000,
-  "training_duration_seconds": 24.132378792157397,
+  "trained_at": "2026-11-10T09:37:25.310777",
+  "completed_episodes": 20000,
+  "training_duration_seconds": 1718.340319042094,
   "eval_history": [
     {
       "episode": 1000,
@@ -88,22 +88,216 @@
         "collision": 61,
         "timeout": 39
       }
+    },
+    {
+      "episode": 2000,
+      "games": 100,
+      "mean_score": 2.22,
+      "max_score": 5,
+      "mean_steps": 45.6,
+      "end_reasons": {
+        "collision": 87,
+        "timeout": 13
+      }
+    },
+    {
+      "episode": 3000,
+      "games": 100,
+      "mean_score": 3.16,
+      "max_score": 9,
+      "mean_steps": 41.58,
+      "end_reasons": {
+        "collision": 89,
+        "timeout": 11
+      }
+    },
+    {
+      "episode": 4000,
+      "games": 100,
+      "mean_score": 4.71,
+      "max_score": 15,
+      "mean_steps": 39.49,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 5000,
+      "games": 100,
+      "mean_score": 5.71,
+      "max_score": 13,
+      "mean_steps": 51.41,
+      "end_reasons": {
+        "collision": 97,
+        "timeout": 3
+      }
+    },
+    {
+      "episode": 6000,
+      "games": 100,
+      "mean_score": 7.09,
+      "max_score": 14,
+      "mean_steps": 63.28,
+      "end_reasons": {
+        "collision": 97,
+        "timeout": 3
+      }
+    },
+    {
+      "episode": 7000,
+      "games": 100,
+      "mean_score": 6.86,
+      "max_score": 19,
+      "mean_steps": 56.44,
+      "end_reasons": {
+        "collision": 99,
+        "timeout": 1
+      }
+    },
+    {
+      "episode": 8000,
+      "games": 100,
+      "mean_score": 7.96,
+      "max_score": 14,
+      "mean_steps": 60.54,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 9000,
+      "games": 100,
+      "mean_score": 9.45,
+      "max_score": 16,
+      "mean_steps": 72.15,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 10000,
+      "games": 100,
+      "mean_score": 7.82,
+      "max_score": 16,
+      "mean_steps": 52.66,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 11000,
+      "games": 100,
+      "mean_score": 10.08,
+      "max_score": 18,
+      "mean_steps": 70.46,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 12000,
+      "games": 100,
+      "mean_score": 8.73,
+      "max_score": 21,
+      "mean_steps": 59.96,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 13000,
+      "games": 100,
+      "mean_score": 11.63,
+      "max_score": 21,
+      "mean_steps": 79.68,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 14000,
+      "games": 100,
+      "mean_score": 10.3,
+      "max_score": 19,
+      "mean_steps": 71.61,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 15000,
+      "games": 100,
+      "mean_score": 10.53,
+      "max_score": 22,
+      "mean_steps": 72.81,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 16000,
+      "games": 100,
+      "mean_score": 11.63,
+      "max_score": 21,
+      "mean_steps": 82.16,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 17000,
+      "games": 100,
+      "mean_score": 12.97,
+      "max_score": 21,
+      "mean_steps": 93.65,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 18000,
+      "games": 100,
+      "mean_score": 11.64,
+      "max_score": 25,
+      "mean_steps": 87.11,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 19000,
+      "games": 100,
+      "mean_score": 11.92,
+      "max_score": 22,
+      "mean_steps": 84.62,
+      "end_reasons": {
+        "collision": 100
+      }
+    },
+    {
+      "episode": 20000,
+      "games": 100,
+      "mean_score": 11.94,
+      "max_score": 22,
+      "mean_steps": 81.71,
+      "end_reasons": {
+        "collision": 100
+      }
     }
   ],
-  "training_max_score": 2,
+  "training_max_score": 27,
   "training_last_1000_episodes": {
-    "mean_score": 0.204
+    "mean_score": 11.771
   },
   "final_greedy_eval": {
-    "episode": 1000,
+    "episode": 20000,
     "games": 100,
-    "mean_score": 1.97,
-    "max_score": 6,
-    "mean_steps": 128.46,
+    "mean_score": 11.94,
+    "max_score": 22,
+    "mean_steps": 81.71,
     "end_reasons": {
-      "collision": 61,
-      "timeout": 39
+      "collision": 100
     }
   },
-  "final_greedy_eval_score_100_games": 1.97
+  "final_greedy_eval_score_100_games": 11.94
 }

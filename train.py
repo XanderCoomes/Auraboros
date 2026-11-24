@@ -17,22 +17,37 @@ import features
 import rewards
 from q_tabular import QAgent
 from snake_env import SnakeEnv
+from flop_accounting import FlopBudgetReached
 
 
-def run_episode(env, agent, epsilon, learn=True, visited=None):
+def run_episode(env, agent, epsilon, learn=True, visited=None, initial_state=None):
     # One game = repeat: observe state -> choose action -> get reward and next state -> learn
     # visited: optional set; every Q-table row seen this episode is added to it (state coverage)
-    stateBeforeAction = env.reset()
-    done, totalReward, info = False, 0.0, {"score": 0}
+    stateBeforeAction = env.reset() if initial_state is None else initial_state
+    starting_score = 0 if initial_state is None else env.score
+    if hasattr(agent, "compute"):
+        agent.compute.training = learn
+    budget_stop = False
+    done, totalReward, info = False, 0.0, {"score": env.score}
     while not done:
         if visited is not None:
             visited.add(agent.spec.row(stateBeforeAction))
-        selectedAction = agent.act(stateBeforeAction, epsilon)  # choose an action for the current state (epsilon-greedy)
+        try:
+            selectedAction = agent.act(stateBeforeAction, epsilon)
+        except FlopBudgetReached:
+            budget_stop = True
+            break
         stateAfterAction, reward, done, info = env.step(selectedAction)  # environment returns next state, reward, game-over flag
+        totalReward += reward
         if learn:
-            agent.update(stateBeforeAction, selectedAction, reward, stateAfterAction, done)  # adjust the Q-table with this experience
-        stateBeforeAction, totalReward = stateAfterAction, totalReward + reward  # move on to the next state
-    return info["score"], env.steps, totalReward, info.get("reason", "unknown"), len(env.snake)
+            try:
+                agent.update(stateBeforeAction, selectedAction, reward, stateAfterAction, done)
+            except FlopBudgetReached:
+                budget_stop = True
+                break
+        stateBeforeAction = stateAfterAction
+    reason = "flops_budget" if budget_stop else info.get("reason", "unknown")
+    return info["score"] - starting_score, env.steps, totalReward, reason, len(env.snake)
 
 
 def evaluate(env, agent, n=100):
@@ -72,6 +87,9 @@ def main():
     from train_dqn import add_arguments, train as train_dqn
     add_arguments(p)
     args = p.parse_args()
+    if args.agent != "dqn" and (args.demo_file is not None or args.pretrain_updates is not None
+                                or args.late_start_file is not None or args.max_train_flops is not None):
+        p.error("Human demonstrations and crowded starts require --agent dqn")
 
     if args.list_features:
         for name, f in features.list_features().items():

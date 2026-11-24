@@ -1,0 +1,215 @@
+{
+  "board_size": 8,
+  "encoder": {
+    "name": "entities_tail",
+    "encoding": "onehot"
+  },
+  "model": {
+    "name": "rescnn4",
+    "input_shape": [
+      2,
+      8,
+      8,
+      4
+    ],
+    "context_dim": 7,
+    "base_channels": 8,
+    "hidden_dims": [
+      64,
+      32
+    ]
+  },
+  "rewards": {
+    "apple": 100.0,
+    "death": -6350.0,
+    "step": -0.01,
+    "closer": 0.1
+  },
+  "reward_scale": 0.01,
+  "seed": 0,
+  "initial_length": 3,
+  "timeout_factor": 2,
+  "algorithm": "dqn",
+  "training_started_at": "2026-11-09T19:53:37.658138",
+  "q_file": "runs/rescnn4-entities_tail-20261109-195337-657905/model.pt",
+  "log_file": "runs/rescnn4-entities_tail-20261109-195337-657905/log.csv",
+  "episodes": 20000,
+  "state": {
+    "features": [
+      "body",
+      "head",
+      "apple",
+      "tail"
+    ],
+    "shape": [
+      2,
+      8,
+      8,
+      4
+    ],
+    "context": [
+      "up",
+      "right",
+      "down",
+      "left",
+      "head_row",
+      "head_col",
+      "hunger"
+    ]
+  },
+  "settings": {
+    "learning_rate": 0.001,
+    "gamma": 0.95,
+    "batch_size": 64,
+    "capacity": 10000,
+    "warmup": 1000,
+    "train_every": 4,
+    "target_every": 250,
+    "reward_scale": 0.01,
+    "seed": 0
+  },
+  "epsilon": {
+    "start": 1.0,
+    "end": 0.01,
+    "linear_decay_fraction": 0.6
+  },
+  "trained_at": "2026-11-09T20:02:17.116020",
+  "completed_episodes": 11000,
+  "training_duration_seconds": 519.4478857908398,
+  "eval_history": [
+    {
+      "episode": 1000,
+      "games": 100,
+      "mean_score": 0.25,
+      "max_score": 2,
+      "mean_steps": 131.83,
+      "end_reasons": {
+        "timeout": 95,
+        "collision": 5
+      }
+    },
+    {
+      "episode": 2000,
+      "games": 100,
+      "mean_score": 0.09,
+      "max_score": 1,
+      "mean_steps": 130.85,
+      "end_reasons": {
+        "timeout": 100
+      }
+    },
+    {
+      "episode": 3000,
+      "games": 100,
+      "mean_score": 0.33,
+      "max_score": 3,
+      "mean_steps": 129.71,
+      "end_reasons": {
+        "timeout": 93,
+        "collision": 7
+      }
+    },
+    {
+      "episode": 4000,
+      "games": 100,
+      "mean_score": 0.2,
+      "max_score": 2,
+      "mean_steps": 130.32,
+      "end_reasons": {
+        "timeout": 99,
+        "collision": 1
+      }
+    },
+    {
+      "episode": 5000,
+      "games": 100,
+      "mean_score": 0.43,
+      "max_score": 3,
+      "mean_steps": 141.82,
+      "end_reasons": {
+        "timeout": 94,
+        "collision": 6
+      }
+    },
+    {
+      "episode": 6000,
+      "games": 100,
+      "mean_score": 0.34,
+      "max_score": 2,
+      "mean_steps": 145.14,
+      "end_reasons": {
+        "timeout": 94,
+        "collision": 6
+      }
+    },
+    {
+      "episode": 7000,
+      "games": 100,
+      "mean_score": 0.28,
+      "max_score": 2,
+      "mean_steps": 127.21,
+      "end_reasons": {
+        "timeout": 96,
+        "collision": 4
+      }
+    },
+    {
+      "episode": 8000,
+      "games": 100,
+      "mean_score": 0.87,
+      "max_score": 3,
+      "mean_steps": 134.17,
+      "end_reasons": {
+        "collision": 32,
+        "timeout": 68
+      }
+    },
+    {
+      "episode": 9000,
+      "games": 100,
+      "mean_score": 1.39,
+      "max_score": 5,
+      "mean_steps": 133.24,
+      "end_reasons": {
+        "timeout": 79,
+        "collision": 21
+      }
+    },
+    {
+      "episode": 10000,
+      "games": 100,
+      "mean_score": 0.41,
+      "max_score": 2,
+      "mean_steps": 149.37,
+      "end_reasons": {
+        "timeout": 94,
+        "collision": 6
+      }
+    },
+    {
+      "episode": 11000,
+      "games": 100,
+      "mean_score": 0.78,
+      "max_score": 5,
+      "mean_steps": 141.95,
+      "end_reasons": {
+        "timeout": 100
+      }
+    }
+  ],
+  "training_max_score": 5,
+  "training_last_1000_episodes": {
+    "mean_score": 0.608
+  },
+  "final_greedy_eval": {
+    "episode": 11000,
+    "games": 100,
+    "mean_score": 0.78,
+    "max_score": 5,
+    "mean_steps": 141.95,
+    "end_reasons": {
+      "timeout": 100
+    }
+  },
+  "final_greedy_eval_score_100_games": 0.78
+}

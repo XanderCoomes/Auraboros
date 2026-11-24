@@ -11,6 +11,7 @@ import torch
 from torch.nn import functional as F
 
 from models import build_model
+from flop_accounting import FlopCounter, forward_flops
 from snake_env import N_ACTIONS
 from state_encoders import Observation
 
@@ -40,6 +41,8 @@ class DQNAgent:
         self.steps = 0
         self.updates = 0
         self.last_loss = None
+        self.compute = FlopCounter(forward_flops(self.online, model_config),
+                                   sum(p.numel() for p in self.online.parameters() if p.requires_grad))
 
     def _batch(self, observations):
         boards = torch.as_tensor(np.stack([s.board for s in observations]), device=self.device)
@@ -47,9 +50,16 @@ class DQNAgent:
         return boards, contexts
 
     def q_values(self, state):
+        if self.compute.training:
+            self.compute.require(self.compute.forward)
         self.online.eval()
         with torch.no_grad():
-            return self.online(*self._batch([state]))[0].cpu().numpy()
+            values = self.online(*self._batch([state]))[0].cpu().numpy()
+        if self.compute.training:
+            self.compute.costs["action_inference"] += self.compute.forward
+        else:
+            self.compute.evaluation += self.compute.forward
+        return values
 
     def inspect(self, state):
         self.online.eval()
@@ -73,6 +83,18 @@ class DQNAgent:
         if not ready or self.steps % self.settings["train_every"]:
             return None
         transitions = self.rng.sample(list(self.memory), self.settings["batch_size"])
+        return self._learn(transitions)
+
+    def pretrain(self, demonstrations, updates):
+        """Fit DQN targets and favor recorded actions before collecting agent moves."""
+        batch_size = min(self.settings["batch_size"], len(demonstrations))
+        for _ in range(updates):
+            self._learn(self.rng.sample(demonstrations, batch_size), demonstration=True)
+        self.target.load_state_dict(self.online.state_dict())
+        return self.last_loss
+
+    def _learn(self, transitions, demonstration=False):
+        self.compute.require(self.compute.update_cost(len(transitions)))
         states, actions, rewards, next_states, dones = zip(*transitions)
         actions = torch.tensor(actions, dtype=torch.long, device=self.device).unsqueeze(1)
         rewards = torch.tensor(rewards, dtype=torch.float32, device=self.device)
@@ -82,12 +104,20 @@ class DQNAgent:
             future = self.target(*self._batch(next_states)).max(dim=1).values
             targets = rewards + self.settings["gamma"] * future.masked_fill(dones, 0)
         self.online.train()
-        predicted = self.online(*self._batch(states)).gather(1, actions).squeeze(1)
+        action_values = self.online(*self._batch(states))
+        predicted = action_values.gather(1, actions).squeeze(1)
         loss = F.smooth_l1_loss(predicted, targets)
+        if demonstration:
+            # Leave the demonstrated action untouched and add the margin to alternatives.
+            margin = torch.full_like(action_values, 0.8).scatter_(1, actions, 0.0)
+            imitation = (action_values + margin).max(dim=1).values - predicted
+            # Learn the terminal reward without imitating a human's final crash.
+            loss = loss + imitation.masked_fill(dones, 0).mean()
         self.optimizer.zero_grad()
         loss.backward()
         torch.nn.utils.clip_grad_norm_(self.online.parameters(), max_norm=10.0)
         self.optimizer.step()
+        self.compute.record_update(len(transitions), pretraining=demonstration)
         self.updates += 1
         if self.updates % self.settings["target_every"] == 0:
             self.target.load_state_dict(self.online.state_dict())
@@ -100,7 +130,8 @@ class DQNAgent:
         payload = {"version": 1, "algorithm": "dqn", "model_config": self.model_config,
                    "settings": self.settings, "online": self.online.state_dict(),
                    "target": self.target.state_dict(), "optimizer": self.optimizer.state_dict(),
-                   "steps": self.steps, "updates": self.updates, "metadata": metadata or {}}
+                   "steps": self.steps, "updates": self.updates, "metadata": metadata or {},
+                   "compute": self.compute.summary()}
         # Write beside the destination so replacing a checkpoint is atomic.
         with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as temp:
             temporary = temp.name
@@ -121,4 +152,13 @@ class DQNAgent:
         agent.target.load_state_dict(payload["target"])
         agent.optimizer.load_state_dict(payload["optimizer"])
         agent.steps, agent.updates = payload["steps"], payload["updates"]
+        if "compute" in payload:
+            compute = payload["compute"]
+            agent.compute.costs.update(compute["training_breakdown"])
+            agent.compute.pretraining = compute["pretraining_flops"]
+            agent.compute.evaluation = compute["evaluation_flops"]
+            agent.compute.budget = compute["max_train_flops"]
+            agent.compute.history_complete = compute.get("history_complete", True)
+        else:
+            agent.compute.history_complete = False
         return agent, payload["metadata"]

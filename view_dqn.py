@@ -26,7 +26,23 @@ def record_game(agent, metadata, seed=1, max_steps=10000):
     frames, total, reason, collision = [], 0.0, "viewer step limit", None
     for _ in range(max_steps):
         activations = agent.inspect(observation)
-        action = int(np.argmax(activations["q"]))
+        TESTING = True  # Use the argmax of the Q-values for the replay, not epsilon-greedy.
+        if not TESTING:
+            action = int(np.argmax(activations["q"]))
+        else:
+            # Straight, left, and right are relative to the current heading.
+            safe_actions = [
+                action
+                for action, turn in enumerate((0, -1, 1))
+                if not env._is_danger((env.heading + turn) % 4)
+            ]
+
+            q_values = activations["q"]
+            if safe_actions:
+                action = max(safe_actions, key=lambda action: q_values[action])
+            else:
+                action = int(np.argmax(q_values))  # Every move collides.
+            
         frames.append({"board": env.board_array(), "activations": activations,
                        "score": env.score, "steps": env.steps, "return": total,
                        "action": action, "reason": ""})

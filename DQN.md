@@ -91,6 +91,39 @@ environment metadata. Loading supports inference and subsequent learning with
 a fresh replay buffer. Exact training resumption, including replay and all RNG
 states, is outside the checkpoint format.
 
+## Pretrain on human games
+
+```bash
+python human_play.py --out demos/human.jsonl
+python train.py --agent dqn --model rescnn4 --encoder directional \
+  --demo-file demos/human.jsonl --pretrain-updates 1000 \
+  --rewards apple=1,death=-1,step=-0.01,closer=0.05 --reward-scale 1
+```
+
+Use the arrow keys to move one cell at a time, or Space to go straight.
+Games save at game over. Press R to save and restart or Q to save and close.
+Later sessions append to the same file. Record and train with the same board size.
+The file stores each game's starting seed and actions. Training reconstructs
+the game with its selected encoder and rewards, so the same recordings work
+across encoders and reward settings. Moves saved before a game ends remain
+nonterminal.
+
+The optional phase trains on recorded moves before the first agent game. It uses
+the usual DQN loss plus a margin that favors the demonstrated action on moves
+that keep the game going. The target
+network then synchronizes with the pretrained network and regular agent training
+begins with its own replay buffer. The checkpoint and run JSON record the number
+of human moves and pretraining updates.
+
+## Practice from crowded boards
+
+Use a human recording with `--late-start-file demos/human.jsonl`. By default,
+20% of training games start from a recorded position after 15 or more apples.
+Change those settings with `--late-start-prob` and `--late-start-min-apples`.
+The agent chooses its own moves from these boards. The CSV records the starting
+apple count separately from the apples the agent earns. Evaluation games start
+from the usual three-segment snake.
+
 ## Watch a game
 
 ```bash
@@ -123,6 +156,29 @@ and expose the final linear layer as `output`.
 `BoardSnakeEnv` overrides only observation construction. `train.py --agent dqn`
 dispatches to `train_dqn.py`, which reuses `run_episode` and `evaluate_details`.
 The original tabular command remains `python train.py --episodes 20000`.
+
+## Training compute budgets
+
+New runs record estimated training FLOPs in the CSV, JSON, and checkpoint.
+Use `--max-train-flops 1e13` on `train.py` or `run_final.py` for a compute
+cap. With a cap, epsilon decays with consumed training FLOPs. In `run_final.py`,
+the original episode limits are replaced by a large guard ceiling unless you
+explicitly pass `--episodes`. With both limits set, whichever is reached first
+ends training. An unfinished final game is marked `flops_budget` in the CSV.
+Final evaluation still plays complete games.
+
+The shared counting convention is two FLOPs per multiply-add in convolutional
+and linear layers, backward cost estimated as twice the online forward cost,
+and 14 FLOPs per trainable parameter for each Adam update. A replay batch costs
+four forward passes per sample (online, target, and estimated backward) plus
+Adam. Greedy training-action inference is also counted. Pretraining is included.
+Evaluation inference is recorded separately.
+
+Bias additions, activations, pooling, loss computation, gradient clipping,
+scalar overhead, environment logic, data preparation, and synthetic-data
+generation are excluded. These are model-compute estimates, not hardware
+instruction measurements. Other methods must use the same convention for
+compute comparisons. Old checkpoints retain unavailable training-FLOP totals.
 
 ## Verify
 

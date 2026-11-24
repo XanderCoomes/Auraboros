@@ -1,0 +1,38 @@
+Final DQN evaluation
+
+ID | Run | Mask | Mean apples | 95% interval | Steps/apple | Win % | Training seconds
+--- | --- | --- | --- | --- | --- | --- | ---
+run_01 | rescnn4-directional-20261109-204457-081021 | none | 10.18 | [9.83, 10.52] | 6.70 | 0.0 | 1806.4
+run_01 | rescnn4-directional-20261109-204457-081021 | safe | 18.02 | [17.70, 18.35] | 7.56 | 0.0 | 1806.4
+run_02 | rescnn4-entities_tail-20261109-195337-657905 | none | 1.00 | [0.92, 1.08] | 150.08 | 0.0 | 519.4
+run_02 | rescnn4-entities_tail-20261109-195337-657905 | safe | 1.00 | [0.92, 1.08] | 150.08 | 0.0 | 519.4
+run_03 | rescnn4-entities_tail-20261109-200236-120397 | none | 16.80 | [16.45, 17.14] | 7.18 | 0.0 | 2174.7
+run_03 | rescnn4-entities_tail-20261109-200236-120397 | safe | 20.14 | [19.82, 20.44] | 7.69 | 0.0 | 2174.7
+run_04 | rescnn64-ordered-20261114-190151-738277 | none | 15.82 | [15.46, 16.20] | 7.47 | 0.0 | 5666.8
+run_04 | rescnn64-ordered-20261114-190151-738277 | safe | 19.26 | [18.86, 19.68] | 8.19 | 0.0 | 5666.8
+run_05 | rescnn64-ordered-20261114-191713-190374 | none | 13.12 | [12.70, 13.54] | 7.70 | 0.0 | 4657.3
+run_05 | rescnn64-ordered-20261114-191713-190374 | safe | 19.16 | [18.71, 19.63] | 8.52 | 0.0 | 4657.3
+run_06 | rescnn8-directional-20261110-090627-867283 | none | 12.37 | [12.05, 12.67] | 6.93 | 0.0 | 1718.3
+run_06 | rescnn8-directional-20261110-090627-867283 | safe | 17.05 | [16.70, 17.40] | 7.67 | 0.0 | 1718.3
+run_07 | rescnn8-directional-20261110-112133-390911 | none | 11.40 | [11.07, 11.73] | 6.75 | 0.0 | 1715.2
+run_07 | rescnn8-directional-20261110-112133-390911 | safe | 17.08 | [16.72, 17.44] | 7.61 | 0.0 | 1715.2
+run_08 | rescnn8-entities_tail-20261109-220411-794007 | none | 14.70 | [14.30, 15.10] | 7.10 | 0.0 | 2213.3
+run_08 | rescnn8-entities_tail-20261109-220411-794007 | safe | 19.94 | [19.55, 20.33] | 7.69 | 0.0 | 2213.3
+run_09 | rescnn8-ordered-20261110-151143-332090 | none | 16.49 | [16.14, 16.85] | 7.06 | 0.0 | 6286.5
+run_09 | rescnn8-ordered-20261110-151143-332090 | safe | 20.94 | [20.59, 21.29] | 7.63 | 0.0 | 6286.5
+run_10 | rescnn8-ordered-20261114-221430-123608 | none | 15.60 | [15.19, 16.01] | 7.05 | 0.0 | 4513.3
+run_10 | rescnn8-ordered-20261114-221430-123608 | safe | 20.18 | [19.77, 20.60] | 7.67 | 0.0 | 4513.3
+run_11 | rescnn8-ordered-20261115-175028-075188 | none | 21.56 | [20.92, 22.21] | 9.55 | 0.0 | 7471.0
+run_11 | rescnn8-ordered-20261115-175028-075188 | safe | 32.16 | [31.49, 32.78] | 11.85 | 0.0 | 7471.0
+run_12 | rescnn8-ordered-20261115-202634-679173 | none | 16.96 | [16.59, 17.32] | 7.22 | 0.0 | 5595.9
+run_12 | rescnn8-ordered-20261115-202634-679173 | safe | 19.61 | [19.25, 19.96] | 7.61 | 0.0 | 5595.9
+
+Steps/apple = total game moves / total apples, including moves after the final apple.
+collection_steps_per_apple excludes the terminal stretch without an apple.
+Intervals cover evaluation-seed variability for a single trained checkpoint, not variability across training seeds.
+Each run uses its recorded rewards; returns across different reward functions are not directly comparable.
+Historical learning curves use the original evaluation protocol, not this final test's masking or seeds.
+Training time comes from matching run metadata and includes original evaluation overhead. Training hardware was not recorded.
+Training FLOPs were not recorded and cannot be recovered accurately from elapsed time; that field is empty.
+Comparisons use normal starts, even for models trained using crowded boards.
+Training configurations, pretraining, and crowded-start settings are included in results.json.

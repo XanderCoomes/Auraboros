@@ -1,0 +1,5 @@
+Viewer 
+seed: 18473
+Model: runs/rescnn8-ordered-20261115-175028-075188/model.pt
+score: 41
+Died: It got trapped and died.

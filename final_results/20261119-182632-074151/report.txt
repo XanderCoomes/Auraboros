@@ -1,0 +1,16 @@
+Final DQN evaluation
+
+ID | Run | Mask | Mean apples | 95% interval | Steps/apple | Win % | Training seconds
+--- | --- | --- | --- | --- | --- | --- | ---
+run_01 | rescnn8-ordered-20261115-175028-075188 | none | 21.56 | [20.92, 22.21] | 9.55 | 0.0 | 7471.0
+run_01 | rescnn8-ordered-20261115-175028-075188 | safe | 32.16 | [31.49, 32.78] | 11.85 | 0.0 | 7471.0
+
+Steps/apple = total game moves / total apples, including moves after the final apple.
+collection_steps_per_apple excludes the terminal stretch without an apple.
+Intervals cover evaluation-seed variability for a single trained checkpoint, not variability across training seeds.
+Each run uses its recorded rewards; returns across different reward functions are not directly comparable.
+Historical learning curves use the original evaluation protocol, not this final test's masking or seeds.
+Training time comes from matching run metadata and includes original evaluation overhead. Training hardware was not recorded.
+Training FLOPs were not recorded and cannot be recovered accurately from elapsed time; that field is empty.
+Comparisons use normal starts, even for models trained using crowded boards.
+Training configurations, pretraining, and crowded-start settings are included in results.json.
