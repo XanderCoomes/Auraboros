@@ -109,3 +109,48 @@ vectors for **straight**, **left** and **right**. Here are the 11 features:
 9. Length fraction × apple distance.
 10. Length fraction × reachable space.
 11. Length fraction × tail reachable.
+
+## Basic approximate agent
+
+[tabular_state.py](tabular_state.py) uses the original six tabular state values:
+danger straight/left/right, apple row/column direction, and current direction.
+It learns weights over indicators and combinations of those values, without
+adding information about distance, snake length, reachable space, or tail access.
+
+From inside `approx/`, train with the `train` command:
+
+```bash
+python3 tabular_state.py train
+```
+
+This defaults to 20,000 episodes on an 8×8 board, with 100-game greedy evaluations
+every 2,000 episodes and at the end. Each run saves `model.json`, `log.csv`, and
+`eval.csv` in a fresh `tabular_state_runs/` folder. The saved model path is printed
+when training finishes.
+
+Evaluate a saved run without learning (replace `YOUR_RUN_FOLDER`):
+
+```bash
+python3 tabular_state.py eval --model tabular_state_runs/YOUR_RUN_FOLDER/model.json --games 100
+```
+
+From the project root, use `python3 approx/tabular_state.py train` or
+`python3 approx/tabular_state.py eval --model approx/tabular_state_runs/YOUR_RUN_FOLDER/model.json --games 100`.
+
+The basic agent uses these 38 features:
+
+| Feature group                    | Meaning                                      |  Count |
+| -------------------------------- | -------------------------------------------- | -----: |
+| Bias                             | Constant 1                                   |      1 |
+| Immediate danger                 | Wall/body danger straight, left, and right   |      3 |
+| Apple row direction              | Above, same row, or below the head           |      3 |
+| Apple column direction           | Left, same column, or right of the head      |      3 |
+| Current direction                | Up, right, down, or left                     |      4 |
+| Current direction × apple row    | Every direction paired with above/same/below |     12 |
+| Current direction × apple column | Every direction paired with left/same/right  |     12 |
+| **Total**                        |                                              | **38** |
+
+Each indicator is binary. For example, “current direction right × apple above”
+is 1 only when both conditions hold. The model has a separate set of 38 weights
+for straight, left, and right: **114 learned weights**, with
+`Q(s, a) = weights[a] · features(s)`.
