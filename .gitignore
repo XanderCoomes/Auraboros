@@ -14,3 +14,11 @@ test_result/
 Test_result/
 # DQN v2 training logs
 dqn/v2/*.log
+
+# Kept local only (not published)
+q_*.pkl
+q_*.json
+report/
+dqn/v2/eval/
+dqn/v2/figures/
+dqn/v2/runs/

@@ -158,6 +158,21 @@ class TabularPolicy(Policy):
         return self.agent.act(self.features.encode(env), epsilon=0.0)
 
 
+class MLPPolicy(Policy):
+    """Greedy policy of the basic Deep-Q agent (dqn/train_mlp.py): MLP over 13 engineered features."""
+    name = "mlp"
+
+    def __init__(self, model_path=ROOT / "dqn" / "snake_dqn.pth"):
+        from dqn.model_loader import load_trained_model
+        self.model, self.encoder, self.device, _ = load_trained_model("mlp", model_path)
+
+    def act_batch(self, envs):
+        x = torch.as_tensor(np.stack([self.encoder.encode(env) for env in envs]), dtype=torch.float32,
+                            device=self.device)
+        with torch.no_grad():
+            return list(self.model(x).cpu().numpy().argmax(axis=1))
+
+
 class OldHybridPolicy(Policy):
     """Greedy policy of the previous hybrid DQN (dqn/train_hybrid.py), the model DQN v2 replaces."""
     name = "old_hybrid"
@@ -216,7 +231,7 @@ class DQNv2Policy(Policy):
 
 
 def build_policy(spec):
-    """Policy from a CLI spec: random | greedy_bfs | hamiltonian | tabular | tabular_bucket | old_hybrid |
+    """Policy from a CLI spec: random | greedy_bfs | hamiltonian | tabular | tabular_bucket | mlp | old_hybrid |
     v2:<checkpoint> | v2shield:<checkpoint> | v2look[threshold]:<checkpoint>   (optionally '=<name>' to rename, e.g. v2:runs/a/best.pth=seed0)."""
     spec, _, rename = spec.partition("=")
     kind, _, arg = spec.partition(":")
@@ -232,6 +247,8 @@ def build_policy(spec):
         p = TabularPolicy(ROOT / "q_bucket.pkl", "danger,apple_dir,heading,length_bucket", "tabular_bucket")
     elif kind == "old_hybrid":
         p = OldHybridPolicy()
+    elif kind == "mlp":
+        p = MLPPolicy()
     elif kind in ("v2", "v2shield"):
         p = DQNv2Policy.from_checkpoint(arg, shield=kind == "v2shield")
     elif kind.startswith("v2look"):   # v2look:<ckpt> (hunger threshold 0 = always) or v2look0.5:<ckpt>
